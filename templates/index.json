@@ -1,0 +1,28 @@
+{
+	"sections": {
+		"featured-products": {
+			"type": "featured-products"
+		},
+		"text-image": {
+			"type": "text-image",
+			"blocks": {
+				"button": {
+					"type": "button",
+					"settings": {
+						"heading": "Image banner"
+					}
+				},
+				"text": {
+					"type": "heading",
+					"settings": {}
+				},
+				"title": {
+					"type": "textarea",
+					"settings": {}
+				}
+			},
+			"block_order": ["title", "text", "button"]
+		}
+	},
+	"order": ["text-image", "featured-products"]
+}
