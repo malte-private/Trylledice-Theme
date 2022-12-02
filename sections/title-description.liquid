@@ -1,0 +1,61 @@
+<div class="text-description-container">
+
+  <h1 class="text-3xl ">{{ section.settings.heading }}</h1>
+  <p>{{ section.settings.description }}</p>
+</div>
+
+{% style %}
+  .text-description-container {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{% endstyle %}
+
+{% schema %}
+  {
+    "name": "Text and description",
+    "settings": [
+      {
+        "type": "text",
+        "label": "Headline for the page",
+        "id": "heading",
+        "default": "Lorem ipsum"
+      }, {
+        "type": "textarea",
+        "label": "Desciption",
+        "id": "description",
+        "default": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti praesentium iure dolorem exercitationem omnis voluptates assumenda expedita ducimus. Placeat doloremque quisquam, beatae fuga eum quod illum recusandae quibusdam, iure aliquid dolore hic expedita "
+      }, {
+
+        "type": "range",
+        "id": "padding_top",
+        "min": 12,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 16
+
+
+      }, {
+
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 12,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 16
+
+
+      }
+    ],
+    "presets": [
+      {
+        "name": "Title and description"
+      }
+    ]
+
+  }
+{% endschema %}

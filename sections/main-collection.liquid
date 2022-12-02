@@ -1,0 +1,26 @@
+{% paginate collection.products by 9 %}
+  <div class="grid items-start grid-cols-3 gap-10 justify-items-center auto-rows-fr">
+    {% for product in collection.products %}
+      <div class="w-72 gap-44">
+        <div class="w-full h-16 bg-no-repeat bg-cover bg-ornament "></div>
+
+        {% unless product.available %}<br><strong>sold out</strong>
+        {% endunless %}
+        <a " href=" {{ product.url | within: collection }} ">
+          <img class="min-h-[10vh] pt-4" src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+        </a>
+        <div class="flex flex-col items-center justify-center gap-2 pb-4">
+          <a class="text-3xl" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+          <p class="text-xl">{{ product.price | money }}</p>
+        </div>
+        <div class="w-full h-16 rotate-180 bg-no-repeat bg-cover bg-ornament"></div>
+      </div>
+
+    {% else %}
+      <p>no matches</p>
+    {% endfor %}
+  </div>
+  {% if paginate.pages > 1 %}
+    {{ paginate | default_pagination }}
+  {% endif %}
+{% endpaginate %}

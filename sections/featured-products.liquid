@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+{%- capture flickity_options -%}
+  {
+  "prevNextButtons": true,
+    "pageDots": false,
+    "contain": true,
+    "cellAlign": "left",
+    "groupCells": true,
+    "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+    }{%- endcapture -%}
+
+<div class="mx-auto my-0 featured-collection-slider max-w-7xl px-14 page-width">
+  {% if section.settings.title != blank %}
+    <div class="grid grid-cols-3 pb-4 justify-items-center">
+      <h2 class="col-start-2 h3">{{ section.settings.title | escape }}</h2>
+      <a class="col-start-3" href="">Hej</a>
+
+    </div>
+  {% endif %}
+
+  {%- assign collection = collections[section.settings.collection] -%}
+  {%- assign product_limit = section.settings.product_count -%}
+
+  <ul class=" products-carousel js-flickity" data-flickity='{{ flickity_options }}'>
+    {% if collection != blank %}
+
+      {% for product in collection.products limit: product_limit %}
+        {% assign c = product %}
+        {%include "collection-product" with c%}
+      {% endfor %}
+    {% else %}
+      {% for product in collections["frontpage"].products limit: 4 %}
+
+        {% assign c = product  %}
+        {%include "collection-product" with c%}
+      {% endfor %}
+
+    {% endif %}
+  </ul>
+</div>
+
+<style>
+
+  .flickity-button:disabled {
+    pointer-events: all !important;
+  }
+  @media screen and (max-width: 920px) {
+    .featured-collection-slider {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+}
+</style>
+
+{% schema %}
+  {
+    "name": "Collection Slider",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Featured Collection"
+      }, {
+        "type": "collection",
+        "id": "collection",
+        "label": "Collection"
+      }, {
+        "type": "range",
+        "id": "product_count",
+        "min": 4,
+        "max": 12,
+        "label": "Number of products to display",
+        "default": 4
+      }
+    ],
+    "presets": [
+      {
+        "category": "Collection",
+        "name": "Collection Slider",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
