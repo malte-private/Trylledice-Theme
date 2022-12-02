@@ -1,0 +1,14 @@
+<li class="flex flex-col items-center w-full gap-5 px-10 py-0 md:w-1/2 lg:w-1/4">
+  <a href="{{product.url}}">
+    {% include 'ornament-top' %}
+    <div>
+      <img class="object-cover w-full" src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
+    </div>
+    <div class="flex flex-col items-center pt-3 ">
+      <h3 class="h1">{{product.title}}</h3>
+      <span class="body">{{product.price | money}}</span>
+    </div>
+
+    {% include 'ornament-bottom' %}
+  </a>
+</li>

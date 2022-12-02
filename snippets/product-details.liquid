@@ -1,0 +1,25 @@
+<div>
+  {% include 'ornament-top' %}
+
+  <div class="px-32 py-10 space-y-5">
+
+
+    <h1 class="h1">{{ product.title }}</h1>
+    <div class="body">{{ product.description }}</div>
+    <form class="" action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+
+      <div class="flex flex-col">
+        <span class="h3">
+          {{ current_variant.price | money  }}
+        </span>
+        <div class="flex justify-center gap-3">
+
+          <button type="submit" name="add" id="AddToCart">Buy</button>
+          <button type="submit" name="add" id="AddToCart">Like</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  {% include 'ornament-bottom' %}
+
+</div>

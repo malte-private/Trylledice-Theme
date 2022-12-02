@@ -1,0 +1,22 @@
+<footer class="items-end w-full flex justify-around bg-footer h-[800px]">
+  <img class="w-10 h-40" src="{{'logo.svg' | asset_url}}" alt="">
+  <ul>
+    {% for link in linklists.footer.links %}
+      {% assign child_list_handle = link.title | handleize %}
+      {% if linklists[child_list_handle].links != blank %}
+        <li>
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+        [{% for childlink in linklists[child_list_handle].links %}
+          <li>
+            <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+          </li>
+        {% endfor %}]
+      {% else %}
+        <li>
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</footer>
