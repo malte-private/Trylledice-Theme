@@ -1,0 +1,68 @@
+<section class="flex justify-around gap-10">
+
+  <article class="w-1/3 space-y-6">
+    <div class="aspect-dice">
+      <img class="w-full" src="{{section.settings.dice-image-1 | image_url}}" alt="">
+    </div>
+    <div class="space-y-2">
+      <h3 class="h3 heading-text-color">{{section.settings.heading-alex}}</h3>
+      <p class="body body-text-color">{{section.settings.about-zac-dice}}</p>
+
+    </div>
+  </article>
+  <article class="w-1/3 space-y-6">
+    <div class="aspect-dice">
+      <img class="w-full" src="{{section.settings.dice-image-2 | image_url}}" alt="">
+    </div>
+    <div class="space-y-2">
+      <h3 class="h3 heading-text-color">{{section.settings.heading-zac}}</h3>
+      <p class="body body-text-color">{{section.settings.about-zac-dice}}</p>
+    </div>
+  </article>
+
+</section>
+
+{% schema %}
+  {
+    "name": "Personal dice",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "dice-image-1",
+        "label": "Alex's dice"
+      },
+      {
+        "type": "text",
+        "id": "heading-alex",
+        "label": "Heading of section",
+        "default": "Alex & D'n'D"
+      },
+      {
+        "type": "textarea",
+        "label": "About Alex's dice",
+        "id": "about-alex-dice"
+      },
+      {
+        "type": "image_picker",
+        "id": "dice-image-2",
+        "label": "Zac's dice"
+      }, {
+        "type": "text",
+        "id": "heading-zac",
+        "label": "Heading of section",
+        "default": "Zac & D'n'D"
+      }, {
+        "type": "textarea",
+        "label": "About Alex's dice",
+        "id": "about-zac-dice"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Personal dice"
+
+      }
+    ],
+    "templates": ["page"]
+  }
+{% endschema %}

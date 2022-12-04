@@ -1,26 +1,28 @@
-<div class="grid  gap-5 text-image-container auto-rows-fr items-center {% if section.settings.image == blank %} grid-cols-4 {% else %}grid-cols-2 {%endif%}">
+<div class="grid  gap-5 text-image-container auto-rows-fr items-center {% if section.settings.show-image %} grid-cols-2 {% else %}grid-cols-4 {%endif%}">
 
-  {% if section.settings.image != blank %}
-    <div class="h-96 overflow-hidden {% if section.settings.alt-dir %} order-2 {% endif %} ">
+  {%- if section.settings.show-image -%}
+    <div class=" flex justify-center items-center h-96 overflow-hidden {% if section.settings.alt-dir %} order-2 {% endif %} ">
+      {% if section.settings.image == blank %}
+        {{ 'lifestyle-1' | placeholder_svg_tag }}
+      {% else %}
 
-      {{section.settings.image | image_url: width:1000 | image_tag: class: 'object-cover', alt:section.settings.image.alt}}
-
-
+        {{section.settings.image | image_url: width:1000 | image_tag: class: 'object-cover', alt:section.settings.image.alt}}
+      {% endif %}
     </div>
-  {% endif %}
+  {%- endif -%}
 
-  <div class="flex flex-col justify-between
-                                              {% if section.settings.alt-dir %}  order-1 {% endif %}
-                                              {% if section.settings.image == blank %}  col-start-2 col-span-2 {% endif %}">
+
+
+  <div class="flex flex-col justify-between {% if section.settings.alt-dir %}  order-1 {% endif %}">
     <div class="w-full h-20 bg-center bg-no-repeat bg-contain bg-ornament-product "></div>
     <div class="px-20 py-16">
       {% for block in section.blocks %}
 
-        <h1 class="h1">{{ block.settings.heading }}</h1>
+        <h1 class="h1 heading-text-color">{{ block.settings.heading }}</h1>
       {% endfor %}
 
       {% for block in section.blocks %}
-        <p class="body">{{ block.settings.description }}</p>
+        <p class="body body-text-color">{{ block.settings.description }}</p>
       {% endfor %}
 
       {% for block in section.blocks %}
@@ -43,13 +45,19 @@
 
 {% schema %}
   {
-    "name": "Text and Image",
+    "name": "Text and image",
     "max_blocks": 3,
     "settings": [
       {
         "type": "image_picker",
         "label": "Your image",
         "id": "image"
+      },
+      {
+        "type": "checkbox",
+        "id": "show-image",
+        "label": "Show image?",
+        "default": true
       },
       {
         "type": "paragraph",
@@ -64,8 +72,7 @@
         "unit": "px",
         "label": "Padding Top",
         "default": 16
-      },
-      {
+      }, {
 
         "type": "range",
         "id": "padding_bottom",
@@ -141,8 +148,16 @@
     ],
     "presets": [
       {
-        "name": "Text and image"
-
+        "name": "Text and image",
+        "blocks": [
+          {
+            "type": "heading"
+          }, {
+            "type": "textarea"
+          }, {
+            "type": "button"
+          }
+        ]
       }
     ]
   }

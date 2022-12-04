@@ -26,19 +26,24 @@
 
       --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
       --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
+
+      --navigation-text-color: {{ settings.navigation-text-color | color_to_hex }};
+      --heading-text-color: {{ settings.heading-text-color | color_to_hex }};
+      --body-text-color: {{ settings.body-text-color | color_to_hex }};
     }
   </style>
 
   <!-- Header hook for plugins -->
   {{ 'application.css' | asset_url | stylesheet_tag }}
   {{ 'typography.css' | asset_url | stylesheet_tag }}
+  {{ 'settings.css' | asset_url | stylesheet_tag }}
   {{ 'application.js' | asset_url | script_tag }}
 </head>
 <body class="mx-auto bg-main-primary max-w-7xl ">
   <div class="fixed top-0 w-full h-screen mx-auto bg-no-repeat bg-cover bg-drage -z-50"></div>
-  {%render "header"%}
+  {%section 'header'%}
   <main class="min-h-screen" role="main">
     {{ content_for_layout }}
   </main>
-  {%render "footer"%}
+  {%section 'footer'%}
 </body></html>

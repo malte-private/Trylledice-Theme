@@ -53,5 +53,35 @@
 				"default": 100
 			}
 		]
+	},
+	{
+		"name": "Text Colors",
+		"settings": [
+			{
+				"type": "header",
+				"content": "Colors for text"
+			},
+			{
+				"type": "color",
+				"id": "navigation-text-color",
+				"default": "#500039",
+				"label": "Navigation",
+				"info": "Setting the color for navigation links"
+			},
+			{
+				"type": "color",
+				"id": "heading-text-color",
+				"default": "#000000",
+				"label": "Color for headings",
+				"info": "Setting the color for headings"
+			},
+			{
+				"type": "color",
+				"id": "body-text-color",
+				"default": "#000000",
+				"label": "Color for bodytext",
+				"info": "Setting the color for bodytext"
+			}
+		]
 	}
 ]

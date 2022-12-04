@@ -1,0 +1,73 @@
+<header>
+  <nav class="flex gap-20 py-10 items center navigation-text-color">
+    <div class="w-16">
+     {%- if section.settings.logo != blank -%}
+
+      <a href="/"><img src="{{section.settings.logo | image_url}}" alt="{{section.settings.logo.alt}}"></a>
+     {%- else -%}
+        <a href="/">Home</a>
+     {%- endif -%}
+    </div>
+  <ul class="flex items-center gap-20">
+    {% for link in linklists.main-menu.links %}
+      {% assign child_list_handle = link.title | handleize %}
+      {% if linklists[child_list_handle].links != blank %}
+        <li data-nested="{{forindex}}">
+          <div class="relative">
+
+          <p class="cursor-pointer menu">{{ link.title }}</p>
+
+
+            <ul class="absolute opacity-0 nested-menu" >
+            {% for childlink in linklists[child_list_handle].links %}
+
+              <li>
+                <a class="menu" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+              </li>
+          {% endfor %}
+          </ul>
+            </div>
+        </li>
+      {% else %}
+        <li>
+          <a class="menu" href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+        {% endif %}
+    {% endfor %}
+      <a class="menu" href="/cart">cart</a>
+
+      {% if shop.customer_accounts_enabled %}
+        {% if customer %}
+          <li><a href="/account">account</a></li>
+          {{ 'log out'  | customer_logout_link }}
+        {% else %}
+          {{ 'log in ' | customer_login_link }}
+          {{ 'register' | customer_register_link }}
+        {% endif %}
+      {% endif %}
+
+  </ul>
+    </ul>
+  </nav>
+</header>
+
+<script defer>
+  let nestedMenu = document.querySelectorAll("[data-nested]")
+  console.log(nestedMenu)
+  nestedMenu.forEach((menu, idx)=>{menu.addEventListener("click", ()=>{
+    let nestedMenuWrapper = menu.querySelector(".nested-menu")
+    nestedMenuWrapper.classList.toggle("opacity-100")
+    console.log(nestedMenuWrapper)
+  })})
+</script>
+
+{% schema %}
+{
+  "name":"Header",
+  "settings": [{
+    "type":"image_picker",
+    "id":"logo",
+    "label":"Logo"
+  }]
+}
+{% endschema %}

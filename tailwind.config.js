@@ -21,6 +21,9 @@ module.exports = {
 				"main-primary": "#E7D7C6",
 				"main-secondary": "#DEC8B0",
 			},
+			aspectRatio: {
+				dice: "5 / 3",
+			},
 		},
 	},
 	variants: {

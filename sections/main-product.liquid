@@ -20,3 +20,17 @@
   {% assign c = product %}
   {%include "product-details" with c%}
 </div>
+
+
+{% schema %}
+  {
+    "name": "Main product",
+    "tag": "section",
+    "class": "section",
+    "blocks": [
+      {
+        "type": "@app"
+      }
+    ]
+  }
+{% endschema %}
