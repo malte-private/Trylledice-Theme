@@ -1,9 +1,9 @@
-<div class="grid  gap-5 text-image-container auto-rows-fr items-center {% if section.settings.show-image %} grid-cols-2 {% else %}grid-cols-4 {%endif%}">
+<div class="grid  md:gap-5 text-image-container auto-rows-fr items-center {% if section.settings.show-image %} md:grid-cols-2 {% else %}md:grid-cols-4 {%endif%}">
 
   {%- if section.settings.show-image -%}
-    <div class=" flex justify-center items-center h-96 overflow-hidden {% if section.settings.alt-dir %} order-2 {% endif %} ">
+    <div class=" flex justify-center items-center h-full md:h-96 overflow-hidden {% if section.settings.alt-dir %} order-2 {% endif %} ">
       {% if section.settings.image == blank %}
-        {{ 'lifestyle-1' | placeholder_svg_tag }}
+        {{ 'lifestyle-1' | placeholder_svg_tag  }}
       {% else %}
 
         {{section.settings.image | image_url: width:1000 | image_tag: class: 'object-cover', alt:section.settings.image.alt}}
@@ -13,12 +13,11 @@
 
   </div>
 
-  <div class="flex flex-col justify-between {% if section.settings.alt-dir %}  order-1" {% endif %}>
+  <div class="flex flex-col justify-between {% if section.settings.alt-dir %}  order-1 {% endif %}">
     <div class="w-full h-20 bg-center bg-no-repeat bg-contain bg-ornament-product "></div>
-    <div class="px-20 py-16">
+    <div class="px-20 py-5 lg:py-16">
 
-      <ul data-fact-list class="flex flex-col gap-2 pb-10">
-      </ul>
+      <ul data-fact-list class="flex flex-col gap-2 pb-10"></ul>
 
       {% for block in section.blocks %}
         <h1 class="h1 heading-text-color">{{ block.settings.heading }}</h1>
@@ -41,159 +40,160 @@
 
 <script>
   let factList = "{{section.settings.fact-list}}"
-  let factArr=factList.substring(3).substring(0,factList.lastIndexOf("<")-3).split(".")
+  let factArr = factList
+    .substring(3)
+    .substring(0, factList.lastIndexOf("<") - 3)
+    .split(".")
 
-    factArr.forEach((fact,idx)=>{
+    factArr
+    .forEach((fact, idx) => {
       const domFactList = document.querySelector("[data-fact-list]")
       let li = document.createElement("li")
       let img = document.createElement("img")
       img.src = "{{'dice-icon.svg' | asset_url}}"
-      img.classList="h-full"
-      img.alt="Dice icon"
+      img.classList = "h-full"
+      img.alt = "Dice icon"
       li.innerHTML = fact.trim()
-      li.classList="h-7 body items-center body-text-color flex flex-row-reverse justify-end gap-3"
+      li.classList = "h-7 body items-center body-text-color flex flex-row-reverse justify-end gap-3"
       li.appendChild(img)
       domFactList.appendChild(li)
-    console.log(fact.trim())
-})
+      console.log(fact.trim())
+    })
+</script>
 
-  </script>
+{% style %}
+  .text-image-container {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{% endstyle %}
 
-  {% style %}
-    .text-image-container {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  {% endstyle %}
+{% schema %}
+  {
+    "name": "About",
+    "max_blocks": 3,
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "Your image",
+        "id": "image"
+      },
+      {
+        "type": "checkbox",
+        "id": "show-image",
+        "label": "Show image?",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "A section for displaying an image and text beside each other. Choose between directions and wether or not it should have a link button"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 12,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 16
+      }, {
 
-  {% schema %}
-    {
-      "name": "About",
-      "max_blocks": 3,
-      "settings": [
-        {
-          "type": "image_picker",
-          "label": "Your image",
-          "id": "image"
-        },
-        {
-          "type": "checkbox",
-          "id": "show-image",
-          "label": "Show image?",
-          "default": true
-        },
-        {
-          "type": "paragraph",
-          "content": "A section for displaying an image and text beside each other. Choose between directions and wether or not it should have a link button"
-        },
-        {
-          "type": "range",
-          "id": "padding_top",
-          "min": 12,
-          "max": 24,
-          "step": 1,
-          "unit": "px",
-          "label": "Padding Top",
-          "default": 16
-        }, {
-
-          "type": "range",
-          "id": "padding_bottom",
-          "min": 12,
-          "max": 24,
-          "step": 1,
-          "unit": "px",
-          "label": "Padding Bottom",
-          "default": 16
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 12,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 16
 
 
-        }, {
-          "type": "checkbox",
-          "id": "alt-dir",
-          "label": "Alternate direction",
-          "default": false
-        },
-        {
-          "type":"header",
-          "content":"Facts about you"
-        },
-        {"type":"paragraph",
-        "content":"Write facts here. NOTE: Seperate by full stop = ."
-        },
-        {
-          "type": "richtext",
-          "id": "fact-list",
-          "label": "Fact list"
-        }
-      ],
-      "blocks": [
-        {
-          "name": "Button",
-          "type": "button",
-          "settings": [
-            {
-              "type": "header",
-              "content": "Link"
-            },
-            {
-              "type": "paragraph",
-              "content": "Choose to show a link and set the label and URL"
-            },
-            {
-              "type": "checkbox",
-              "id": "button_link",
-              "label": "Link",
-              "default": true
-            },
-            {
-              "type": "url",
-              "id": "url",
-              "label": "Button link"
-            }, {
-              "type": "text",
-              "label": "Label for button",
-              "id": "button_label",
-              "default": "Click me"
-            }
-          ]
-        }, {
-          "name": "Title",
-          "type": "heading",
-          "settings": [
-            {
-              "type": "text",
-              "label": "Headline for the page",
-              "id": "heading",
-              "default": "Lorem ipsum"
-            }
-          ]
-        }, {
-          "name": "Description",
-          "type": "textarea",
-          "settings": [
-            {
-              "type": "textarea",
-              "label": "Desciption",
-              "id": "description",
-              "default": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti praesentium iure dolorem exercitationem omnis voluptates assumenda expedita ducimus. Placeat doloremque quisquam, beatae fuga eum quod illum recusandae quibusdam, iure aliquid dolore hic expedita "
-            }
-          ]
+      }, {
+        "type": "checkbox",
+        "id": "alt-dir",
+        "label": "Alternate direction",
+        "default": false
+      }, {
+        "type": "header",
+        "content": "Facts about you"
+      }, {
+        "type": "paragraph",
+        "content": "Write facts here. NOTE: Seperate by full stop = ."
+      }, {
+        "type": "richtext",
+        "id": "fact-list",
+        "label": "Fact list"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Button",
+        "type": "button",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Link"
+          },
+          {
+            "type": "paragraph",
+            "content": "Choose to show a link and set the label and URL"
+          },
+          {
+            "type": "checkbox",
+            "id": "button_link",
+            "label": "Link",
+            "default": true
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Button link"
+          }, {
+            "type": "text",
+            "label": "Label for button",
+            "id": "button_label",
+            "default": "Click me"
+          }
+        ]
+      }, {
+        "name": "Title",
+        "type": "heading",
+        "settings": [
+          {
+            "type": "text",
+            "label": "Headline for the page",
+            "id": "heading",
+            "default": "Lorem ipsum"
+          }
+        ]
+      }, {
+        "name": "Description",
+        "type": "textarea",
+        "settings": [
+          {
+            "type": "textarea",
+            "label": "Desciption",
+            "id": "description",
+            "default": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti praesentium iure dolorem exercitationem omnis voluptates assumenda expedita ducimus. Placeat doloremque quisquam, beatae fuga eum quod illum recusandae quibusdam, iure aliquid dolore hic expedita "
+          }
+        ]
 
-        }
-      ],
-      "presets": [
-        {
-          "name": "About",
-          "blocks": [
-            {
-              "type": "heading"
-            }, {
-              "type": "textarea"
-            }, {
-              "type": "button"
-            }
-          ]
-        }
-      ]
-    }
-  {% endschema %}
+      }
+    ],
+    "presets": [
+      {
+        "name": "About",
+        "blocks": [
+          {
+            "type": "heading"
+          }, {
+            "type": "textarea"
+          }, {
+            "type": "button"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
