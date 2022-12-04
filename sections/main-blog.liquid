@@ -1,22 +1,45 @@
 {% paginate blog.articles by 5 %}
 
-<h1>{{ blog.title }}</h1>
-{% for article in blog.articles %}
-  <div>
-    <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
-    {{ article.author }} @ {{ article.created_at }}
-    <div>
-      {% if article.excerpt.size > 0 %}
-        {{ article.excerpt }}
-      {% else %}
-        <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
-      {% endif %}
-    </div>
-  </div>
-{% endfor %}
 
-{% if paginate.pages > 1 %}
-  {{ paginate | default_pagination }}
-{% endif %}
+  <h1 class="h1 heading-text-color">{{ blog.title }}</h1>
+
+
+  <section class="grid grid-cols-3 gap-20">
+    {%- if blog.articles == blank -%}
+      <div class="flex justify-center w-full col-span-full ">
+        <p class="h1 heading-text-color">Wow, such empty</p>
+      </div>
+    {%- endif -%}
+    {% for article in blog.articles %}
+
+      <article>
+        <h2 class="h3 heading-text-color">
+          <a href="{{ article.url }}">{{ article.title }}</a>
+        </h2>
+
+        <div class="overflow-hidden">
+          <img class="object-cover object-center h-full aspect-video" src="{{article.image | image_url}}" alt="">
+        </div>
+        <p class="body body-text-color">
+          <strong>{{ article.author }} @ {{ article.created_at }}</strong>
+        </p>
+        <div class="body body-text-color">
+          {% if article.excerpt.size > 0 %}
+            {{ article.excerpt }}
+          {% else %}
+            <p class="body body-text-color">{{ article.content | strip_html | truncatewords: 50 }}</p>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+
+  {% if paginate.pages > 1 %}
+    {{ paginate | default_pagination }}
+  {% endif %}
 
 {% endpaginate %}
+
+{%- schema -%}
+
+{%- endschema -%}
