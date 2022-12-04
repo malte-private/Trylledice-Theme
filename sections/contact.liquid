@@ -1,6 +1,40 @@
-<section>
-  <div>
-    <h1>{{ page.title }}</h1>
-    <p></p>
+<section class="space-y-14">
+  {%- include 'ornament-top' -%}
+  <div class="grid w-3/4 grid-cols-1 mx-auto md:grid-cols-2">
+    <div>
+      <h1 class="h1 heading-text-color">{{ page.title }}</h1>
+      <p class="body body-text-color">{{section.settings.contact-text}}</p>
+    </div>
+    <div class="flex flex-col items-center justify-center">
+      <div class="flex flex-col space-y-3 body body-text-color">
+        <a class="flex items-center justify-center gap-3 text-xl" href="mailto:{{section.settings.email}}">
+          <img class="w-7" src="{{'paperplane.svg' | asset_url}} " alt="paperplane icon">{{section.settings.email}}</a>
+        <a class="flex items-center gap-3 text-xl" href="tel:+45{{section.settings.phone}}"><img class="w-7" src="{{'phone.svg' | asset_url}} " alt="phone icon"> +45 {{section.settings.phone}}</a>
+      </div>
+    </div>
   </div>
+  {%- include 'ornament-bottom' -%}
 </section>
+{%- schema -%}
+  {
+    "name": "Contact",
+    "settings": [
+      {
+        "type": "textarea",
+        "label": "Contact text",
+        "id": "contact-text",
+        "default": "Bacon ipsum dolor amet venison short ribs capicola bacon fatback flank beef pancetta leberkas. Spare ribs turkey sausage kielbasa, buffalo hamburger meatloaf shankle t-bone filet mignon. Chuck kevin pork chop, pancetta salami tail ham hock cow alcatra spare ribs shankle. Brisket chuck landjaeger spare ribs drumstick."
+      }, {
+        "type": "text",
+        "id": "email",
+        "label": "Set email",
+        "default": "12345@gmail.com"
+      }, {
+        "type": "text",
+        "id": "phone",
+        "label": "Set phone no.",
+        "default": "12345678"
+      }
+    ]
+  }
+{%- endschema -%}
