@@ -20,6 +20,7 @@ module.exports = {
 			colors: {
 				"main-primary": "#E7D7C6",
 				"main-secondary": "#DEC8B0",
+				"main-accent": "#500039",
 			},
 			aspectRatio: {
 				dice: "5 / 3",
