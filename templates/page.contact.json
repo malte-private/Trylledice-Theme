@@ -4,7 +4,8 @@
 			"type": "main-page",
 			"settings": {}
 		},
-		"contact": { "type": "contact-form" }
+		"contact": { "type": "contact" },
+		"featured": { "type": "featured-products" }
 	},
-	"order": ["main", "contact"]
+	"order": ["main", "contact", "featured"]
 }
