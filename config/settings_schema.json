@@ -71,14 +71,14 @@
 			{
 				"type": "color",
 				"id": "heading-text-color",
-				"default": "#000000",
+				"default": "#532D0D",
 				"label": "Color for headings",
 				"info": "Setting the color for headings"
 			},
 			{
 				"type": "color",
 				"id": "body-text-color",
-				"default": "#000000",
+				"default": "#532D0D",
 				"label": "Color for bodytext",
 				"info": "Setting the color for bodytext"
 			}

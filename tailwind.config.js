@@ -16,6 +16,7 @@ module.exports = {
 				drage: "url('../assets/drage.svg')",
 				ornament: "url('../assets/ornament.svg')",
 				"ornament-product": "url('../assets/ornament-product.svg')",
+				"ornament-contact": "url('../assets/contact-ornament.svg')",
 			},
 			colors: {
 				"main-primary": "#E7D7C6",

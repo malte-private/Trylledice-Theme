@@ -5,7 +5,8 @@
 			"settings": {}
 		},
 		"contact": { "type": "contact" },
-		"featured": { "type": "featured-products" }
+		"featured": { "type": "featured-products" },
+		"spacer": { "type": "spacer" }
 	},
-	"order": ["main", "contact", "featured"]
+	"order": ["main", "contact", "spacer", "featured"]
 }

@@ -5,8 +5,8 @@
       <img class="object-contain " src="{{ product.featured_image | image_url: width: 450 }}" alt="{{ featured_image.alt | escape }}">
     </div>
     <div class="flex flex-col items-center pt-3 ">
-      <h3 class="h3">{{product.title}}</h3>
-      <span class="body">{{product.price | money}}</span>
+      <h3 class="h3 heading-text-color">{{product.title}}</h3>
+      <span class="body heading-text-color">{{product.price | money}}</span>
     </div>
 
     {% include 'ornament-bottom' %}

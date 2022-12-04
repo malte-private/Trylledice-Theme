@@ -867,6 +867,14 @@ select {
   width: 100%;
 }
 
+.w-3\/4 {
+  width: 75%;
+}
+
+.w-7 {
+  width: 1.75rem;
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -916,16 +924,16 @@ select {
   grid-auto-rows: minmax(0, 1fr);
 }
 
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .grid-cols-12 {
   grid-template-columns: repeat(12, minmax(0, 1fr));
-}
-
-.grid-cols-1 {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .grid-cols-2 {
@@ -1009,6 +1017,18 @@ select {
        column-gap: 5rem;
 }
 
+.space-y-14 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(3.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(3.5rem * var(--tw-space-y-reverse));
+}
+
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1080,6 +1100,10 @@ select {
 
 .bg-footer {
   background-image: url('../assets/footer.svg');
+}
+
+.bg-ornament-contact {
+  background-image: url('../assets/contact-ornament.svg');
 }
 
 .bg-contain {
@@ -1177,14 +1201,14 @@ select {
   text-align: center;
 }
 
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .text-3xl {
