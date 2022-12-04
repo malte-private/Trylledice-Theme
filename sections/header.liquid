@@ -1,14 +1,14 @@
-<header>
-  <nav class="flex gap-20 py-10 items center navigation-text-color">
-    <div class="w-16">
+  <nav class="flex items-center justify-between gap-20 px-5 py-10 items center navigation-text-color">
+
+  <ul class="flex items-center gap-20">
+    <li><div class="w-16">
      {%- if section.settings.logo != blank -%}
 
       <a href="/"><img src="{{section.settings.logo | image_url}}" alt="{{section.settings.logo.alt}}"></a>
      {%- else -%}
-        <a href="/">Home</a>
+        <a href="/">{{ 'image' | placeholder_svg_tag  }}</a>
      {%- endif -%}
-    </div>
-  <ul class="flex items-center gap-20">
+    </div></li>
     {% for link in linklists.main-menu.links %}
       {% assign child_list_handle = link.title | handleize %}
       {% if linklists[child_list_handle].links != blank %}
@@ -34,7 +34,23 @@
         </li>
         {% endif %}
     {% endfor %}
-      <a class="menu" href="/cart">cart</a>
+
+
+  </ul>
+    </ul>
+    <div>
+      <div class="relative w-6">
+       <a href="/cart"><img class="w-full" src="{{'cart-bag.svg' | asset_url}}" alt="cart icon"></a>
+       <div class="absolute flex items-center justify-center w-5 h-5 text-xs text-center text-white border border-black rounded-full bg-main-accent -bottom-2 -right-1"><span >
+        {%- if cart.item_count <= 0 -%}
+          0
+          {%- else -%}
+
+        {{ cart.item_count }}
+        {%- endif -%}
+        </span>
+        </div>
+      </div>
 
       {% if shop.customer_accounts_enabled %}
         {% if customer %}
@@ -45,10 +61,9 @@
           {{ 'register' | customer_register_link }}
         {% endif %}
       {% endif %}
-
-  </ul>
-    </ul>
+    </div>
   </nav>
+
 </header>
 
 <script defer>
@@ -64,6 +79,7 @@
 {% schema %}
 {
   "name":"Header",
+  "tag":"header",
   "settings": [{
     "type":"image_picker",
     "id":"logo",

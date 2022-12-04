@@ -1,44 +1,99 @@
-{% include 'filter' %}
+<div class="grid grid-cols-12 ">
 
-{% paginate collection.products by 9 %}
-  <select id="sort-by">
-    {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
+  <div class="flex flex-col items-start col-span-2 col-start-1 gap-4 pt-8">
 
-    {% for option in collection.sort_options %}
-      <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>
-        {{ option.name }}
-      </option>
-    {% endfor %}
-  </select>
-  <div class="grid items-start grid-cols-3 gap-10 justify-items-center auto-rows-fr">
-    {% for product in collection.products %}
-      <div class="w-72 gap-44">
-        <div class="w-full h-16 bg-no-repeat bg-cover bg-ornament "></div>
+    <label class="flex flex-col menu" for="sort-by">Sort by
+      <select id="sort-by" class="h-6 p-0 border-none menu text-ellipsis w-28 bg-inherit">
+        {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
 
-        {% unless product.available %}<br><strong>sold out</strong>
-        {% endunless %}
-        <a " href=" {{ product.url | within: collection }} ">
-          <img class="min-h-[10vh] pt-4" src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-        </a>
-        <div class="flex flex-col items-center justify-center gap-2 pb-4">
-          <a class="text-3xl" href="{{ product.url | within: collection }}">{{ product.title }}</a>
-          <p class="text-xl">{{ product.price | money }}</p>
-        </div>
-        <div class="w-full h-16 rotate-180 bg-no-repeat bg-cover bg-ornament"></div>
-      </div>
+        {% for option in collection.sort_options %}
+          <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>
+            {{ option.name }}
+          </option>
+        {% endfor %}
+      </select>
+    </label>
 
-    {% else %}
-      <p>no matches</p>
-    {% endfor %}
+    <div class="flex flex-col gap-3 menu">
+      <p class="text-xl">Collections:</p>
+      <ul>
+        {%- assign activeCollection = collection.title -%}
+        {% for collection in collections offset: 1 %}
+          {%- if coll -%}{%- endif -%}
+          <li class="relative flex items-center gap-2 ">
+            {%- if activeCollection == collection.title -%}
+              <div class="absolute w-4 -left-[15%]">
+                <img class="w-full" src="{{ 'arrow-right.svg' | asset_url }}" alt="">
+              </div>
+            {%- endif -%}
+            {{ collection.title | link_to: collection.url}}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
-  {% if paginate.pages > 1 %}
-    {{ paginate | default_pagination }}
-  {% endif %}
-{% endpaginate %}
 
+
+  <div class="col-start-3 col-span-full">
+    {% paginate collection.products by 9 %}
+
+
+      <div class="grid items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-20 justify-items-center auto-rows-fr">
+        {% for product in collection.products %}
+
+          {%- if product.available -%}
+            <div class="w-48 gap-44">
+              {%- include 'ornament-top' -%}
+
+
+              <a href=" {{ product.url | within: collection }} ">
+                <img class="min-h-[10vh]" src="{{ product.featured_image.src | img_url: 'large' }}" data-product-image alt="{{ product.featured_image.alt | escape }}">
+              </a>
+              <div class="flex flex-col items-center justify-center gap-2 pt-5 text-center heading-text-color h2">
+                <a class="text-3xl" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                {%- unless product.available == false -%}
+                  <p class="text-xl heading-text-color">{{ product.price | money }}</p>
+                {%- endunless -%}
+              </div>
+              {%- include 'ornament-bottom' -%}
+            </div>
+          {%elsif collection.title == "Sold"%}
+            <div class="w-48 gap-44">
+              {%- include 'ornament-top' -%}
+              <a href=" {{ product.url | within: collection }} ">
+                <img class="min-h-[10vh]" src="{{ product.featured_image.src | img_url: 'large' }}" data-product-image alt="{{ product.featured_image.alt | escape }}">
+              </a>
+              <div class="flex flex-col items-center justify-center gap-2 pt-5 text-center heading-text-color h2">
+                <a class="text-3xl" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                {%- unless product.available == false -%}
+                  <p class="text-xl heading-text-color">{{ product.price | money }}</p>
+                {%- endunless -%}
+                <p class="text-xl">Sold</p>
+              </div>
+              {%- include 'ornament-bottom' -%}
+
+
+            </div>
+          {%- endif -%}
+        {% endfor %}
+      </div>
+      {% if paginate.pages > 1 %}
+        {{ paginate | default_pagination }}
+      {% endif %}
+    {% endpaginate %}
+
+  </div>
+</div>
 
 
 <script>
+
+  // const productImages = document.querySelectorAll("[data-product-image]");
+// productImages.forEach((el, idx) => {
+// el.src = {{ product.images[idx] | img_url: 'large' }};
+// console.log({{product.images}})
+// })
+
   Shopify.queryParams = {};
 
 // Preserve existing query parameters
