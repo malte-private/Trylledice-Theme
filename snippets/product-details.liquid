@@ -6,20 +6,66 @@
 
     <h1 class="h1">{{ product.title }}</h1>
     <div class="body">{{ product.description }}</div>
-    <form class="" action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+    {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
 
       <div class="flex flex-col">
         <span class="h3">
           {{ current_variant.price | money  }}
         </span>
         <div class="flex justify-center gap-3">
+          <input class="hidden pointer-events-none" type="text" name="quantity" min="1" value="1">
+          <select class="hidden" name="id">
+            {% for variant in product.variants %}
+              <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}>
+                {{ variant.title }} - {{ variant.price | money }}
+              </option>
+            {% endfor %}
+          </select>
 
-          <button type="submit" name="add" id="AddToCart">Buy</button>
+          <button type="submit" name="add" value="AddToCart">Buy</button>
           <button type="submit" name="add" id="AddToCart">Like</button>
         </div>
       </div>
-    </form>
+    {%- endform -%}
   </div>
   {% include 'ornament-bottom' %}
 
 </div>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": {{ product.title | json }},
+    "url": {{ request.origin | append: product.url | json }},{% if seo_media -%}"image" : [{{ seo_media | image_url: width: 1920 | prepend: "https:" | json }}],{%- endif %}"description": {{ product.description | strip_html | json }},{% if product.selected_or_first_available_variant.sku != blank -%}"sku" : {{ product.selected_or_first_available_variant.sku | json }},{%- endif %}"brand": {
+      "@type": "Brand",
+      "name": {{ product.vendor | json }}
+    },
+    "offers": [{%- for variant in product.variants -%}{
+          "@type": "Offer",
+          {%- if variant.sku != blank -%}
+            "sku" : {{ variant.sku | json }},
+          {%- endif -%}
+          {%- if variant.barcode.size == 12 -%}
+            "gtin12" : {{ variant.barcode }},
+          {%- endif -%}
+          {%- if variant.barcode.size == 13 -%}
+            "gtin13" : {{ variant.barcode }},
+          {%- endif -%}
+          {%- if variant.barcode.size == 14 -%}
+            "gtin14" : {{ variant.barcode }},
+          {%- endif -%}
+          "availability": "http://schema.org/   {% if variant.available %}InStock
+
+          
+          {% else %}
+            OutOfStock
+          
+          {% endif %}",
+          "price": {{ variant.price | divided_by: 100.00 | json }},
+          "priceCurrency": {{ cart.currency.iso_code | json }},
+          "url": {{ request.origin | append: variant.url | json }}
+        }
+        {% unless forloop.last %},{% endunless %}{%- endfor -%}]
+  }
+</script>
