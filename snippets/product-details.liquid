@@ -22,8 +22,8 @@
             {% endfor %}
           </select>
 
-          <button type="submit" name="add" value="AddToCart">Buy</button>
-          <button type="submit" name="add" id="AddToCart">Like</button>
+
+          <button class="btn-primary body" type="submit" name="add" id="AddToCart">{{section.settings.add_to_cart_text}}</button>
         </div>
       </div>
     {%- endform -%}
@@ -31,6 +31,7 @@
   {% include 'ornament-bottom' %}
 
 </div>
+
 
 <script type="application/ld+json">
   {
@@ -55,11 +56,16 @@
           {%- if variant.barcode.size == 14 -%}
             "gtin14" : {{ variant.barcode }},
           {%- endif -%}
-          "availability": "http://schema.org/   {% if variant.available %}InStock
+          "availability": "http://schema.org/              {% if variant.available %}InStock\u000a\u000a\u000a\u000a\u000a\u000a\u000a\u000a\u000a
+
+
 
           
           {% else %}
-            OutOfStock
+            OutOfStock\u000a\u000a\u000a\u000a\u000a\u000a\u000a\u000a
+
+
+
           
           {% endif %}",
           "price": {{ variant.price | divided_by: 100.00 | json }},
