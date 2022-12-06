@@ -713,6 +713,40 @@ select {
   }
 }
 
+.btn-primary {
+  display: inline-flex;
+  aspect-ratio: 138 / 35;
+  width: 10rem;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../assets/button-primary.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  --tw-text-opacity: 1;
+  color: rgb(231 215 198 / var(--tw-text-opacity));
+}
+
+.btn-secondary {
+  display: inline-flex;
+  aspect-ratio: 138 / 35;
+  width: 10rem;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../assets/button-secondary.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  --tw-text-opacity: 1;
+  color: rgb(83 45 13 / var(--tw-text-opacity));
+}
+
+.btn-minimal {
+  border-bottom-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(83 45 13 / var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(83 45 13 / var(--tw-text-opacity));
+}
+
 /* purgecss end ignore */
 
 .pointer-events-none {
@@ -755,12 +789,12 @@ select {
   order: 1;
 }
 
-.col-span-2 {
-  grid-column: span 2 / span 2;
-}
-
 .col-span-full {
   grid-column: 1 / -1;
+}
+
+.col-span-2 {
+  grid-column: span 2 / span 2;
 }
 
 .col-span-1 {
@@ -777,6 +811,10 @@ select {
 
 .col-start-1 {
   grid-column-start: 1;
+}
+
+.row-start-2 {
+  grid-row-start: 2;
 }
 
 .mx-auto {
@@ -807,6 +845,14 @@ select {
 
 .hidden {
   display: none;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
 }
 
 .aspect-dice {
@@ -857,10 +903,6 @@ select {
 .min-h-fit {
   min-height: -moz-fit-content;
   min-height: fit-content;
-}
-
-.min-h-\[10vh\] {
-  min-height: 10vh;
 }
 
 .w-full {
@@ -1126,6 +1168,11 @@ select {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.object-center {
+  -o-object-position: center;
+     object-position: center;
 }
 
 .p-0 {

@@ -17,14 +17,18 @@ module.exports = {
 				ornament: "url('../assets/ornament.svg')",
 				"ornament-product": "url('../assets/ornament-product.svg')",
 				"ornament-contact": "url('../assets/contact-ornament.svg')",
+				"button-primary": "url('../assets/button-primary.svg')",
+				"button-secondary": "url('../assets/button-secondary.svg')",
 			},
 			colors: {
 				"main-primary": "#E7D7C6",
 				"main-secondary": "#DEC8B0",
 				"main-accent": "#500039",
+				"main-text": "#532D0D",
 			},
 			aspectRatio: {
 				dice: "5 / 3",
+				button: "138 / 35",
 			},
 		},
 	},

@@ -4,8 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"theme": "theme watch --allow-live",
-		"dev": "nodemon --watch templates -e liquid --watch snippets -e liquid --watch sections -e liquid --watch layout -e liquid --exec 'npm run build'",
+		"shopify": "shopify theme dev",
+		"dev": "nodemon --watch templates -e liquid --watch snippets -e liquid --watch sections -e liquid --watch layout -e liquid --watch css -e css --exec 'npm run build'",
 		"build": "npx tailwindcss build css/application.css -o assets/application.css.liquid && theme deploy --allow-live"
 	},
 	"author": "",

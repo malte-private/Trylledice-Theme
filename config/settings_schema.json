@@ -83,5 +83,29 @@
 				"info": "Setting the color for bodytext"
 			}
 		]
+	},
+	{
+		"name": "Social Media",
+		"settings": [
+			{ "type": "header", "content": "Enter your social media" },
+			{
+				"type": "text",
+				"label": "Instagram",
+				"id": "social_instagram",
+				"info": "www.instagram.com/trylledice"
+			},
+			{
+				"type": "text",
+				"label": "Facebook",
+				"id": "social_facebook",
+				"info": "www.facebook.com/trylledice"
+			},
+			{
+				"type": "text",
+				"label": "YouTube",
+				"id": "social_youtube",
+				"info": "www.youtube.com/trylledice"
+			}
+		]
 	}
 ]
