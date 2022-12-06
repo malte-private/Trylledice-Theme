@@ -1,4 +1,4 @@
-<div class="grid  md:gap-5 text-image-container auto-rows-fr items-center {% if section.settings.show-image %} md:grid-cols-2 {% else %}md:grid-cols-4 {%endif%}">
+<div class="grid  gap-5 text-image-container auto-rows-fr items-center {% if section.settings.show-image %} md:grid-cols-2 {% else %}md:grid-cols-4 {%endif%}">
 
   {%- if section.settings.show-image -%}
     <div class=" flex justify-center items-center h-96 overflow-hidden {% if section.settings.alt-dir %} order-2 {% endif %} ">
@@ -27,7 +27,7 @@
 
       {% for block in section.blocks %}
         {% if block.settings.button_link %}
-          <a class="body" href="{{block.settings.button_url}}">{{block.settings.button_label}}</a>
+          {%- render 'button' block: block -%}
         {% endif %}
       {% endfor %}
     </div>
@@ -119,7 +119,37 @@
             "label": "Label for button",
             "id": "button_label",
             "default": "Click me"
+          }, {
+            "type": "select",
+            "id": "button_variant",
+            "label": "Button variant",
+            "options": [
+              {
+                "value": "primary",
+                "label": "Primary"
+              }, {
+                "value": "secondary",
+                "label": "Secondary"
+              }, {
+                "value": "minimal",
+                "label": "Minimal"
+              }
+            ],
+            "default": "primary"
+          }, {
+
+            "type": "range",
+            "id": "button_margin",
+            "min": 0,
+            "max": 40,
+            "step": 4,
+            "unit": "px",
+            "label": "Margin",
+            "default": 4
+
+
           }
+
         ]
       }, {
         "name": "Title",

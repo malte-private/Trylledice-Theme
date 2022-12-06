@@ -1,8 +1,17 @@
 {
 	"sections": {
 		"main": {
-			"type": "main-article"
+			"type": "main-blog"
+		},
+		"featured": {
+			"type": "featured-products"
+		},
+		"spacer": {
+			"type": "spacer",
+			"settings": {
+				"height": 5
+			}
 		}
 	},
-	"order": ["main"]
+	"order": ["main", "spacer", "featured"]
 }

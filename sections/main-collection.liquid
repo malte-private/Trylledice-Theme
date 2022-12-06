@@ -48,7 +48,7 @@
 
 
               <a href=" {{ product.url | within: collection }} ">
-                <img class="min-h-[10vh]" src="{{ product.featured_image.src | img_url: 'large' }}" data-product-image alt="{{ product.featured_image.alt | escape }}">
+                <img class="object-contain aspect-square" src="{{ product.featured_image.src | img_url: 'large' }}" data-product-image alt="{{ product.featured_image.alt | escape }}">
               </a>
               <div class="flex flex-col items-center justify-center gap-2 pt-5 text-center heading-text-color h2">
                 <a class="text-3xl" href="{{ product.url | within: collection }}">{{ product.title }}</a>
@@ -62,7 +62,7 @@
             <div class="w-48 gap-44">
               {%- include 'ornament-top' -%}
               <a href=" {{ product.url | within: collection }} ">
-                <img class="min-h-[10vh]" src="{{ product.featured_image.src | img_url: 'large' }}" data-product-image alt="{{ product.featured_image.alt | escape }}">
+                <img class="object-contain aspect-square" src="{{ product.featured_image.src | img_url: 'large' }}" data-product-image alt="{{ product.featured_image.alt | escape }}">
               </a>
               <div class="flex flex-col items-center justify-center gap-2 pt-5 text-center heading-text-color h2">
                 <a class="text-3xl" href="{{ product.url | within: collection }}">{{ product.title }}</a>
