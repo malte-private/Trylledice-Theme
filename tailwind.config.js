@@ -19,6 +19,8 @@ module.exports = {
 				"ornament-contact": "url('../assets/contact-ornament.svg')",
 				"button-primary": "url('../assets/button-primary.svg')",
 				"button-secondary": "url('../assets/button-secondary.svg')",
+				arrow: "url('../assets/arrow-right.svg')",
+				"small-arrow": "url('../assets/arrow-small.svg')",
 			},
 			colors: {
 				"main-primary": "#E7D7C6",
@@ -29,6 +31,9 @@ module.exports = {
 			aspectRatio: {
 				dice: "5 / 3",
 				button: "138 / 35",
+			},
+			content: {
+				arrow: 'url("../assets/arrow-right.svg")',
 			},
 		},
 	},

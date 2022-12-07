@@ -1,92 +1,59 @@
-<form class="filter-form">
-  {%- for filter in collection.filters -%}
-    <details class="filter-group">
-      <summary class="filter-group-summary">
-        <div>
-          <span>{{ filter.label }}</span>
-
-          {%- if filter.active_values.size > 0 -%}
-            <span>({{ filter.active_values.size }})</span>
-          {%- endif -%}
-        </div>
-      </summary>
-
-      <div class="filter-group-display">
-        <div class="filter-group-display__header">
-          <span class="filter-group-display__header-selected">{{ filter.active_values.size }} selected</span>
-
-          {%- if filter.active_values.size > 0 -%}
-            <a href="{{ filter.url_to_remove }}" class="filter-group-display__header-reset">Reset</a>
-          {%- endif -%}
-        </div>
-
-        {%- case filter.type -%}
-          {%- when 'boolean' or 'list' -%}
-            <ul class="filter-group-display__list">
-              {%- for filter_value in filter.values -%}
-                <li class="filter-group-display__list-item">
-                  <label for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
-                    <input type="checkbox" name="{{ filter_value.param_name }}" value="{{ filter_value.value }}" id="Filter-{{ filter.param_name }}-{{ forloop.index }}" {% if filter_value.active -%}checked{%- endif %} {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}>{{ filter_value.label }}</label>
-                </li>
-              {%- endfor -%}
-            </ul>
-
-            <div class="filter-group-display__submit">
-              <input type="submit" value="Apply">
-            </div>
-          {%- when 'price_range' -%}
-            <div class="filter-group-display__price-range">
-              <div class="filter-group-display__price-range-from">
-                <span>{{ cart.currency.symbol }}</span>
-
-                <input name="{{ filter.min_value.param_name }}" id="Filter-{{ filter.min_value.param_name }}"
-                  {% if filter.min_value.value -%}
-                  value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
-                  {%- endif %}
-                  type="number" placeholder="0" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' }}">
-
-                <label for="Filter-{{ filter.min_value.param_name }}">From</label>
-              </div>
-              <div class="filter-group-display__price-range-to">
-                <span>{{ cart.currency.symbol }}</span>
-
-                <input name="{{ filter.max_value.param_name }}" id="Filter-{{ filter.max_value.param_name }}"
-                  {% if filter.max_value.value -%}
-                  value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
-                  {%- endif %}
-                  type="number" placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' }}">
-
-                <label for="Filter-{{ filter.max_value.param_name }}">To</label>
-              </div>
-            </div>
-
-            <div class="filter-group-display__submit">
-              <input type="submit" value="Apply">
-            </div>
-        {%- endcase -%}
-      </div>
-    </details>
-  {%- endfor -%}
-
-  <div class="active-filters">
-    <a href="{{ collection.url }}?sort_by={{ collection.sort_by }}" class="active-filters__clear">Clear all</a>
-
+<form>
+  <div class="flex flex-col-reverse filter-form">
     {%- for filter in collection.filters -%}
-      {%- if filter.type == "price_range" -%}
-        {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
-          <a class="active-filters__remove-filter" href="{{ filter.url_to_remove }}">
-            {%- assign min_value = filter.min_value.value | default: 0 -%}
-            {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
-            {{ min_value | money }} - {{ max_value | money }} X
-          </a>
-        {%- endif -%}
-      {%- else -%}
-        {%- for filter_value in filter.active_values -%}
-          <a class="active-filters__remove-filter" href="{{ filter_value.url_to_remove }}">
-            {{ filter.label }}: {{ filter_value.label }} X
-          </a>
-        {%- endfor -%}
-      {%- endif- %}
+      {%- case filter.param_name -%}
+        {%- when "filter.p.m.custom.dice_color" or "filter.p.m.custom.digit_color" -%}
+          <details class="group filter-group">
+            <summary class="list-none inline-flex gap-1 before:group-open:rotate-0 before:self-center appearance-none before:content-[''] before:inline-block before:bg-small-arrow before:-rotate-90 before:w-4 before:transition-transform duration-75 before:bg-contain before:bg-no-repeat before:h-4 cursor-pointer ">
+              <div>
+                <span class="text-xl body body-text-color">{{ filter.label }}</span>
+
+                {%- if filter.active_values.size > 0 -%}
+                  <span>({{ filter.active_values.size }})</span>
+                {%- endif -%}
+              </div>
+            </summary>
+            <div>
+              {%- case filter.type -%}
+                {%- when 'boolean' or 'list' -%}
+                  <ul class="grid grid-cols-4 gap-1 py-3 grid-flow-dense">
+                    {%- for filter_value in filter.values -%}
+                      <li class="filter-group-display__list-item body">
+                        <input class="hidden peer" type="checkbox" name="{{ filter_value.param_name }}" value="{{ filter_value.value }}" id="Filter-{{ filter.param_name }}-{{ forloop.index }}" {% if filter_value.active -%}checked{%- endif %} {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}>
+                        <label style="background-color: {{filter_value.value}} ;" class="inline-block w-8 h-8 rounded-full cursor-pointer peer-checked:text-pink-700 peer-checked:ring-1 peer-checked:ring-black peer-checked:ring-offset-1 peer-checked:ring-offset-transparent" for="Filter-{{ filter.param_name }}-{{ forloop.index }}"></label>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+              {%- endcase -%}
+            </div>
+          </details>
+
+
+      {%- endcase -%}
+
+
     {%- endfor -%}
   </div>
+  <div class="flex gap-4">
+    <div class="filter-group-display__submit">
+      <input class="cursor-pointer" type="submit" value="Apply">
+    </div>
+    <div class="active-filters">
+      <a href="{{ collection.url }}?sort_by={{ collection.sort_by }}" class="active-filters__clear">Clear all</a>
+
+      {%- for filter in collection.filters -%}
+        {%- if filter.type == "price_range" -%}
+          {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+            <a class="active-filters__remove-filter" href="{{ filter.url_to_remove }}">
+              {%- assign min_value = filter.min_value.value | default: 0 -%}
+              {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
+              {{ min_value | money }} - {{ max_value | money }} X
+            </a>
+          {%- endif -%}
+
+        {%- endif- %}
+      {%- endfor -%}
+    </div>
+  </div>
+
 </form>
