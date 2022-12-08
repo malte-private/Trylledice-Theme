@@ -22,7 +22,10 @@
 				}
 			},
 			"block_order": ["title", "text", "button"]
+		},
+		"splash": {
+			"type": "splash"
 		}
 	},
-	"order": ["text-image", "featured-products"]
+	"order": ["splash", "text-image", "featured-products"]
 }

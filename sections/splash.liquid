@@ -1,0 +1,110 @@
+<div class="grid bg-no-repeat bg-cover place-content-center splash-img aspect-video">
+  <div class="flex flex-col items-center">
+
+
+    {%- assign title_words = section.settings.splash-heading | split: ' ' %}
+    <h1 class="flex flex-col items-center text-5xl text-center splash text-main-primary">
+      {%- for word in title_words -%}
+        {%- if forloop.first -%}
+          <span class="h1 ">{{word}}</span>
+        {%- else -%}
+          {{word}}
+
+        {%- endif -%}
+      {%- endfor -%}
+    </h1>
+
+    {% for block in section.blocks %}
+      {% if block.settings.button_link %}
+        {%- render 'button' block: block -%}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .splash-img {
+    background-image: url('{{section.settings.splash-img | image_url}}');
+  }
+</style>
+
+{%- schema -%}
+  {
+    "name": "Splash",
+    "settings": [
+      {
+        "type": "text",
+        "id": "splash-heading",
+        "default": "splash",
+        "label": "Splash"
+      }, {
+        "type": "image_picker",
+        "label": "Splash Image",
+        "id": "splash-img"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Button",
+        "type": "button",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Link"
+          },
+          {
+            "type": "paragraph",
+            "content": "Choose to show a link and set the label and URL"
+          },
+          {
+            "type": "checkbox",
+            "id": "button_link",
+            "label": "Link",
+            "default": true
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Button link"
+          }, {
+            "type": "text",
+            "label": "Label for button",
+            "id": "button_label",
+            "default": "Click me"
+          }, {
+            "type": "select",
+            "id": "button_variant",
+            "label": "Button variant",
+            "options": [
+              {
+                "value": "primary",
+                "label": "Primary"
+              }, {
+                "value": "secondary",
+                "label": "Secondary"
+              }, {
+                "value": "minimal",
+                "label": "Minimal"
+              }
+            ],
+            "default": "primary"
+          }, {
+
+            "type": "range",
+            "id": "button_margin",
+            "min": 0,
+            "max": 40,
+            "step": 4,
+            "unit": "px",
+            "label": "Margin",
+            "default": 4
+          }
+
+        ]
+
+      }
+
+    ]
+
+  }
+{%- endschema -%}

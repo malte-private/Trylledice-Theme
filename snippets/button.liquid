@@ -1,31 +1,31 @@
 {% case block.settings.button_variant %}
   {% when "primary" %}
     {%- if block.settings.url -%}
-      <a class="body button-padding btn-primary" href="{{block.settings.button_url}}">
+      <a class="button button-padding btn-primary" href="{{block.settings.button_url}}">
         {{block.settings.button_label}}
       </a>
     {%- else -%}
-      <button class="body button-padding btn-primary">
+      <button class="button button-padding btn-primary">
         {{block.settings.button_label}}</button>
     {%- endif -%}
 
 
   {% when "secondary" %}
     {%- if block.settings.url -%}
-      <a class="body button-padding btn-secondary" href="{{block.settings.button_url}}">
+      <a class="button button-padding btn-secondary" href="{{block.settings.button_url}}">
         {{block.settings.button_label}}
       </a>
     {%- else -%}
-      <button class="body button-padding btn-secondary">
+      <button class="button button-padding btn-secondary">
         {{block.settings.button_label}}</button>
     {%- endif -%}
   {% else %}
     {%- if block.settings.url -%}
-      <a class="body button-padding btn-minimal" href="{{block.settings.button_url}}">
+      <a class="button button-padding btn-minimal" href="{{block.settings.button_url}}">
         {{block.settings.button_label}}
       </a>
     {%- else -%}
-      <button class="body button-padding btn-minimal">
+      <button class="button button-padding btn-minimal">
         {{block.settings.button_label}}</button>
     {%- endif -%}
 {% endcase %}
