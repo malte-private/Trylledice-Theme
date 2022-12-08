@@ -1,6 +1,24 @@
 {
-	"current": "Default",
-	"presets": {
-		"Default": {}
-	}
+  "current": {
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo.png",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
+  "presets": {
+    "Default": {
+    }
+  }
 }
