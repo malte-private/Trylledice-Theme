@@ -97,7 +97,7 @@
 
           {%- if product.available -%}
             <div class="w-48 gap-44">
-              {%- include 'ornament-top' -%}
+              {%- render 'ornament-top' -%}
 
 
               <a href=" {{ product.url | within: collection }} ">
@@ -109,11 +109,11 @@
                   <p class="text-xl heading-text-color">{{ product.price | money }}</p>
                 {%- endunless -%}
               </div>
-              {%- include 'ornament-bottom' -%}
+              {%- render 'ornament-bottom' -%}
             </div>
           {%elsif collection.title == "Sold"%}
             <div class="w-48 gap-44">
-              {%- include 'ornament-top' -%}
+              {%- render 'ornament-top' -%}
               <a href=" {{ product.url | within: collection }} ">
                 <img class="object-contain aspect-square" src="{{ product.featured_image.src | img_url: 'large' }}" data-product-image alt="{{ product.featured_image.alt | escape }}">
               </a>
@@ -124,7 +124,7 @@
                 {%- endunless -%}
                 <p class="text-xl">Sold</p>
               </div>
-              {%- include 'ornament-bottom' -%}
+              {%- render 'ornament-bottom' -%}
 
 
             </div>
