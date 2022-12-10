@@ -1,7 +1,13 @@
 {
 	"sections": {
 		"featured-products": {
-			"type": "featured-products"
+			"type": "featured-products",
+			"blocks": {
+				"button": {
+					"type": "button"
+				}
+			},
+			"block_order": ["button"]
 		},
 		"text-image": {
 			"type": "text-image",
@@ -24,7 +30,13 @@
 			"block_order": ["title", "text", "button"]
 		},
 		"splash": {
-			"type": "splash"
+			"type": "splash",
+			"blocks": {
+				"button": {
+					"type": "button"
+				}
+			},
+			"block_order": ["button"]
 		}
 	},
 	"order": ["splash", "text-image", "featured-products"]

@@ -1,18 +1,20 @@
-<div class="grid bg-no-repeat bg-cover place-content-center splash-img aspect-video">
-  <div class="flex flex-col items-center">
+<div class="grid bg-no-repeat bg-cover splash-img aspect-square md:aspect-video">
+  <div class="w-full h-full overflow-hidden grid-area bg-slate-400">
+    {% if section.settings.splash-img == blank %}
+      {{ 'lifestyle-1' | placeholder_svg_tag: "h-full" }}
+    {% else %}
+      <img class="object-cover object-center h-full" src="{{section.settings.splash-img | image_url}}" alt="{{section.settings.splash-img.alt}}">
+    {% endif %}
+  </div>
+  <div class="flex flex-col items-center self-end pb-4 grid-area md:place-self-center">
 
+    <h1 class="flex flex-col items-center mb-5 text-center h1 splash text-main-primary">
 
-    {%- assign title_words = section.settings.splash-heading | split: ' ' %}
-    <h1 class="flex flex-col items-center text-5xl text-center splash text-main-primary">
-      {%- for word in title_words -%}
-        {%- if forloop.first -%}
-          <span class="h1 ">{{word}}</span>
-        {%- else -%}
-          {{word}}
+      <span>{{section.settings.heading-one}}</span>
+      <span class="splash-second">{{section.settings.heading-two}}</span>
 
-        {%- endif -%}
-      {%- endfor -%}
     </h1>
+
 
     {% for block in section.blocks %}
       {% if block.settings.button_link %}
@@ -24,19 +26,26 @@
 
 <style>
   .splash-img {
-    background-image: url('{{section.settings.splash-img | image_url}}');
+
+    background-image: url('');
   }
 </style>
 
 {%- schema -%}
   {
     "name": "Splash",
+    "max_blocks": 1,
     "settings": [
       {
         "type": "text",
-        "id": "splash-heading",
-        "default": "splash",
-        "label": "Splash"
+        "id": "heading-one",
+        "default": "Exlore ",
+        "label": "Heading 1"
+      }, {
+        "type": "text",
+        "id": "heading-two",
+        "default": "The Collection",
+        "label": "Heading 2"
       }, {
         "type": "image_picker",
         "label": "Splash Image",
@@ -80,6 +89,9 @@
                 "value": "primary",
                 "label": "Primary"
               }, {
+                "value": "primary-light",
+                "label": "Primary Light"
+              }, {
                 "value": "secondary",
                 "label": "Secondary"
               }, {
@@ -88,6 +100,15 @@
               }
             ],
             "default": "primary"
+          }, {
+
+            "type": "range",
+            "id": "button_width",
+            "min": 10,
+            "max": 20,
+            "step": 1,
+            "label": "Width",
+            "default": 12
           }, {
 
             "type": "range",

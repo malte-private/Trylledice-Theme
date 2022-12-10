@@ -714,22 +714,22 @@ select {
 }
 
 .btn-primary {
+  background-image: url('../assets/button-primary.svg');
+  color: rgb(231 215 198 / var(--tw-text-opacity));
   display: inline-flex;
   aspect-ratio: 138 / 35;
-  width: 10rem;
   align-items: center;
   justify-content: center;
-  background-image: url('../assets/button-primary.svg');
+  background-image: url('../assets/button-primary-light.svg');
   background-size: contain;
   background-repeat: no-repeat;
   --tw-text-opacity: 1;
-  color: rgb(231 215 198 / var(--tw-text-opacity));
+  color: rgb(83 45 13 / var(--tw-text-opacity));
 }
 
 .btn-secondary {
   display: inline-flex;
   aspect-ratio: 138 / 35;
-  width: 10rem;
   align-items: center;
   justify-content: center;
   background-image: url('../assets/button-secondary.svg');
@@ -740,11 +740,19 @@ select {
 }
 
 .btn-minimal {
-  border-bottom-width: 2px;
-  --tw-border-opacity: 1;
-  border-color: rgb(83 45 13 / var(--tw-border-opacity));
+  justify-self: end;
+  text-align: right;
   --tw-text-opacity: 1;
   color: rgb(83 45 13 / var(--tw-text-opacity));
+  text-decoration-line: underline;
+  text-underline-offset: 2px;
+}
+
+.grid-area {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
 }
 
 /* purgecss end ignore */
@@ -797,10 +805,6 @@ select {
   grid-column-start: 2;
 }
 
-.col-start-3 {
-  grid-column-start: 3;
-}
-
 .col-start-1 {
   grid-column-start: 1;
 }
@@ -811,6 +815,10 @@ select {
 
 .col-start-10 {
   grid-column-start: 10;
+}
+
+.col-start-3 {
+  grid-column-start: 3;
 }
 
 .col-end-10 {
@@ -841,6 +849,10 @@ select {
 
 .mt-1 {
   margin-top: 0.25rem;
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 
 .mt-8 {
@@ -1072,10 +1084,6 @@ select {
   flex-wrap: wrap;
 }
 
-.place-content-center {
-  place-content: center;
-}
-
 .items-start {
   align-items: flex-start;
 }
@@ -1183,6 +1191,10 @@ select {
   place-self: center;
 }
 
+.self-end {
+  align-self: flex-end;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -1246,6 +1258,11 @@ select {
 
 .bg-inherit {
   background-color: inherit;
+}
+
+.bg-slate-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
 }
 
 .bg-drage {
@@ -1416,11 +1433,6 @@ select {
   line-height: 2.25rem;
 }
 
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
-}
-
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -1582,6 +1594,10 @@ select {
 }
 
 @media (min-width: 768px) {
+  .md\:aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+
   .md\:h-96 {
     height: 24rem;
   }
@@ -1608,6 +1624,10 @@ select {
 
   .md\:gap-5 {
     gap: 1.25rem;
+  }
+
+  .md\:place-self-center {
+    place-self: center;
   }
 }
 
