@@ -1,0 +1,131 @@
+<div class="grid bg-no-repeat bg-cover splash-img aspect-square md:aspect-video">
+  <div class="w-full h-full overflow-hidden grid-area bg-slate-400">
+    {% if section.settings.splash-img == blank %}
+      {{ 'lifestyle-1' | placeholder_svg_tag: "h-full" }}
+    {% else %}
+      <img class="object-cover object-center h-full" src="{{section.settings.splash-img | image_url}}" alt="{{section.settings.splash-img.alt}}">
+    {% endif %}
+  </div>
+  <div class="flex flex-col items-center self-end pb-4 grid-area md:place-self-center">
+
+    <h1 class="flex flex-col items-center mb-5 text-center h1 splash text-main-primary">
+
+      <span>{{section.settings.heading-one}}</span>
+      <span class="splash-second">{{section.settings.heading-two}}</span>
+
+    </h1>
+
+
+    {% for block in section.blocks %}
+      {% if block.settings.button_link %}
+        {%- render 'button' block: block -%}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .splash-img {
+
+    background-image: url('');
+  }
+</style>
+
+{%- schema -%}
+  {
+    "name": "Splash",
+    "max_blocks": 1,
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading-one",
+        "default": "Exlore ",
+        "label": "Heading 1"
+      }, {
+        "type": "text",
+        "id": "heading-two",
+        "default": "The Collection",
+        "label": "Heading 2"
+      }, {
+        "type": "image_picker",
+        "label": "Splash Image",
+        "id": "splash-img"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Button",
+        "type": "button",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Link"
+          },
+          {
+            "type": "paragraph",
+            "content": "Choose to show a link and set the label and URL"
+          },
+          {
+            "type": "checkbox",
+            "id": "button_link",
+            "label": "Link",
+            "default": true
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Button link"
+          }, {
+            "type": "text",
+            "label": "Label for button",
+            "id": "button_label",
+            "default": "Click me"
+          }, {
+            "type": "select",
+            "id": "button_variant",
+            "label": "Button variant",
+            "options": [
+              {
+                "value": "primary",
+                "label": "Primary"
+              }, {
+                "value": "primary-light",
+                "label": "Primary Light"
+              }, {
+                "value": "secondary",
+                "label": "Secondary"
+              }, {
+                "value": "minimal",
+                "label": "Minimal"
+              }
+            ],
+            "default": "primary"
+          }, {
+
+            "type": "range",
+            "id": "button_width",
+            "min": 10,
+            "max": 20,
+            "step": 1,
+            "label": "Width",
+            "default": 12
+          }, {
+
+            "type": "range",
+            "id": "button_margin",
+            "min": 0,
+            "max": 40,
+            "step": 4,
+            "unit": "px",
+            "label": "Margin",
+            "default": 4
+          }
+
+        ]
+
+      }
+
+    ]
+
+  }
+{%- endschema -%}

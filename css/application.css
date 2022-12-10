@@ -6,13 +6,20 @@
 
 @layer components {
 	.btn-primary {
-		@apply inline-flex items-center justify-center w-40 bg-no-repeat bg-contain bg-button-primary aspect-button text-main-primary;
+		@apply inline-flex items-center justify-center  bg-no-repeat bg-contain bg-button-primary aspect-button text-main-primary;
+	}
+	.btn-primary {
+		@apply inline-flex items-center justify-center  bg-no-repeat bg-contain bg-button-primary-light text-main-text aspect-button;
 	}
 	.btn-secondary {
-		@apply text-main-text inline-flex items-center justify-center w-40 bg-no-repeat bg-contain bg-button-secondary aspect-button;
+		@apply text-main-text inline-flex items-center justify-center  bg-no-repeat bg-contain bg-button-secondary aspect-button;
 	}
 	.btn-minimal {
-		@apply text-main-text border-b-2 border-main-text;
+		@apply text-main-text underline underline-offset-2 justify-self-end text-right;
+	}
+
+	.grid-area {
+		@apply col-start-1 col-end-1 row-start-1 row-end-1;
 	}
 }
 @layer utilities {

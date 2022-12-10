@@ -18,6 +18,7 @@ module.exports = {
 				"ornament-product": "url('../assets/ornament-product.svg')",
 				"ornament-contact": "url('../assets/contact-ornament.svg')",
 				"button-primary": "url('../assets/button-primary.svg')",
+				"button-primary-light": "url('../assets/button-primary-light.svg')",
 				"button-secondary": "url('../assets/button-secondary.svg')",
 				arrow: "url('../assets/arrow-right.svg')",
 				"small-arrow": "url('../assets/arrow-small.svg')",
