@@ -1,41 +1,84 @@
 {
-	"sections": {
-		"splash": {
-			"type": "splash",
-			"blocks": {
-				"button": {
-					"type": "buttons"
-				}
-			},
-			"block_order": ["button"]
-		},
-
-		"featured-products": {
-			"type": "featured-products",
-			"blocks": {
-				"button": {
-					"type": "buttons"
-				}
-			},
-			"block_order": ["button"]
-		},
-		"text-image": {
-			"type": "text-image",
-			"blocks": {
-				"Button": {
-					"type": "button"
-				},
-				"text": {
-					"type": "heading",
-					"settings": {}
-				},
-				"title": {
-					"type": "textarea",
-					"settings": {}
-				}
-			},
-			"block_order": ["title", "text", "button"]
-		}
-	},
-	"order": ["splash", "text-image", "featured-products"]
+  "sections": {
+    "splash": {
+      "type": "splash",
+      "blocks": {
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_link": true,
+            "url": "shopify:\/\/pages\/bag-om",
+            "button_label": "Click me",
+            "button_variant": "primary-light",
+            "button_width": 12,
+            "button_margin": 4
+          }
+        }
+      },
+      "block_order": [
+        "button"
+      ],
+      "settings": {
+        "heading-one": "Exlore",
+        "heading-two": "The Collection",
+        "splash-img": "shopify:\/\/shop_images\/splash-img.jpg"
+      }
+    },
+    "text-image": {
+      "type": "text-image",
+      "blocks": {
+        "title": {
+          "type": "textarea",
+          "settings": {
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti praesentium iure dolorem exercitationem omnis voluptates assumenda expedita ducimus. Placeat doloremque quisquam, beatae fuga eum quod illum recusandae quibusdam, iure aliquid dolore hic expedita"
+          }
+        },
+        "text": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lorem ipsum"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "text"
+      ],
+      "settings": {
+        "show-image": true,
+        "padding_top": 16,
+        "padding_bottom": 16,
+        "alt-dir": false
+      }
+    },
+    "featured-products": {
+      "type": "featured-products",
+      "blocks": {
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_link": true,
+            "url": "",
+            "button_label": "See all",
+            "button_variant": "minimal",
+            "button_width": 12,
+            "button_margin": 4
+          }
+        }
+      },
+      "block_order": [
+        "button"
+      ],
+      "settings": {
+        "title": "Featured Collection",
+        "collection": "",
+        "product_count": 4
+      }
+    }
+  },
+  "order": [
+    "splash",
+    "text-image",
+    "featured-products"
+  ]
 }
