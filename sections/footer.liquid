@@ -1,22 +1,80 @@
-<footer class="items-end w-full flex justify-around bg-footer h-[800px]">
-  <img class="w-10 h-40" src="{{'logo.svg' | asset_url}}" alt="">
-  <ul>
-    {% for link in linklists.footer.links %}
-      {% assign child_list_handle = link.title | handleize %}
-      {% if linklists[child_list_handle].links != blank %}
-        <li>
-          <a href="{{ link.url }}">{{ link.title }}</a>
-        </li>
-        [{% for childlink in linklists[child_list_handle].links %}
-          <li>
-            <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-          </li>
-        {% endfor %}]
+<div class="w-full bg-footer  md:h-[800px] flex flex-col justify-end px-20">
+  <div class="grid gap-10 md:grid-cols-2 h-fit ">
+
+    <div class="w-40 mx-auto md:mx-0">
+      {% if section.settings.logo == blank %}
+        {{ 'image' | placeholder_svg_tag: "h-full" }}
       {% else %}
-        <li>
-          <a href="{{ link.url }}">{{ link.title }}</a>
-        </li>
+        <a href="/">
+          <img class="" src="{{section.settings.logo | image_url: width: 450}}" alt="section.settings.logo.alt"></a>
       {% endif %}
-    {% endfor %}
-  </ul>
-</footer>
+    </div>
+
+    <div class="flex justify-between">
+      <div>
+        <h3 class="pb-5 text-2xl menu navigation-text-color">Information</h3>
+        <ul class="space-y-5 ">
+          {% for link in linklists.footer.links %}
+            {% assign child_list_handle = link.title | handleize %}
+            {% if linklists[child_list_handle].links != blank %}
+              <li class="menu navigation-text-color">
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {% else %}
+              <li class="menu navigation-text-color">
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+      <div>
+        <h3 class="pb-5 text-2xl menu navigation-text-color">Produkter
+        </h3>
+        <ul class="space-y-5 ">
+          {%- for collection in collections offset: 1 -%}
+            <li class="text-sm menu navigation-text-color">
+              {{collection.title | link_to: collection.url }}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col items-center justify-center gap-6 pt-10 pb-4">
+    <ul class="flex gap-10">
+      {%- if settings.social_instagram != blank -%}
+        <li>
+          <a href="https://{{settings.social_instagram  | escape}}" target="_blank" aria-label="Instagram">
+            {%- render 'instagram-icon' -%}</a>
+        </li>
+      {%- endif -%}
+      {%- if settings.social_facebook != blank -%}
+        <li>
+          <a href="https://{{settings.social_facebook  | escape}}" target="_blank" aria-label="Facebook">{%- render 'facebook-icon' -%}</a>
+        </li>
+      {%- endif -%}
+      {%- if settings.social_youtube != blank -%}
+        <li>
+          <a href="https://{{settings.social_youtube  | escape}}" target="_blank" aria-label="Youtube">{%- render 'youtube-icon' -%}</a>
+        </li>
+      {%- endif -%}
+    </ul>
+    <p class="text-sm tracking-wider navigation-text-color menu">&#169; {{shop.name}}</p>
+  </div>
+
+</div>
+
+{%- schema -%}
+  {
+    "name": "Footer",
+    "tag": "footer",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      }
+    ]
+  }
+{%- endschema -%}
