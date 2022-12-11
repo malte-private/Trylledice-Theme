@@ -4,17 +4,17 @@
 {%- capture flickity_options -%}
   {
   "prevNextButtons": true,
-                                        "pageDots": false,
-                                        "contain": true,
-                                        "cellAlign": "left",
-                                        "groupCells": true,
-                                        "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
-                                        }{%- endcapture -%}
+                                              "pageDots": false,
+                                              "contain": true,
+                                              "cellAlign": "left",
+                                              "groupCells": true,
+                                              "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+                                              }{%- endcapture -%}
 
-<div class="mx-auto my-0 featured-collection-slider max-w-7xl px-14 page-width">
+<div class="mx-auto my-0 featured-collection-slider max-w-7xl md:px-14 page-width">
   {% if section.settings.title != blank %}
     <div class="grid grid-cols-3 pb-4 justify-items-center">
-      <h2 class="col-start-2 h3 heading-text-color">{{ section.settings.title | escape }}</h2>
+      <h2 class="col-start-1 col-span-full place-self-center h3 heading-text-color">{{ section.settings.title | escape }}</h2>
 
       {% for block in section.blocks %}
         {% if block.settings.button_link %}
@@ -52,12 +52,7 @@
   .flickity-button:disabled {
     pointer-events: all !important;
   }
-  @media screen and (max-width: 920px) {
-    .featured-collection-slider {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-  }
+
 }
 </style>
 
