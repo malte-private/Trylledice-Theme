@@ -1,0 +1,74 @@
+<div class="grid items-center gap-5 text-image-container auto-rows-fr md:flex md:flex-col ">
+
+  <h2 class="h2 heading-text-color">Heading</h2>
+  <div class="grid md:grid-cols-2">
+
+    <div class=" space-y-10 flex flex-col justify-center items-center  overflow-hidden {% if section.settings.alt-dir %} order-2 {% endif %} ">
+      {%- for product in collections["all"].products limit: 1 -%}
+        <span data-image-header class="h3 heading-text-color">{{product.title}}</span>
+        <div class="px-20">
+          <a href="{{product.url}}">
+            <img data-dice-image src="{{product.featured_image | image_url: width:512}}" alt="">
+          </a>
+        </div>
+      {%- endfor -%}
+
+    </div>
+
+    <div class="flex flex-col justify-between {% if section.settings.alt-dir %}  order-1 {% endif %}">
+      <div class="w-full h-20 bg-center bg-no-repeat bg-contain bg-ornament-product "></div>
+      <span class="h3 heading-text-color">Heading</span>
+      <p>Bacon ipsum dolor amet leberkas short loin pork belly beef. Shoulder t-bone corned beef jerky, ham hock spare ribs beef fatback landjaeger. Boudin prosciutto beef meatloaf bacon spare ribs meatball pork belly shankle ham flank leberkas strip steak buffalo.
+      </p>
+      <div class="flex flex-col justify-center w-full">
+
+        <div class="flex justify-center gap-5">
+          <button>Button</button>
+          <button>Button</button>
+        </div>
+        <div class="flex justify-center gap-5">
+          <button>Button</button>
+          <button>Button</button>
+        </div>
+        <button data-generate>Generate</button>
+      </div>
+
+      <div class="w-full h-20 rotate-180 bg-center bg-no-repeat bg-contain bg-ornament-product"></div>
+    </div>
+
+
+
+  </div>
+</div>
+
+<script>
+  const generateBtn = document.querySelector("[data-generate]")
+  const diceImg = document.querySelector("[data-dice-image]")
+  const diceHeader = document.querySelector("[data-image-header]")
+  const products = {{collections["all"].products | json}};
+  generateBtn.addEventListener("click", () => {
+    const productIdx = randomNumber(products.length)
+    diceHeader.textContent = products[productIdx].title
+    diceImg.src = products[productIdx].featured_image
+    diceImg.parentElement.href = products[productIdx].url
+  })
+
+  const randomNumber = (max) => {
+    return Math.floor(Math.random() * max)
+  }
+</script>
+
+
+
+{% schema %}
+  {
+    "name": "Generate Dice",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Generate Dice"
+
+      }
+    ]
+  }
+{% endschema %}
