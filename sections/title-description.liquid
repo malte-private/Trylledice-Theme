@@ -1,7 +1,8 @@
-<div class="text-description-container">
-
-  <h1 class="text-3xl ">{{ section.settings.heading }}</h1>
-  <p>{{ section.settings.description }}</p>
+<div class="grid text-description-container md:grid-cols-2">
+  <div>
+    <h1 class="h1 heading-text-color ">{{ section.settings.heading }}</h1>
+    <p class="body body-text-color">{{ section.settings.description }}</p>
+  </div>
 </div>
 
 {% style %}
