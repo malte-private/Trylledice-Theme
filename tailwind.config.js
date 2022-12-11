@@ -13,6 +13,7 @@ module.exports = {
 		extend: {
 			backgroundImage: {
 				footer: "url('../assets/footer.svg')",
+				"footer-mobile": "url('../assets/footer-mobile.svg')",
 				drage: "url('../assets/drage.svg')",
 				ornament: "url('../assets/ornament.svg')",
 				"ornament-product": "url('../assets/ornament-product.svg')",
