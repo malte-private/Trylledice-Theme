@@ -6,7 +6,7 @@
         {{ 'image' | placeholder_svg_tag: "h-full" }}
       {% else %}
         <a href="/">
-          <img class="" src="{{section.settings.logo | image_url: width: 450}}" alt="section.settings.logo.alt"></a>
+          <img class="object-cover" src="{{section.settings.logo | image_url: width: 450 | image_tag}}" alt="section.settings.logo.alt"></a>
       {% endif %}
     </div>
 
