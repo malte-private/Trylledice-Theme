@@ -15,7 +15,7 @@
     <div class="flex flex-col items-center gap-3 ">
       <button data-direction="up" class="rotate-180 bg-contain bg-small-arrow w-9 h-9"></button>
       {%- assign images = product.images -%}
-      <ul data-thumbnail-container class="col-start-1 px-10 space-y-4 overflow-scroll scroll-smooth no-scrollbar gap-3col-span-1 h-[60vh]">
+      <ul data-thumbnail-container class="col-start-1 px-10 space-y-4 overflow-y-auto scroll-smooth no-scrollbar gap-3col-span-1 h-[60vh]">
         {% if images != blank %}
           {% for image in images %}
             <li class="cursor-pointer">
