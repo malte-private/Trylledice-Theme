@@ -1,0 +1,119 @@
+<div class="grid items-center gap-5 text-image-container auto-rows-fr md:flex md:flex-col ">
+
+  <h2 class="h2 heading-text-color">Heading</h2>
+  <div class="grid md:grid-cols-2">
+
+    <div class=" space-y-10 flex flex-col justify-center items-center  overflow- {% if section.settings.alt-dir %} order-2 {% endif %} ">
+      {%- for product in collections["all"].products limit: 1 -%}
+        <span data-image-header class="h3 heading-text-color">{{product.title}}</span>
+        <div class="h-56 px-20">
+          <a href="{{product.url}}">
+            <img class="h-full" data-dice-image src="{{product.featured_image | image_url: width:512}}" alt="">
+          </a>
+        </div>
+      {%- endfor -%}
+
+    </div>
+
+    <div class="flex flex-col justify-between {% if section.settings.alt-dir %}  order-1 {% endif %}">
+      {%- render 'ornament-top' -%}
+      <div class="py-10">
+
+        <span class="h3 heading-text-color">Heading</span>
+        <p class="body body-text-color">Bacon ipsum dolor amet leberkas short loin pork belly beef. Shoulder t-bone corned beef jerky, ham hock spare ribs beef fatback landjaeger. Boudin prosciutto beef meatloaf bacon spare ribs meatball pork belly shankle ham flank leberkas strip steak buffalo.
+        </p>
+        <form class="flex flex-col justify-center w-full space-y-7 pt-7">
+
+          <div class="space-y-4">
+
+            <div class="flex justify-center gap-5">
+              <div data-bg-button="primary" class="items-center justify-center cursor-pointer w-36 btn-grid">
+                <input class="hidden peer" data-generate="1" value="dark" type="radio" name="generate" id="1">
+                <div class="inline-block peer-checked:hidden grid-area">{%- render 'button-main' -%}</div>
+                <div class="hidden peer-checked:inline-block grid-area">{%- render 'button-secondary' -%}</div>
+                <label class="inline-flex items-center justify-center w-full text-center cursor-pointer text-main-primary grid-area peer-checked:btn-secondary-test peer-checked:text-main-text-test" for="1">Dark</label>
+              </div>
+              <div data-bg-button="primary" class="items-center justify-center cursor-pointer w-36 btn-grid">
+                <input class="hidden peer" data-generate="2" value="fantastic" type="radio" name="generate" id="2">
+                <div class="inline-block peer-checked:hidden grid-area">{%- render 'button-main' -%}</div>
+                <div class="hidden peer-checked:inline-block grid-area">{%- render 'button-secondary' -%}</div>
+                <label class="inline-flex items-center justify-center w-full text-center cursor-pointer text-main-primary grid-area peer-checked:btn-secondary-test peer-checked:text-main-text-test" for="2">Fantastic</label>
+              </div>
+            </div>
+            <div class="flex justify-center gap-5">
+              <div data-bg-button="primary" class="items-center justify-center cursor-pointer w-36 btn-grid">
+                <input class="hidden peer" data-generate="3" value="magical" type="radio" name="generate" id="3">
+                <div class="inline-block peer-checked:hidden grid-area">{%- render 'button-main' -%}</div>
+                <div class="hidden peer-checked:inline-block grid-area">{%- render 'button-secondary' -%}</div>
+                <label class="inline-flex items-center justify-center w-full text-center cursor-pointer text-main-primary grid-area peer-checked:btn-secondary-test peer-checked:text-main-text-test" for="3">Magical</label>
+              </div>
+              <div data-bg-button="primary" class="items-center justify-center cursor-pointer w-36 btn-grid">
+                <input class="hidden peer" data-generate="4" value="gloomy" type="radio" name="generate" id="4">
+                <div class="inline-block peer-checked:hidden grid-area">{%- render 'button-main' -%}</div>
+                <div class="hidden peer-checked:inline-block grid-area">{%- render 'button-secondary' -%}</div>
+                <label class="inline-flex items-center justify-center w-full text-center cursor-pointer text-main-primary grid-area peer-checked:btn-secondary-test peer-checked:text-main-text-test" for="4">Gloomy</label>
+              </div>
+            </div>
+          </div>
+          <button data-bg-button="primary" class=" w-60 btn-primary-test btn-grid" data-generate>
+            <div class="grid-area">{%- render 'button-main' -%}</div>
+            <span class="pointer-events-none grid-area">
+              Generate</span>
+          </button>
+        </form>
+      </div>
+
+      {%- render 'ornament-bottom' -%}
+    </div>
+
+
+
+  </div>
+</div>
+
+<script>
+  const form = document.querySelector("form")
+  const diceImg = document.querySelector("[data-dice-image]")
+  const diceHeader = document.querySelector("[data-image-header]")
+  const products = {{collections["all"].products | json}};
+
+  console.log(products)
+  const generate = (e) => {
+    e.preventDefault()
+    const radioValue = document.querySelector('input[name="generate"]:checked');
+    const theme = radioValue.value + ''
+    let themeArr = []
+    products.forEach((product) => {
+      if (product.tags.includes(theme)) {
+        themeArr.push(product)
+        console.log(product)
+      }
+    })
+    const productIdx = randomNumber(themeArr.length)
+    diceHeader.textContent = themeArr[productIdx].title
+    diceImg.src = themeArr[productIdx].featured_image
+    diceImg.parentElement.href = `https://trylledice.myshopify.com/collections/all/products/${
+      themeArr[productIdx].handle
+    }`
+  }
+
+  const randomNumber = (max) => {
+    return Math.floor(Math.random() * max)
+  };
+  form.addEventListener("submit", generate);
+</script>
+
+
+
+{% schema %}
+  {
+    "name": "Generate Dice",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Generate Dice"
+
+      }
+    ]
+  }
+{% endschema %}
