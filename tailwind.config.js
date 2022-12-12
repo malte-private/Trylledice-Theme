@@ -29,6 +29,7 @@ module.exports = {
 				"main-secondary": "#DEC8B0",
 				"main-accent": "#500039",
 				"main-text": "#532D0D",
+				"hover-btn-primary": "#895C37",
 			},
 			aspectRatio: {
 				dice: "5 / 3",
