@@ -24,27 +24,47 @@
         "splash-img": "shopify:\/\/shop_images\/splash-img.jpg"
       }
     },
+    "9d8f0a18-dcd3-4371-a3a4-4d287725347b": {
+      "type": "featured-products",
+      "settings": {
+        "title": "Our chonks",
+        "collection": "chonk-d20s",
+        "product_count": 4
+      }
+    },
     "text-image": {
       "type": "text-image",
       "blocks": {
+        "text": {
+          "type": "heading",
+          "settings": {
+            "heading": "The wizards"
+          }
+        },
         "title": {
           "type": "textarea",
           "settings": {
             "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti praesentium iure dolorem exercitationem omnis voluptates assumenda expedita ducimus. Placeat doloremque quisquam, beatae fuga eum quod illum recusandae quibusdam, iure aliquid dolore hic expedita"
           }
         },
-        "text": {
-          "type": "heading",
+        "ba1134f5-9914-4156-9125-87d72bcd8a97": {
+          "type": "button",
           "settings": {
-            "heading": "Lorem ipsum"
+            "button_link": true,
+            "url": "",
+            "button_label": "Read more",
+            "button_variant": "primary",
+            "button_margin": 4
           }
         }
       },
       "block_order": [
+        "text",
         "title",
-        "text"
+        "ba1134f5-9914-4156-9125-87d72bcd8a97"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/alex.jpg",
         "show-image": true,
         "padding_top": 16,
         "padding_bottom": 16,
@@ -70,7 +90,7 @@
         "button"
       ],
       "settings": {
-        "title": "Featured Collection",
+        "title": "All products",
         "collection": "",
         "product_count": 4
       }
@@ -78,6 +98,7 @@
   },
   "order": [
     "splash",
+    "9d8f0a18-dcd3-4371-a3a4-4d287725347b",
     "text-image",
     "featured-products"
   ]
