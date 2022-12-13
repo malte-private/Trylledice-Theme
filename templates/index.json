@@ -7,8 +7,8 @@
           "type": "buttons",
           "settings": {
             "button_link": true,
-            "url": "shopify:\/\/pages\/bag-om",
-            "button_label": "Click me",
+            "url": "shopify:\/\/collections",
+            "button_label": "See more",
             "button_variant": "primary-light",
             "button_width": 12,
             "button_margin": 4
