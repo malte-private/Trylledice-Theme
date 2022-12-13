@@ -3,7 +3,15 @@
 		"main": {
 			"type": "main-page",
 			"settings": {}
+		},
+		"title_desc": {
+			"type": "title-description",
+			"settings": {}
+		},
+		"production": {
+			"type": "production",
+			"settings": {}
 		}
 	},
-	"order": ["main"]
+	"order": ["main", "title_desc", "production"]
 }
