@@ -91,7 +91,7 @@
       ],
       "settings": {
         "title": "All products",
-        "collection": "",
+        "collection": "set",
         "product_count": 4
       }
     }
