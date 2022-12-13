@@ -51,7 +51,7 @@
           "type": "button",
           "settings": {
             "button_link": true,
-            "url": "",
+            "url": "shopify:\/\/pages\/om-os",
             "button_label": "Read more",
             "button_variant": "primary",
             "button_margin": 4
