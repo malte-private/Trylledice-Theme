@@ -1,12 +1,37 @@
 {
-	"sections": {
-		"main": {
-			"type": "main-page",
-			"settings": {}
-		},
-		"contact": { "type": "contact" },
-		"featured": { "type": "featured-products" },
-		"spacer": { "type": "spacer" }
-	},
-	"order": ["main", "contact", "spacer", "featured"]
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "contact": {
+      "type": "contact",
+      "settings": {
+        "contact-text": "Bacon ipsum dolor amet venison short ribs capicola bacon fatback flank beef pancetta leberkas. Spare ribs turkey sausage kielbasa, buffalo hamburger meatloaf shankle t-bone filet mignon. Chuck kevin pork chop, pancetta salami tail ham hock cow alcatra spare ribs shankle. Brisket chuck landjaeger spare ribs drumstick.",
+        "email": "12345@gmail.com",
+        "phone": "12345678"
+      }
+    },
+    "spacer": {
+      "type": "spacer",
+      "settings": {
+        "height": 3
+      }
+    },
+    "featured": {
+      "type": "featured-products",
+      "settings": {
+        "title": "Featured Collection",
+        "collection": "",
+        "product_count": 4
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact",
+    "spacer",
+    "featured"
+  ]
 }
