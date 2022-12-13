@@ -1,9 +1,57 @@
 {
-	"sections": {
-		"main": {
-			"type": "main-page",
-			"settings": {}
-		}
-	},
-	"order": ["main"]
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "f4119d59-27ac-4e5f-a3f3-ae2b372d5546": {
+      "type": "title-description",
+      "settings": {
+        "heading": "The wizards",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti praesentium iure dolorem exercitationem omnis voluptates assumenda expedita ducimus. Placeat doloremque quisquam, beatae fuga eum quod illum recusandae quibusdam, iure aliquid dolore hic expedita",
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
+    "b8d0d8f5-649e-49f7-9577-c4379dbf2558": {
+      "type": "about",
+      "blocks": {
+        "template--17150225383746__b8d0d8f5-649e-49f7-9577-c4379dbf2558-167092470173561873-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lorem ipsum"
+          }
+        },
+        "template--17150225383746__b8d0d8f5-649e-49f7-9577-c4379dbf2558-167092470173561873-1": {
+          "type": "textarea",
+          "settings": {
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti praesentium iure dolorem exercitationem omnis voluptates assumenda expedita ducimus. Placeat doloremque quisquam, beatae fuga eum quod illum recusandae quibusdam, iure aliquid dolore hic expedita"
+          }
+        }
+      },
+      "block_order": [
+        "template--17150225383746__b8d0d8f5-649e-49f7-9577-c4379dbf2558-167092470173561873-0",
+        "template--17150225383746__b8d0d8f5-649e-49f7-9577-c4379dbf2558-167092470173561873-1"
+      ],
+      "settings": {
+        "show-image": true,
+        "padding_top": 16,
+        "padding_bottom": 16,
+        "alt-dir": false,
+        "fact-list": "<p>Love dice. Love bacon. Cool teeth<\/p>"
+      }
+    },
+    "34fbc6d7-2df0-4f4b-9f5b-754123b52e1c": {
+      "type": "generate-dice",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "f4119d59-27ac-4e5f-a3f3-ae2b372d5546",
+    "b8d0d8f5-649e-49f7-9577-c4379dbf2558",
+    "34fbc6d7-2df0-4f4b-9f5b-754123b52e1c"
+  ]
 }
