@@ -20,7 +20,7 @@
         "template--17150225383746__b8d0d8f5-649e-49f7-9577-c4379dbf2558-167092470173561873-0": {
           "type": "heading",
           "settings": {
-            "heading": "Lorem ipsum"
+            "heading": "Get to know Alex"
           }
         },
         "template--17150225383746__b8d0d8f5-649e-49f7-9577-c4379dbf2558-167092470173561873-1": {
@@ -35,6 +35,7 @@
         "template--17150225383746__b8d0d8f5-649e-49f7-9577-c4379dbf2558-167092470173561873-1"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/Emne_6_3.png",
         "show-image": true,
         "padding_top": 16,
         "padding_bottom": 16,
