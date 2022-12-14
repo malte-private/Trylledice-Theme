@@ -1,3 +1,5 @@
+<!-- navigation desktop -->
+<div class="hidden md:flex">
   <nav class="flex items-center justify-between gap-20 px-5 py-10 items center navigation-text-color">
 
   <ul class="flex items-center gap-20">
@@ -67,6 +69,87 @@
       {% endif %}
     </div>
   </nav>
+</div>
+
+<!-- navigation mobile -->
+<div class="fixed top-0 left-0 z-10 w-full md:hidden bg-orange-50">
+  <nav class="flex items-center justify-between gap-20 px-2 py-2 m-2 navigation-text-color">
+    <!-- logo -->
+  <div class="w-16">
+  {%- if section.settings.logo != blank -%}
+
+    <a href="/"><img src="{{section.settings.logo | image_url}}" alt="{{section.settings.logo.alt}}"></a>
+  {%- else -%}
+      <a href="/">{{ 'image' | placeholder_svg_tag  }}</a>
+  {%- endif -%}
+  </div>
+  <!-- menu -->
+  <div id="nav-menu" class="fixed top-0 z-10 w-full h-full bg-main-accent right-[-100%] p-11 ">
+  <ul class="flex flex-col">
+    
+    {% for link in linklists.main-menu.links %}
+      {% assign child_list_handle = link.title | handleize %}
+      {% if linklists[child_list_handle].links != blank %}
+        <li data-nested="{{forindex}}" class="relative flex items-center gap-1 hover:duration-75 hover:transition-all hover:underline hover:underline-offset-4">
+          <div >
+
+          <p class="text-orange-200 cursor-pointer menu">{{ link.title }}</p>
+
+
+          <ul class="absolute opacity-0 nested-menu" >
+          {% for childlink in linklists[child_list_handle].links %}
+
+        <li class=" hover:duration-75 hover:transition-all hover:underline hover:underline-offset-4">
+          <a class="text-orange-200 menu" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+      </div>
+      <svg data-chevron class="mt-1 text-orange-200 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+</svg>
+        </li>
+      {% else %}
+        <li class=" hover:duration-75 hover:transition-all hover:underline hover:underline-offset-4">
+          <a class="text-orange-200 menu" href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+        {% endif %}
+    {% endfor %}
+
+
+  </ul>
+  <button id="nav-close" class="absolute text-sm text-orange-200 cursor-pointer top-1 right-1">x</button>
+</div>
+<div class="flex h-full gap-2">
+<!-- kurv -->
+  <div class="nav_shop">
+    <div class="relative w-6">
+      <a href="/cart"><img class="w-full" src="{{'cart-bag.svg' | asset_url}}" alt="cart icon"></a>
+      <div class="absolute flex items-center justify-center w-5 h-5 text-xs text-center text-white border border-black rounded-full bg-main-accent -bottom-2 -right-1"><span >
+      {%- if cart.item_count <= 0 -%}
+        0
+        {%- else -%}
+
+      {{ cart.item_count }}
+      {%- endif -%}
+      </span>
+      </div>
+    </div>
+
+      {% if shop.customer_accounts_enabled %}
+        {% if customer %}
+          <li><a href="/account">account</a></li>
+          {{ 'log out'  | customer_logout_link }}
+        {% else %}
+          {{ 'log in ' | customer_login_link }}
+          {{ 'register' | customer_register_link }}
+        {% endif %}
+      {% endif %}
+    </div>
+    <div id="nav-toggle" class="cursor-pointer nav_toggle">{% render "burger" %}</div>
+  </div>
+  </nav>
+</div>
 
 </header>
 
@@ -78,6 +161,25 @@
   chevron.classList.toggle("rotate-180")
   nestedMenuWrapper.classList.toggle("opacity-100");
   })})
+
+  // burger menu
+  let navMenu = document.querySelector('#nav-menu');
+  let navToggle = document.querySelector('#nav-toggle');
+  let navClose = document.querySelector('#nav-close');
+
+  // menu show
+  if(navToggle){
+      navToggle.addEventListener('click', () =>{
+          navMenu.classList.add('right-0')
+      })
+  }
+
+  // menu hidden
+  if(navClose){
+      navClose.addEventListener('click', () =>{
+          navMenu.classList.remove('right-0')
+      })
+  }
 </script>
 
 {% schema %}
