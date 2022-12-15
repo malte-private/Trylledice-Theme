@@ -1,83 +1,26 @@
-<div class="grid grid-cols-12 ">
+<div class="grid md:grid-cols-12 ">
 
-  <div class="flex flex-col items-start col-span-2 col-start-1 row-start-2 gap-4 pt-8">
-    {%- render 'filter' -%}
+  <div class="flex flex-col items-start justify-center row-start-2 gap-4 pt-8 md:justify-start md:col-span-2 md:col-start-1">
+    <label class="flex flex-row items-baseline justify-center gap-1 md:hidden md:row-start-1 md:col-start-10 md:col-end-13 menu" for="sort-by">Sort by
+    <select id="sort-by" class="h-6 p-0 pr-8 border-none w-28 menu text-ellipsis bg-inherit">
+      {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
 
-
-
-    <details class="group">
-      <summary class="list-none inline-flex gap-1 before:group-open:rotate-0 before:self-center appearance-none before:content-[''] before:inline-block before:bg-small-arrow before:-rotate-90 before:w-4 before:transition-transform duration-75 before:bg-contain before:bg-no-repeat before:h-4 cursor-pointer ">
-        <div>
-          <span class="text-xl body body-text-color">Dice Type</span>
-
-        </div>
-      </summary>
-      <div>
-        <ul class="flex flex-wrap gap-3">
-          {%- assign activeCollection = collection.title -%}
-          {%assign activeHandle = collection.handle %}
-          {% for collection in collections offset: 1 %}
-            <li class="relative flex items-center gap-2 px-4 py-1 border-2 border-main-accent {% if collection.handle == activeHandle %} text-main-primary bg-main-accent {% endif %}">
-              {{ collection.title | link_to: collection.url}}
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </details>
-
-    {%- comment -%}
-      {%- for filter in collection.filters -%}
-      {%- if filter.param_name == "filter.v.price" -%}
-      <details class="group">
-      <summary class="list-none inline-flex gap-1 before:group-open:rotate-0 before:self-center appearance-none before:content-[''] before:inline-block before:bg-small-arrow before:-rotate-90 before:w-4 before:transition-transform duration-75 before:bg-contain before:bg-no-repeat before:h-4 cursor-pointer ">
-      <div>
-      <span class="text-xl body body-text-color">{{ filter.label }}</span>
-      </div>
-      </summary>
-      <div>
-      <div class="filter-group-display__price-range">
-      <span>{{filter.min_value.value}}</span>
-      <input type="range" class="text-green-400" min="{{filter.min_value.value | money_without_currency| replace: ',', ''}}" max="">
-      <div class="filter-group-display__price-range-from">
-
-
-      <input name="{{ filter.min_value.param_name }}" id="Filter-{{ filter.min_value.param_name }}"
-      {% if filter.min_value.value -%}
-      value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
-      {%- endif %}
-      type="number" placeholder="0" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' }}">
-
-      <label for="Filter-{{ filter.min_value.param_name }}">From</label>
-      </div>
-      <div class="filter-group-display__price-range-to">
-      <span>{{ cart.currency.symbol }}</span>
-
-      <input name="{{ filter.max_value.param_name }}" id="Filter-{{ filter.max_value.param_name }}"
-      {% if filter.max_value.value -%}
-      value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
-      {%- endif %}
-      type="number" placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' }}">
-
-      <label for="Filter-{{ filter.max_value.param_name }}">To</label>
-      </div>
-      </div>
-
-      <div class="filter-group-display__submit">
-      <input type="submit" value="Apply">
-      </div>
-      </div>
-      </details>
-      {%- endif -%}
-      {%endfor%}
-    {%- endcomment -%}
-
+      {% for option in collection.sort_options %}
+        <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>
+          {{ option.name }}
+        </option>
+      {% endfor %}
+    </select>
+  </label>
+      {%- render 'filter' -%}
 
   </div>
 
 
 
-  <h1 class="col-start-4 col-end-10 text-center h1 heading-text-color">Dice collections</h1>
-  <label class="flex flex-row col-start-10 col-end-13 row-start-1 gap-1 menu" for="sort-by">Sort by
+  <h1 class="text-center md:col-start-4 md:col-end-10 h1 heading-text-color">Dice collections</h1>
+
+  <label class="flex-row hidden md:flex md:row-start-1 md:gap-1 md:col-start-10 md:col-end-13 menu" for="sort-by">Sort by
     <select id="sort-by" class="h-6 p-0 pr-8 border-none menu text-ellipsis bg-inherit">
       {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
 
@@ -88,7 +31,7 @@
       {% endfor %}
     </select>
   </label>
-  <div class="col-start-3 row-start-2 col-span-full">
+  <div class="md:row-start-2 md:col-start-3 col-span-full">
     {% paginate collection.products by 9 %}
 
 

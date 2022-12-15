@@ -22,7 +22,7 @@
               <p class="cursor-pointer menu">{{ link.title }}</p>
 
 
-              <ul class="absolute px-4 py-1 space-y-2 opacity-0 -left-3 nested-menu bg-main-primary">
+              <ul class="absolute px-4 py-1 space-y-2 scale-y-0 md:!h-auto -left-3 nested-menu bg-main-primary">
                 {% for childlink in linklists[child_list_handle].links %}
 
                   <li class="hover:duration-75 hover:transition-all hover:underline hover:underline-offset-4">
@@ -168,31 +168,32 @@
 <script defer>
   let nestedMenu = document.querySelectorAll("[data-nested]");
   nestedMenu.forEach((menu, idx)=>{menu.addEventListener("click", ()=>{
-                                  let nestedMenuWrapper = menu.querySelector(".nested-menu");
-                                  let chevron = menu.querySelector("[data-chevron]");
-                                  chevron.classList.toggle("rotate-180")
-                                  nestedMenuWrapper.classList.toggle("scale-y-100");
-                                  nestedMenuWrapper.classList.toggle("!h-full");
-                                  })})
+  let nestedMenuWrapper = menu.querySelector(".nested-menu");
+  let chevron = menu.querySelector("[data-chevron]");
+  chevron.classList.toggle("rotate-180")
+  nestedMenuWrapper.classList.toggle("scale-y-100");
+  nestedMenuWrapper.classList.toggle("!h-full");
+  nestedMenuWrapper.classList.toggle("!opacity-1");
+  })})
 
-                                  // burger menu
-                                  let navMenu = document.querySelector('#nav-menu');
-                                  let navToggle = document.querySelector('#nav-toggle');
-                                  let navClose = document.querySelector('#nav-close');
+  // burger menu
+  let navMenu = document.querySelector('#nav-menu');
+  let navToggle = document.querySelector('#nav-toggle');
+  let navClose = document.querySelector('#nav-close');
 
-                                  // menu show
-                                  if(navToggle){
-                                      navToggle.addEventListener('click', () =>{
-                                          navMenu.classList.add('right-0')
-                                      })
-                                  }
+  // menu show
+  if(navToggle){
+      navToggle.addEventListener('click', () =>{
+          navMenu.classList.add('right-0')
+      })
+  }
 
-                                  // menu hidden
-                                  if(navClose){
-                                      navClose.addEventListener('click', () =>{
-                                          navMenu.classList.remove('right-0')
-                                      })
-                                  }</script>
+  // menu hidden
+  if(navClose){
+      navClose.addEventListener('click', () =>{
+          navMenu.classList.remove('right-0')
+      })
+  }</script>
 
 {% schema %}
   {
