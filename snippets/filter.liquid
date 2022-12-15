@@ -1,7 +1,7 @@
 <div class="flex flex-col items-start justify-center">
 
   <details class="group">
-    <summary class="list-none inline-flex gap-1 before:group-open:rotate-0 before:self-center appearance-none before:content-[''] before:inline-block before:bg-small-arrow before:-rotate-90 before:w-4 before:transition-transform duration-75 before:bg-contain before:bg-no-repeat before:h-4 cursor-pointer w-full justify-center">
+    <summary class="list-none inline-flex gap-1 before:group-open:rotate-0 before:self-center appearance-none before:content-[''] before:inline-block before:bg-small-arrow before:-rotate-90 before:w-4 before:transition-transform duration-75 before:bg-contain before:bg-no-repeat before:h-4 cursor-pointer w-full justify-center md:justify-start">
       <div>
         <span class="text-xl body body-text-color">Dice Type</span>
 
@@ -38,7 +38,8 @@
                 {%- when 'boolean' or 'list' -%}
                 <ul class="grid grid-cols-4 gap-1 py-3 grid-flow-dense">
                   {%- for filter_value in filter.values -%}
-                    <li class="filter-group-display__list-item body">
+                    <li
+                      class="filter-group-display__list-item body">
                       <input
                         class="hidden peer"
                         type="checkbox"
