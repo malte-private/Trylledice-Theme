@@ -5,7 +5,7 @@
       {% if section.settings.image == blank %}
         {{ 'lifestyle-1' | placeholder_svg_tag }}
       {% else %}
-        {{section.settings.image | image_url: width: 450 | image_tag}}
+        {{section.settings.image | image_url: width: 450 | image_tag: class: 'object-cover h-96 '}}
       {% endif %}
     {%- endif -%}
 
@@ -19,11 +19,11 @@
       <ul data-fact-list class="flex flex-col gap-2 pb-10"></ul>
 
       {% for block in section.blocks %}
-        <h2 class="h2 heading-text-color">{{ block.settings.heading }}</h2>
+        <h2 class="h2 heading-text-color {{block.settings.title-position}}">{{ block.settings.heading }}</h2>
       {% endfor %}
 
       {% for block in section.blocks %}
-        <p class="body body-text-color">{{ block.settings.description }}</p>
+        <p class="body body-text-color {{block.settings.body-text-position}}">{{ block.settings.description }}</p>
       {% endfor %}
 
       {% for block in section.blocks %}
@@ -165,6 +165,22 @@
             "label": "Headline for the page",
             "id": "heading",
             "default": "Lorem ipsum"
+          }, {
+            "type": "select",
+            "id": "title-position",
+            "label": "Title position",
+            "options": [
+              {
+                "value": "text-left",
+                "label": "Left"
+              }, {
+                "value": "text-center",
+                "label": "Center"
+              }, {
+                "value": "text-right",
+                "label": "Right"
+              }
+            ]
           }
         ]
       }, {
@@ -176,6 +192,22 @@
             "label": "Desciption",
             "id": "description",
             "default": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti praesentium iure dolorem exercitationem omnis voluptates assumenda expedita ducimus. Placeat doloremque quisquam, beatae fuga eum quod illum recusandae quibusdam, iure aliquid dolore hic expedita "
+          }, {
+            "type": "select",
+            "id": "body-text-position",
+            "label": "Body text position",
+            "options": [
+              {
+                "value": "text-left",
+                "label": "Left"
+              }, {
+                "value": "text-center",
+                "label": "Center"
+              }, {
+                "value": "text-right",
+                "label": "Right"
+              }
+            ]
           }
         ]
 

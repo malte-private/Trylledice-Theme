@@ -12,7 +12,7 @@ module.exports = {
 	theme: {
 		extend: {
 			backgroundImage: {
-				footer: "url('../assets/footer.svg')",
+				footer: "url('../assets/footer-desktop.svg')",
 				"footer-mobile": "url('../assets/footer-mobile.svg')",
 				drage: "url('../assets/drage.svg')",
 				ornament: "url('../assets/ornament.svg')",
