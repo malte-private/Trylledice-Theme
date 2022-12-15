@@ -8,7 +8,7 @@
           "settings": {
             "button_link": true,
             "url": "shopify:\/\/collections\/all",
-            "button_label": "See more",
+            "button_label": "See all",
             "button_variant": "primary-light",
             "button_width": 12,
             "button_margin": 4
@@ -19,9 +19,15 @@
         "button"
       ],
       "settings": {
-        "heading-one": "Explore",
-        "heading-two": "The Collection",
+        "heading-one": "Handmade diceset",
+        "heading-two": "A unique design",
         "splash-img": "shopify:\/\/shop_images\/splash.png"
+      }
+    },
+    "4471e8cd-4796-46e7-991b-65f3d5bdf078": {
+      "type": "spacer",
+      "settings": {
+        "height": 5
       }
     },
     "9d8f0a18-dcd3-4371-a3a4-4d287725347b": {
@@ -32,13 +38,19 @@
         "product_count": 4
       }
     },
+    "018250b1-2374-4d01-b8c6-8a3a0dec9af9": {
+      "type": "spacer",
+      "settings": {
+        "height": 5
+      }
+    },
     "text-image": {
       "type": "text-image",
       "blocks": {
         "text": {
           "type": "heading",
           "settings": {
-            "heading": "The wizards",
+            "title": "The wizards",
             "title-position": "text-left"
           }
         },
@@ -56,6 +68,7 @@
             "url": "shopify:\/\/pages\/about-us",
             "button_label": "Read more",
             "button_variant": "primary",
+            "button_width": 12,
             "button_margin": 4,
             "button-position": "self-start"
           }
@@ -72,6 +85,12 @@
         "padding_top": 16,
         "padding_bottom": 16,
         "alt-dir": false
+      }
+    },
+    "9f435e51-5a31-484d-be3a-7f19892ca6ad": {
+      "type": "spacer",
+      "settings": {
+        "height": 5
       }
     },
     "featured-products": {
@@ -101,8 +120,11 @@
   },
   "order": [
     "splash",
+    "4471e8cd-4796-46e7-991b-65f3d5bdf078",
     "9d8f0a18-dcd3-4371-a3a4-4d287725347b",
+    "018250b1-2374-4d01-b8c6-8a3a0dec9af9",
     "text-image",
+    "9f435e51-5a31-484d-be3a-7f19892ca6ad",
     "featured-products"
   ]
 }
