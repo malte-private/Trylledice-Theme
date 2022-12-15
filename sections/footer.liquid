@@ -37,7 +37,7 @@
           <ul class="space-y-5 ">
             {%- for collection in collections offset: 1 -%}
               <li class="text-sm menu navigation-text-color">
-                {{collection.title | link_to: collection.url }}
+                {{ collection.title | link_to: collection.url }}
               </li>
             {%- endfor -%}
           </ul>
@@ -48,22 +48,31 @@
       <ul class="flex gap-10">
         {%- if settings.social_instagram != blank -%}
           <li>
-            <a href="https://{{settings.social_instagram  | escape}}" target="_blank" aria-label="Instagram">
+            <a
+              href="https://{{settings.social_instagram  | escape}}"
+              target="_blank"
+              aria-label="Instagram">
               {%- render 'instagram-icon' -%}</a>
           </li>
         {%- endif -%}
         {%- if settings.social_facebook != blank -%}
           <li>
-            <a href="https://{{settings.social_facebook  | escape}}" target="_blank" aria-label="Facebook">{%- render 'facebook-icon' -%}</a>
+            <a
+              href="https://{{settings.social_facebook  | escape}}"
+              target="_blank"
+              aria-label="Facebook">{%- render 'facebook-icon' -%}</a>
           </li>
         {%- endif -%}
         {%- if settings.social_youtube != blank -%}
           <li>
-            <a href="https://{{settings.social_youtube  | escape}}" target="_blank" aria-label="Youtube">{%- render 'youtube-icon' -%}</a>
+            <a
+              href="https://{{settings.social_youtube  | escape}}"
+              target="_blank"
+              aria-label="Youtube">{%- render 'youtube-icon' -%}</a>
           </li>
         {%- endif -%}
       </ul>
-      <p class="text-sm tracking-wider navigation-text-color menu">&#169; {{shop.name}}</p>
+      <p class="text-sm tracking-wider navigation-text-color menu">&#169; {{ shop.name }}</p>
     </div>
   </div>
 

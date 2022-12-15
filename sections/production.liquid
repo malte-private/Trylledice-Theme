@@ -30,7 +30,7 @@
       <button
         data-bg-button="primary"
         data-nav="prev"
-        class="hidden w-56 col-start-1 justify-self-end btn-primary-test btn-grid"
+        class="hidden w-56 col-start-1 justify-self-end btn-primary btn-grid"
         data-generate>
         <div class="grid-area">{%- render 'button-prev' -%}</div>
         <span class="pl-5 pointer-events-none grid-area">
@@ -39,7 +39,7 @@
       <button
         data-bg-button="primary"
         data-nav="next"
-        class="w-56 col-start-2 btn-primary-test justify-self-start btn-grid"
+        class="w-56 col-start-2 btn-primary justify-self-start btn-grid"
         data-generate>
         <div class="grid-area">{%- render 'button-next' -%}</div>
         <span class="pr-5 pointer-events-none grid-area">
@@ -53,8 +53,7 @@
 
 
 <script>
-  const navBtns = document.querySelectorAll("button")
-  console.log(navBtns)
+  const navBtns = document.querySelectorAll("[data-nav]")
   const stepsMetafield = {{page.metafields.custom.behind_the_scenes}};
   const gifsMetafield = {{page.metafields.custom.steps_gifs.value | json}};
   let stepsIdx = 0
@@ -76,12 +75,10 @@
       containerText.querySelector("h2").textContent = stepsArr[stepsIdx].title;
       containerText.querySelector("p").textContent = stepsArr[stepsIdx].description;
       containerGifs.querySelector("img").src = gifsMetafield[stepsIdx]
-      console.log(stepsIdx)
 
 
 
     });
-    console.log(stepsArr.length);
     navBtns.forEach((el) => {
       el.addEventListener("click", (e) => {
         e.stopPropagation()
@@ -105,9 +102,7 @@
           }
         }
         if (target === "next") {
-          console.log(e)
           stepsIdx < stepsArr.length - 1 && stepsIdx++;
-          console.log(stepsIdx)
           if (stepsIdx < stepsArr.length) {
             containerText.querySelector("h2").textContent = stepsArr[stepsIdx].title;
             containerText.querySelector("p").textContent = stepsArr[stepsIdx].description;

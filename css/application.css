@@ -5,21 +5,17 @@
 @tailwind utilities;
 
 @layer components {
-	.btn-primary-test {
+	.btn-primary {
 		@apply text-main-primary;
 	}
-	.btn-primary {
-		@apply inline-flex items-center justify-center  bg-no-repeat bg-contain bg-button-primary aspect-button text-main-primary;
-	}
 	.btn-primary-light {
-		@apply inline-flex items-center justify-center  bg-no-repeat bg-contain bg-button-primary-light text-main-text aspect-button;
-	}
-	.btn-secondary {
-		@apply text-main-text inline-flex items-center justify-center  bg-no-repeat bg-contain bg-button-secondary aspect-button;
-	}
-	.btn-secondary-test {
 		@apply text-main-text;
 	}
+
+	.btn-secondary {
+		@apply text-main-text;
+	}
+
 	.btn-minimal {
 		@apply text-main-text underline underline-offset-2 justify-self-end text-right;
 	}

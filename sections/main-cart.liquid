@@ -1,6 +1,10 @@
 {% if cart.item_count > 0 %}
   <h1 class="pb-8 h1 heading-text-color">Shopping Cart</h1>
-  <form action="/cart" method="post" class="w-full" novalidate>
+  <form
+    action="/cart"
+    method="post"
+    class="w-full"
+    novalidate>
     <table class="w-full">
       <thead class="pb-5 text-left border-b body border-b-main-text h-fit">
         <th colspan="2">Prod</th>
@@ -13,7 +17,10 @@
           <tr class="text-left border-b body border-b-main-text h-fit">
             <td class="w-40 ">
               <a href="{{ item.url | within: collections.all }}">
-                <img class="w-full h-auto" src=" {{ item | img_url: 'medium' }} " alt=" {{ item.title | escape }} ">
+                <img
+                  class="w-full h-auto"
+                  src=" {{ item | img_url: 'medium' }} "
+                  alt=" {{ item.title | escape }} ">
               </a>
             </td>
             <td class="pl-10">
@@ -32,7 +39,10 @@
                 {{ discount.title }}{% endfor %}
             </td>
             <td>
-              <a class="inline-block w-8 -mt-2" href="/cart/change?line={{ forloop.index }}&amp;quantity=0" aria-label="remove">{%- render 'trashcan' -%}</a>
+              <a
+                class="inline-block w-8 -mt-2"
+                href="/cart/change?line={{ forloop.index }}&amp;quantity=0"
+                aria-label="remove">{%- render 'trashcan' -%}</a>
             </td>
           </tr>
         {% endfor %}
@@ -56,15 +66,24 @@
           </p>
           <p class="flex justify-between gap-5 heading-text-color h3">
             <span>Total</span>
-            <span>{{cart.total_price | money | plus: 50 }} kr</span>
+            <span>{{ cart.total_price | money | plus: 50 }} kr</span>
           </p>
         </div>
         <label class="flex items-center gap-2 body" for="terms">
 
-          <input type="checkbox" name="terms" id="terms" required>
+          <input
+            type="checkbox"
+            name="terms"
+            id="terms"
+            required>
           I agree to<a class="text-main-accent-secondary" href="{{shop.terms_of_service.url}}">Terms and Conditions</a>
         </label>
-        <button type="submit" name="checkout" data-bg-button="primary" class=" w-60 btn-primary-test btn-grid" data-generate>
+        <button
+          type="submit"
+          name="checkout"
+          data-bg-button="primary"
+          class=" w-60 btn-primary btn-grid"
+          data-generate>
           <div class="grid-area">
             {%- render 'button-main' -%}
           </div>

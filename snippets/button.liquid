@@ -1,50 +1,64 @@
 {% case block.settings.button_variant %}
   {% when "primary" %}
-    {%- if block.settings.url -%}
-      <a class="button button-padding button-width btn-primary {{block.settings.button-position}}  " href="{{block.settings.url}}">
-        {{block.settings.button_label}}
-      </a>
-    {%- else -%}
-      <button class="button button-padding button-width btn-primary {{block.settings.button-position}} ">
-        {{block.settings.button_label}}</button>
-    {%- endif -%}
+  {%- if block.settings.url -%}
+    <a
+      class="button button-padding button-width btn-primary {{block.settings.button-position}} grid place-items-center  "
+      href="{{block.settings.url}}"
+      data-bg-button="primary"
+      class=" w-60 btn-primary btn-grid">
+      <div class="grid-area">{%- render 'button-main' -%}</div>
+      <span class="pointer-events-none grid-area">
+        {{ block.settings.button_label }}
+      </span>
+    </a>
+  {%- endif -%}
 
   {% when "primary-light" %}
-    {%- if block.settings.url -%}
-      <a class="button button-padding button-width btn-primary {{block.settings.button-position}} " href="{{block.settings.url}}">
-        {{block.settings.button_label}}
-      </a>
-    {%- else -%}
-      <button class="button button-padding button-width btn-primary {{block.settings.button-position}} ">
-        {{block.settings.button_label}}</button>
-    {%- endif -%}
+  {%- if block.settings.url -%}
+    <a
+      class="button group button-padding button-width {{block.settings.button-position}} grid place-items-center  "
+      href="{{block.settings.url}}"
+      data-bg-button="primary"
+      class=" w-60 btn-primary-light btn-grid">
+      <div class="grid-area">{%- render 'button-main-light' -%}</div>
+      <span class="pointer-events-none group-hover:text-main-primary btn-primary-light grid-area ">
+        {{ block.settings.button_label }}
+      </span>
+    </a>
+
+  {%- endif -%}
 
   {% when "secondary" %}
-    {%- if block.settings.url -%}
-      <a class="button button-padding button-width btn-secondary {{block.settings.button-position}} " href="{{block.settings.url}}">
-        {{block.settings.button_label}}
-      </a>
-    {%- else -%}
-      <button class="button button-padding button-width btn-secondary {{block.settings.button-position}} ">
-        {{block.settings.button_label}}</button>
-    {%- endif -%}
+  {%- if block.settings.url -%}
+    <a
+      class="button button-padding button-width  {{block.settings.button-position}} grid place-items-center  "
+      href="{{block.settings.url}}"
+      data-bg-button="primary"
+      class=" w-60 btn-primary btn-grid">
+      <div class="grid-area">{%- render 'button-secondary' -%}</div>
+      <span class="pointer-events-none grid-area">
+        {{ block.settings.button_label }}
+      </span>
+    </a>
+
+  {%- endif -%}
 
   {% when "minimal" %}
-    {%- if block.settings.url -%}
-      <a class="button button-padding button-width btn-minimal {{block.settings.button-position}} " href="{{block.settings.url}}">
-        {{block.settings.button_label}}
-      </a>
-    {%- else -%}
-      <button class="button button-padding button-width btn-minimal {{block.settings.button-position}} ">
-        {{block.settings.button_label}}</button>
-    {%- endif -%}
+  {%- if block.settings.url -%}
+    <a class="button button-padding button-width btn-minimal {{block.settings.button-position}} grid place-items-center " href="{{block.settings.url}}">
+      {{ block.settings.button_label }}
+    </a>
+
+  {%- endif -%}
 {% endcase %}
 
 <style>
   .button-padding {
+    /* prettier-ignore */
     margin-top: {{ block.settings.button_margin }}px;
   }
   .button-width {
+    /* prettier-ignore */
     width: {{ block.settings.button_width }}rem;
   }
 </style>

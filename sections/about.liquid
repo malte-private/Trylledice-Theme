@@ -48,10 +48,13 @@
     .forEach((fact, idx) => {
       const domFactList = document.querySelector("[data-fact-list]")
       let li = document.createElement("li")
-
-      li.appendChild('{{ 'image' | placeholder_svg_tag }}')
+      let img = document.createElement("img")
+      img.src = "{{'dice-icon.svg' | asset_url}}"
+      img.classList = "h-full"
+      img.alt = "Dice icon"
       li.innerHTML = fact.trim()
       li.classList = "h-7 body items-center body-text-color flex flex-row-reverse justify-end gap-3"
+      li.appendChild(img)
       domFactList.appendChild(li)
       console.log(fact.trim())
     })
@@ -207,10 +210,6 @@
                 "label": "Right"
               }
             ]
-          }, {
-            "type": "image_picker",
-            "label": "Icon for list",
-            "id": "list-icon"
           }
         ]
 

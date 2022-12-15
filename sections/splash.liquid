@@ -1,29 +1,37 @@
-<div class="grid bg-no-repeat bg-cover splash-img aspect-square md:aspect-video">
-  <div class="w-full h-full overflow-hidden grid-area bg-slate-400">
-    {% if section.settings.splash-img == blank %}
-      {{ 'lifestyle-1' | placeholder_svg_tag: "h-full" }}
-    {% else %}
-      <img class="object-cover object-center h-full" src="{{section.settings.splash-img | image_url}}" alt="{{section.settings.splash-img.alt}}">
-    {% endif %}
-  </div>
-  <div class="flex flex-col items-center self-end pb-4 grid-area md:place-self-center">
-
-    <h1 class="flex flex-col items-center mb-5 text-center h1 splash text-main-primary">
-
-      <span>{{section.settings.heading-one}}</span>
-      <span class="splash-second">{{section.settings.heading-two}}</span>
-
-    </h1>
-
-
-    {% for block in section.blocks %}
-      {% if block.settings.button_link %}
-        {%- render 'button' block: block -%}
+<div>
+  <div class="grid bg-no-repeat bg-cover splash-img aspect-square md:aspect-video">
+    <div class="w-full h-full overflow-hidden grid-area bg-slate-400">
+      {% if section.settings.splash-img == blank %}
+        {{ 'lifestyle-1' | placeholder_svg_tag: "h-full" }}
+      {% else %}
+        <img
+          class="object-cover object-center h-full"
+          src="{{section.settings.splash-img | image_url}}"
+          alt="{{section.settings.splash-img.alt}}">
       {% endif %}
-    {% endfor %}
-  </div>
-  <div class="flex justify-center"><img class="w-8 animate-bounce" src="{{'assets/arrow-small.svg' | assets_url}}" alt=""></div>
+    </div>
+    <div class="flex flex-col items-center self-end pb-4 grid-area md:place-self-center">
 
+      <h1 class="flex flex-col items-center mb-5 text-center h1 splash text-main-primary">
+
+        <span>{{ section.settings.heading-one }}</span>
+        <span class="splash-second">{{ section.settings.heading-two }}</span>
+
+      </h1>
+
+
+      {% for block in section.blocks %}
+        {% if block.settings.button_link %}
+          {%- render 'button' block: block -%}
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="flex justify-center"><img
+        class="w-8 animate-bounce"
+        src="{{'assets/arrow-small.svg' | assets_url}}"
+        alt=""></div>
+  </div>
+</div>
 
 {%- schema -%}
   {
