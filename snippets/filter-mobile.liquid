@@ -1,4 +1,4 @@
-<div class="flex flex-col items-start justify-center">
+<div class="flex justify-center">
 
   <details class="group">
     <summary class="list-none inline-flex gap-1 before:group-open:rotate-0 before:self-center appearance-none before:content-[''] before:inline-block before:bg-small-arrow before:-rotate-90 before:w-4 before:transition-transform duration-75 before:bg-contain before:bg-no-repeat before:h-4 cursor-pointer w-full justify-center">
@@ -19,8 +19,8 @@
       </ul>
     </div>
   </details>
-  <form>
-    <div class="flex flex-col-reverse filter-form">
+  <form class="flex flex-col justify-center">
+    <div class="flex flex-row-reverse justify-center gap-4 filter-form">
       {%- for filter in collection.filters -%}
         {%- case filter.param_name -%}
           {%- when "filter.p.m.custom.dice_color" or "filter.p.m.custom.digit_color" -%}
@@ -36,7 +36,7 @@
             <div>
               {%- case filter.type -%}
                 {%- when 'boolean' or 'list' -%}
-                <ul class="grid grid-cols-4 gap-1 py-3 grid-flow-dense">
+                <ul class="grid grid-cols-3 gap-1 px-4 py-3 bg-main-primary grid-flow-dense">
                   {%- for filter_value in filter.values -%}
                     <li class="filter-group-display__list-item body">
                       <input
@@ -64,14 +64,14 @@
 
       {%- endfor -%}
     </div>
-    <div class="flex gap-4">
+    <div class="flex justify-center gap-4">
       <div class="filter-group-display__submit">
         <input
           class="cursor-pointer"
           type="submit"
           value="Apply">
       </div>
-      <div class="active-filters">
+      <div class="">
         <a href="{{ collection.url }}?sort_by={{ collection.sort_by }}" class="active-filters__clear">Clear all</a>
 
         {%- for filter in collection.filters -%}
@@ -89,5 +89,5 @@
       </div>
     </div>
 
-  </form>
-</div>
+  </div>
+</form>

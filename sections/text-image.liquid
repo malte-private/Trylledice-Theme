@@ -1,4 +1,4 @@
-<div class="grid  gap-5 text-image-container auto-rows-fr items-center {% if section.settings.show-image %} md:grid-cols-2 {% else %}md:grid-cols-4 {%endif%}">
+<div class="grid  gap-5 text-image-container auto-rows-min md:auto-rows-fr items-center {% if section.settings.show-image %} md:grid-cols-2 {% else %}md:grid-cols-4 {%endif%}">
 
   {%- if section.settings.show-image -%}
     <div class=" flex justify-center items-center overflow-hidden {% if section.settings.alt-dir %} order-2 {% endif %} [&>img]:object-cover [&>img]:w-full">
@@ -6,19 +6,18 @@
         {{ 'lifestyle-1' | placeholder_svg_tag }}
       {% else %}
 
-        {{section.settings.image | image_url: width:1000 | image_tag: class: 'object-cover h-96 ', alt:section.settings.image.alt}}
+        {{ section.settings.image | image_url: width: 1000 | image_tag: class: 'object-cover h-96 ', alt: section.settings.image.alt }}
       {% endif %}
     </div>
   {%- endif -%}
 
 
 
-  <div class="flex flex-col justify-between {% if section.settings.alt-dir %}  order-1 {% endif %}">
+  <div class="flex flex-col justify-between items-center  {% if section.settings.alt-dir %}  order-1 {% endif %}">
     <div class="w-full h-20 bg-center bg-no-repeat bg-contain bg-ornament-product "></div>
-    <div class="flex flex-col px-20 py-16">
+    <div class="flex flex-col items-center justify-center gap-1 px-2 py-1 md:px-20 md:py-16">
       {% for block in section.blocks %}
-
-        <h2 class="h1 heading-text-color {{block.settings.title-position}}">{{ block.settings.heading }}</h2>
+        <h2 class="h1 heading-text-color {{block.settings.title-position}}">{{ block.settings.title }}</h2>
       {% endfor %}
 
       {% for block in section.blocks %}
@@ -38,8 +37,10 @@
 
 {% style %}
   .text-image-container {
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-top: {{ section.settings.padding_top }}
+    px;
+    padding-bottom: {{ section.settings.padding_bottom }}
+    px;
   }
 {% endstyle %}
 
@@ -139,6 +140,15 @@
           }, {
 
             "type": "range",
+            "id": "button_width",
+            "min": 10,
+            "max": 20,
+            "step": 1,
+            "label": "Width",
+            "default": 12
+          }, {
+
+            "type": "range",
             "id": "button_margin",
             "min": 0,
             "max": 40,
@@ -174,7 +184,7 @@
           {
             "type": "text",
             "label": "Headline for the page",
-            "id": "heading",
+            "id": "title",
             "default": "Lorem ipsum"
           }, {
             "type": "select",
