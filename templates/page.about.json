@@ -9,7 +9,7 @@
       "type": "title-description",
       "settings": {
         "heading": "The wizards",
-        "description": "Trylledice was made back when corona started. We, Zac and Alex, were invited to a DnD game that Zac's old friend held. After falling in love with the game we felt down to a YouTube wormhole of How to create homemade dice set.\n<br>\nAfter two years with learning by doing we are now creating limited handmade dice set. We are doing what we love and what better way living life than doing your passion?",
+        "description": "Trylledice was made back when corona started. We, Zac and Alex, were invited to a DnD game that Zac's old friend held. After falling in love with the game we felt down to a YouTube wormhole of How to create handmade diceset.\n<br>\nAfter two years with learning by doing we are now creating limited handmade dice set. We are doing what we love and what better way living life than doing your passion?",
         "padding_top": 16,
         "padding_bottom": 16
       }
@@ -20,13 +20,15 @@
         "template--17150225383746__b8d0d8f5-649e-49f7-9577-c4379dbf2558-167092470173561873-0": {
           "type": "heading",
           "settings": {
-            "heading": "Get to know Alex"
+            "heading": "Get to know Alex",
+            "title-position": "text-left"
           }
         },
         "template--17150225383746__b8d0d8f5-649e-49f7-9577-c4379dbf2558-167092470173561873-1": {
           "type": "textarea",
           "settings": {
-            "description": "Alex create all the visual graphics for Trylledice. Beside making beautiful content for Trylledice he is always insane on a guitar solo."
+            "description": "Alex create all the visual graphics for Trylledice. Beside making beautiful content for Trylledice he is always insane on a guitar solo.",
+            "body-text-position": "text-left"
           }
         }
       },
@@ -55,13 +57,15 @@
         "template--17150225383746__4ebeb028-6174-454f-9178-4d7540ef7bf9-167092470173561873-0": {
           "type": "heading",
           "settings": {
-            "heading": "Get to know Zac"
+            "heading": "Get to know Zac",
+            "title-position": "text-left"
           }
         },
         "template--17150225383746__4ebeb028-6174-454f-9178-4d7540ef7bf9-167092470173561873-1": {
           "type": "textarea",
           "settings": {
-            "description": "I am"
+            "description": "I am",
+            "body-text-position": "text-left"
           }
         }
       },
@@ -87,7 +91,7 @@
     "c2372a37-6fb0-461f-ba3d-4fe5c224956a": {
       "type": "personal-dice",
       "settings": {
-        "heading": "",
+        "section-title": "Title",
         "dice-image-1": "shopify:\/\/shop_images\/Emne_15.png",
         "heading-alex": "Alex's favorit dice set",
         "about-alex-dice": "Bacon ipsum dolor amet leberkas short loin pork belly beef. Shoulder t-bone corned beef jerky, ham hock spare ribs beef fatback landjaeger. Boudin prosciutto beef meatloaf bacon spare ribs meatball pork belly shankle ham flank leberkas strip steak buffalo. Porchetta jowl fatback, cupim pig pork belly jerky ribeye tail beef ribs. Fatback turkey boudin, swine bacon kielbasa leberkas. Cupim andouille tail ball tip, filet mignon doner kevin chicken burgdoggen strip steak tongue buffalo meatloaf beef.",
@@ -105,6 +109,9 @@
     "34fbc6d7-2df0-4f4b-9f5b-754123b52e1c": {
       "type": "generate-dice",
       "settings": {
+        "generator-section-title": "Section Title",
+        "generator-title": "title",
+        "generator-desc": "Bacon ipsum dolor amet leberkas short loin pork belly beef. Shoulder t-bone corned beef jerky, ham hock spare ribs beef fatback landjaeger. Boudin prosciutto beef meatloaf bacon spare ribs meatball pork belly shankle ham flank leberkas strip steak buffalo."
       }
     },
     "6c3a7a0f-e8b6-464a-a542-77c1496ceb3e": {
