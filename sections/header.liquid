@@ -1,5 +1,6 @@
 <!-- navigation desktop -->
 <div class="hidden mx-auto md:flex max-w-7xl ">
+
   <nav class="flex items-center justify-between w-full gap-20 px-5 py-10 mx-auto items center navigation-text-color">
 
     <ul class="flex items-center gap-20">
@@ -16,16 +17,13 @@
       {% for link in linklists.main-menu.links %}
         {% assign child_list_handle = link.title | handleize %}
         {% if linklists[child_list_handle].links != blank %}
-          <li data-nested="{{forindex}}" class="relative flex items-center gap-1 hover:duration-75 hover:transition-all hover:underline hover:underline-offset-4">
+      <li data-nested="{{forindex}}" class="relative {% if page.url  == link.url %}  underline underline-offset-4 {% endif   %} flex items-center gap-1 hover:duration-75 hover:transition-all hover:underline hover:underline-offset-4">
+
             <div>
-
               <p class="cursor-pointer menu">{{ link.title }}</p>
-
-
-              <ul class="absolute px-4 py-1 space-y-2 scale-y-0 md:!h-auto -left-3 nested-menu bg-main-primary">
+              <ul class="absolute min-w-[11rem] px-4 py-1 space-y-2 scale-y-0 md:!h-auto -left-3 nested-menu bg-main-primary">
                 {% for childlink in linklists[child_list_handle].links %}
-
-                  <li class="hover:duration-75 hover:transition-all hover:underline hover:underline-offset-4">
+                  <li class="hover:duration-75 hover:transition-all hover:underline  {% if page.url  == childlink.url %}  underline underline-offset-4 {% elsif blog.url == childlink.url %} tunderline underline-offset-4 {% endif   %} hover:underline-offset-4">
                     <a class="menu" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
                   </li>
                 {% endfor %}
@@ -34,16 +32,14 @@
             <div data-chevron class="w-4 mt-1 cursor-pointer body-text-color-beige">
               {% render 'arrow-small' %}
             </div>
-
           </li>
         {% else %}
-          <li class="hover:duration-75 hover:transition-all hover:underline hover:underline-offset-4">
+          <li class="hover:duration-75 hover:transition-all hover:underline hover:underline-offset-4 {% if page.url contains link.url %} underline underline-offset-4 {% elsif collection.url contains link.url %}underline underline-offset-4
+              {% endif   %}">
             <a class="menu" href="{{ link.url }}">{{ link.title }}</a>
           </li>
         {% endif %}
       {% endfor %}
-
-
     </ul>
   </ul>
   <div>

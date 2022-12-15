@@ -1,16 +1,3 @@
-<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-
-{%- capture flickity_options -%}
-  {
-  "prevNextButtons": true,
-                                                                                                              "pageDots": false,
-                                                                                                              "contain": true,
-                                                                                                              "cellAlign": "left",
-                                                                                                              "groupCells": true,
-                                                                                                              "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
-                                                                                                              }{%- endcapture -%}
-
 <div class="mx-auto my-0 featured-collection-slider max-w-7xl md:px-14 page-width">
   {% if section.settings.title != blank %}
     <div class="grid grid-cols-3 justify-items-center">
@@ -29,23 +16,26 @@
   {%- assign collection = collections[section.settings.collection] -%}
   {%- assign product_limit = section.settings.product_count -%}
 
+  <div class="flex justify-evenly">
+    <button class="w-8 button--previous">{% render 'button-slider-prev' %}</button>
+    <ul class="w-full px-10 products-carousel js-flickity" data-flickity>
+      {% if collection != blank %}
 
-  <ul class="px-10 products-carousel js-flickity" data-flickity='{{ flickity_options }}'>
-    {% if collection != blank %}
+        {% for product in collection.products limit: product_limit %}
+          {% assign c = product %}
+          {% render "collection-product" product: c %}
+        {% endfor %}
+      {% else %}
+        {% for product in collections["set"].products limit: 4 %}
 
-      {% for product in collection.products limit: product_limit %}
-        {% assign c = product %}
-        {% include "collection-product" with c %}
-      {% endfor %}
-    {% else %}
-      {% for product in collections["set"].products limit: 4 %}
+          {% assign c = product %}
+          {% render "collection-product" product: c %}
+        {% endfor %}
 
-        {% assign c = product %}
-        {% include "collection-product" with c %}
-      {% endfor %}
-
-    {% endif %}
-  </ul>
+      {% endif %}
+    </ul>
+    <button class="w-8 button--next">{% render 'button-slider-next' %}</button>
+  </div>
 </div>
 
 
@@ -58,6 +48,39 @@
 
 }
 </style>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.css"
+  integrity="sha512-TZTUnuHs1njGko8PJqZlHzqZTZd880A+BvhR1jy1v4mWB4VFKVLG/eK9LYdDjxqNLmttSC1ygmqg6rkYjnEgaQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer" />
+<script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js" "></script>
+<script>
+  const carousel = document.querySelector("[data-flickity]")
+  const flickity = new Flickity(carousel, {
+    prevNextButtons: false,
+    pageDots: false,
+    prevNextButtons: false,
+    pageDots: false,
+    contain: true,
+    cellAlign: "left",
+    groupCells: true
+  });
+
+// previous
+  var previousButton = document.querySelector('.button--previous');
+  previousButton.addEventListener('click', function() {
+    flickity.previous();
+    console.log("prev")
+  });
+
+// next
+  var nextButton = document.querySelector('.button--next');
+  nextButton.addEventListener('click', function() {
+    flickity.next();
+    console.log("prev")
+  });
+</script>
 
 {% schema %}
   {
@@ -76,10 +99,11 @@
       }, {
         "type": "range",
         "id": "product_count",
+        "step": 1,
         "min": 4,
         "max": 12,
         "label": "Number of products to display",
-        "default": 4
+        "default": 6
       }
     ],
     "blocks": [
