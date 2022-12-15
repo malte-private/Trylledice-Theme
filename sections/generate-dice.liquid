@@ -1,6 +1,6 @@
-<div class="grid items-center gap-5 text-image-container auto-rows-fr md:flex md:flex-col ">
+<div class="grid items-center text-image-container auto-rows-fr md:flex md:flex-col ">
 
-  <h2 class="h2 heading-text-color">Heading</h2>
+  <h2 class="h2 heading-text-color">{{section.settings.generator-section-title}}</h2>
   <div class="grid md:grid-cols-2">
 
     <div class=" space-y-10 flex flex-col justify-center items-center  overflow- {% if section.settings.alt-dir %} order-2 {% endif %} ">
@@ -19,8 +19,8 @@
       {%- render 'ornament-top' -%}
       <div class="py-10">
 
-        <span class="h3 heading-text-color">Heading</span>
-        <p class="body body-text-color">Bacon ipsum dolor amet leberkas short loin pork belly beef. Shoulder t-bone corned beef jerky, ham hock spare ribs beef fatback landjaeger. Boudin prosciutto beef meatloaf bacon spare ribs meatball pork belly shankle ham flank leberkas strip steak buffalo.
+        <span class="h3 heading-text-color">{{section.settings.generator-title}}</span>
+        <p class="body body-text-color">{{section.settings.generator-desc}}
         </p>
         <form class="flex flex-col justify-center w-full space-y-7 pt-7">
 
@@ -108,11 +108,27 @@
 {% schema %}
   {
     "name": "Generate Dice",
-    "settings": [],
+    "settings": [
+      {
+        "type": "text",
+        "id": "generator-section-title",
+        "label": "Section Title",
+        "default": "Section Title"
+      }, {
+        "type": "text",
+        "id": "generator-title",
+        "label": "Title",
+        "default": "title"
+      }, {
+        "type": "text",
+        "id": "generator-desc",
+        "label": "Description",
+        "default": "Bacon ipsum dolor amet leberkas short loin pork belly beef. Shoulder t-bone corned beef jerky, ham hock spare ribs beef fatback landjaeger. Boudin prosciutto beef meatloaf bacon spare ribs meatball pork belly shankle ham flank leberkas strip steak buffalo."
+      }
+    ],
     "presets": [
       {
         "name": "Generate Dice"
-
       }
     ]
   }

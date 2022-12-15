@@ -894,6 +894,10 @@ select {
   margin-bottom: 0px;
 }
 
+.-mt-48 {
+  margin-top: -12rem;
+}
+
 .mt-1 {
   margin-top: 0.25rem;
 }
@@ -959,6 +963,10 @@ select {
   height: fit-content;
 }
 
+.h-96 {
+  height: 24rem;
+}
+
 .h-20 {
   height: 5rem;
 }
@@ -1003,10 +1011,6 @@ select {
   height: 60vh;
 }
 
-.h-96 {
-  height: 24rem;
-}
-
 .h-8 {
   height: 2rem;
 }
@@ -1022,6 +1026,10 @@ select {
 .min-h-fit {
   min-height: -moz-fit-content;
   min-height: fit-content;
+}
+
+.min-h-\[19\.5rem\] {
+  min-height: 19.5rem;
 }
 
 .w-full {
@@ -1072,6 +1080,10 @@ select {
   width: 2.25rem;
 }
 
+.w-4\/6 {
+  width: 66.666667%;
+}
+
 .w-32 {
   width: 8rem;
 }
@@ -1080,8 +1092,16 @@ select {
   width: 16rem;
 }
 
+.max-w-\[1400px\] {
+  max-width: 1400px;
+}
+
 .max-w-7xl {
   max-width: 80rem;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
 }
 
 .rotate-180 {
@@ -1173,6 +1193,10 @@ select {
   flex-wrap: wrap;
 }
 
+.place-items-center {
+  place-items: center;
+}
+
 .items-start {
   align-items: flex-start;
 }
@@ -1209,16 +1233,16 @@ select {
   gap: 0.75rem;
 }
 
+.gap-5 {
+  gap: 1.25rem;
+}
+
 .gap-10 {
   gap: 2.5rem;
 }
 
 .gap-6 {
   gap: 1.5rem;
-}
-
-.gap-5 {
-  gap: 1.25rem;
 }
 
 .gap-20 {
@@ -1298,8 +1322,16 @@ select {
   place-self: center;
 }
 
+.self-start {
+  align-self: flex-start;
+}
+
 .self-end {
   align-self: flex-end;
+}
+
+.self-center {
+  align-self: center;
 }
 
 .overflow-hidden {
@@ -1562,6 +1594,10 @@ select {
   text-align: center;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1797,12 +1833,28 @@ select {
     order: 1;
   }
 
+  .md\:col-start-2 {
+    grid-column-start: 2;
+  }
+
+  .md\:col-start-5 {
+    grid-column-start: 5;
+  }
+
   .md\:col-start-1 {
     grid-column-start: 1;
   }
 
   .md\:col-start-3 {
     grid-column-start: 3;
+  }
+
+  .md\:col-end-5 {
+    grid-column-end: 5;
+  }
+
+  .md\:col-end-7 {
+    grid-column-end: 7;
   }
 
   .md\:mx-0 {
@@ -1854,6 +1906,10 @@ select {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .md\:grid-cols-7 {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1870,12 +1926,16 @@ select {
     gap: 1.25rem;
   }
 
+  .md\:gap-0 {
+    gap: 0px;
+  }
+
   .md\:place-self-center {
     place-self: center;
   }
 
   .md\:bg-footer {
-    background-image: url('../assets/footer.svg');
+    background-image: url('../assets/footer-desktop.svg');
   }
 
   .md\:bg-top {

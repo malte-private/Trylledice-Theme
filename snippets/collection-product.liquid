@@ -1,5 +1,5 @@
-<li class="flex flex-col items-center justify-center w-full gap-5 py-0 md:w-1/2 lg:w-1/4">
-  <a href="{{product.url}}" class="flex flex-col items-center justify-center">
+<li class="flex flex-col items-center justify-center flex-1 w-full gap-5 px-4 py-0 md:w-1/2 lg:w-1/4">
+  <a href="{{product.url}}" class="flex flex-col items-center justify-center w-full">
     {% include 'ornament-top' %}
     <div class="w-32 overflow-hidden h-fit">
       <img class="object-contain " src="{{ product.featured_image | image_url: width: 450 }}" alt="{{ featured_image.alt | escape }}">

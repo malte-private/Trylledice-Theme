@@ -1,66 +1,70 @@
-<div class="w-full bg-footer-mobile md:bg-footer bg-no-repeat md:bg-top bg-cover h-[56.25rem] md:h-[56.25rem] flex flex-col justify-end px-20">
-  <div class="grid gap-10 md:grid-cols-2 h-fit ">
+<div class="w-full bg-footer-mobile md:bg-footer -mt-48 bg-no-repeat md:bg-top bg-cover h-[56.25rem] md:h-[56.25rem] items-center flex flex-col justify-end px-20">
+  <div class="w-full max-w-7xl">
 
-    <div class="w-40 mx-auto md:mx-0">
-      {% if section.settings.logo == blank %}
-        {{ 'image' | placeholder_svg_tag: "h-full" }}
-      {% else %}
-        <a href="/">
-          <img class="object-cover" src="{{section.settings.logo | image_url: width: 450 | image_tag}}" alt="section.settings.logo.alt"></a>
-      {% endif %}
-    </div>
 
-    <div class="flex justify-between">
-      <div>
-        <h3 class="pb-5 text-2xl menu navigation-text-color">Information</h3>
-        <ul class="space-y-5 ">
-          {% for link in linklists.footer.links %}
-            {% assign child_list_handle = link.title | handleize %}
-            {% if linklists[child_list_handle].links != blank %}
-              <li class="menu navigation-text-color">
-                <a href="{{ link.url }}">{{ link.title }}</a>
-              </li>
-            {% else %}
-              <li class="menu navigation-text-color">
-                <a href="{{ link.url }}">{{ link.title }}</a>
-              </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
+    <div class="grid gap-10 md:grid-cols-2 h-fit ">
+
+      <div class="w-40 mx-auto md:mx-0">
+        {% if section.settings.logo == blank %}
+          {{ 'image' | placeholder_svg_tag: "h-full" }}
+        {% else %}
+          <a href="/">
+            {{ section.settings.logo | image_url: width: 450 | image_tag: class: 'object-cover' }}</a>
+        {% endif %}
       </div>
-      <div>
-        <h3 class="pb-5 text-2xl menu navigation-text-color">Produkter
-        </h3>
-        <ul class="space-y-5 ">
-          {%- for collection in collections offset: 1 -%}
-            <li class="text-sm menu navigation-text-color">
-              {{collection.title | link_to: collection.url }}
-            </li>
-          {%- endfor -%}
-        </ul>
+
+      <div class="flex justify-between">
+        <div>
+          <h2 class="pb-5 text-2xl menu navigation-text-color">Information</h2>
+          <ul class="space-y-5 ">
+            {% for link in linklists.footer.links %}
+              {% assign child_list_handle = link.title | handleize %}
+              {% if linklists[child_list_handle].links != blank %}
+                <li class="menu navigation-text-color">
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+              {% else %}
+                <li class="menu navigation-text-color">
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+        <div>
+          <h2 class="pb-5 text-2xl menu navigation-text-color">Produkter
+          </h2>
+          <ul class="space-y-5 ">
+            {%- for collection in collections offset: 1 -%}
+              <li class="text-sm menu navigation-text-color">
+                {{collection.title | link_to: collection.url }}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="flex flex-col items-center justify-center gap-6 pt-10 pb-4">
-    <ul class="flex gap-10">
-      {%- if settings.social_instagram != blank -%}
-        <li>
-          <a href="https://{{settings.social_instagram  | escape}}" target="_blank" aria-label="Instagram">
-            {%- render 'instagram-icon' -%}</a>
-        </li>
-      {%- endif -%}
-      {%- if settings.social_facebook != blank -%}
-        <li>
-          <a href="https://{{settings.social_facebook  | escape}}" target="_blank" aria-label="Facebook">{%- render 'facebook-icon' -%}</a>
-        </li>
-      {%- endif -%}
-      {%- if settings.social_youtube != blank -%}
-        <li>
-          <a href="https://{{settings.social_youtube  | escape}}" target="_blank" aria-label="Youtube">{%- render 'youtube-icon' -%}</a>
-        </li>
-      {%- endif -%}
-    </ul>
-    <p class="text-sm tracking-wider navigation-text-color menu">&#169; {{shop.name}}</p>
+    <div class="flex flex-col items-center justify-center gap-6 pt-10 pb-4">
+      <ul class="flex gap-10">
+        {%- if settings.social_instagram != blank -%}
+          <li>
+            <a href="https://{{settings.social_instagram  | escape}}" target="_blank" aria-label="Instagram">
+              {%- render 'instagram-icon' -%}</a>
+          </li>
+        {%- endif -%}
+        {%- if settings.social_facebook != blank -%}
+          <li>
+            <a href="https://{{settings.social_facebook  | escape}}" target="_blank" aria-label="Facebook">{%- render 'facebook-icon' -%}</a>
+          </li>
+        {%- endif -%}
+        {%- if settings.social_youtube != blank -%}
+          <li>
+            <a href="https://{{settings.social_youtube  | escape}}" target="_blank" aria-label="Youtube">{%- render 'youtube-icon' -%}</a>
+          </li>
+        {%- endif -%}
+      </ul>
+      <p class="text-sm tracking-wider navigation-text-color menu">&#169; {{shop.name}}</p>
+    </div>
   </div>
 
 </div>

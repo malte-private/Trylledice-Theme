@@ -1,41 +1,41 @@
 {% case block.settings.button_variant %}
   {% when "primary" %}
     {%- if block.settings.url -%}
-      <a class="button button-padding button-width btn-primary" href="{{block.settings.url}}">
+      <a class="button button-padding button-width btn-primary {{block.settings.button-position}}  " href="{{block.settings.url}}">
         {{block.settings.button_label}}
       </a>
     {%- else -%}
-      <button class="button button-padding button-width btn-primary">
+      <button class="button button-padding button-width btn-primary {{block.settings.button-position}} ">
         {{block.settings.button_label}}</button>
     {%- endif -%}
 
   {% when "primary-light" %}
     {%- if block.settings.url -%}
-      <a class="button button-padding button-width btn-primary" href="{{block.settings.url}}">
+      <a class="button button-padding button-width btn-primary {{block.settings.button-position}} " href="{{block.settings.url}}">
         {{block.settings.button_label}}
       </a>
     {%- else -%}
-      <button class="button button-padding button-width btn-primary">
+      <button class="button button-padding button-width btn-primary {{block.settings.button-position}} ">
         {{block.settings.button_label}}</button>
     {%- endif -%}
 
   {% when "secondary" %}
     {%- if block.settings.url -%}
-      <a class="button button-padding button-width btn-secondary" href="{{block.settings.url}}">
+      <a class="button button-padding button-width btn-secondary {{block.settings.button-position}} " href="{{block.settings.url}}">
         {{block.settings.button_label}}
       </a>
     {%- else -%}
-      <button class="button button-padding button-width btn-secondary">
+      <button class="button button-padding button-width btn-secondary {{block.settings.button-position}} ">
         {{block.settings.button_label}}</button>
     {%- endif -%}
 
   {% when "minimal" %}
     {%- if block.settings.url -%}
-      <a class="button button-padding button-width btn-minimal" href="{{block.settings.url}}">
+      <a class="button button-padding button-width btn-minimal {{block.settings.button-position}} " href="{{block.settings.url}}">
         {{block.settings.button_label}}
       </a>
     {%- else -%}
-      <button class="button button-padding button-width btn-minimal">
+      <button class="button button-padding button-width btn-minimal {{block.settings.button-position}} ">
         {{block.settings.button_label}}</button>
     {%- endif -%}
 {% endcase %}

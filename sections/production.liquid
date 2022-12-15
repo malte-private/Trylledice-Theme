@@ -1,0 +1,111 @@
+<div class="grid gap-5 place-items-center text-image-container md:grid-cols-2 ">
+
+  <div data-steps-gifs class="w-4/6">
+    {%- if page.metafields.custom.steps_gifs.value != blank -%}
+
+      <img class="object-contain w-full" src="" alt="">
+    {%- else -%}
+
+      {{page.metafields.custom.steps_gifs.value | json}}
+    {%- endif -%}
+  </div>
+
+
+
+  <div>
+    <div class="w-full h-20 bg-center bg-no-repeat bg-contain bg-ornament-product "></div>
+    <article data-steps-text class="px-5 pt-8 min-h-[19.5rem]">
+      <div>
+
+        <h2 class="h2 heading-text-color">heading</h2>
+        <p class="body body-text-color"></p>
+      </div>
+
+
+    </article>
+    <div class="flex justify-center gap-5">
+      <button data-bg-button="primary" data-nav="prev" class=" btn-primary-test btn-grid" data-generate>
+        <div class="grid-area">{%- render 'button-main' -%}</div>
+        <span class="pointer-events-none grid-area">
+          Prev</span>
+      </button>
+      <button data-bg-button="primary" data-nav="next" class=" btn-primary-test btn-grid" data-generate>
+        <div class="grid-area">{%- render 'button-main' -%}</div>
+        <span class="pointer-events-none grid-area">
+          Next</span>
+      </button>
+    </div>
+    <div class="w-full h-20 rotate-180 bg-center bg-no-repeat bg-contain bg-ornament-product"></div>
+  </div>
+</div>
+
+
+
+<script>
+  const navBtns = document.querySelectorAll("button")
+  console.log(navBtns)
+  const stepsMetafield = {{page.metafields.custom.behind_the_scenes}};
+  const gifsMetafield = {{page.metafields.custom.steps_gifs.value | json}};
+  let stepsIdx = 0
+
+// Converting object to array
+    let stepsArr = [],
+      item;
+    for (let step in stepsMetafield) {
+      item = {}
+      item.title = stepsMetafield[step].title;
+      item.description = stepsMetafield[step].description
+      stepsArr.push(item)
+    }
+
+    const containerText = document.querySelector("[data-steps-text]")
+    const containerGifs = document.querySelector("[data-steps-gifs]")
+
+    window.addEventListener("DOMContentLoaded", () => {
+      containerText.querySelector("h2").textContent = stepsArr[0].title;
+      containerText.querySelector("p").textContent = stepsArr[0].description;
+      containerGifs.querySelector("img").src = gifsMetafield[0]
+
+
+    });
+    console.log(stepsArr.length);
+    navBtns.forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.stopPropagation()
+        const target = e.currentTarget.dataset.nav;
+
+        if (target === "prev") {
+          stepsIdx > 0
+            ? stepsIdx--
+            : stepsIdx = 0;
+
+          if (stepsIdx >= 0) {
+            containerText.querySelector("h2").textContent = stepsArr[stepsIdx].title;
+            containerText.querySelector("p").textContent = stepsArr[stepsIdx].description;
+            containerGifs.querySelector("img").src = gifsMetafield[stepsIdx]
+          }
+        }
+        if (target === "next") {
+          stepsIdx < stepsArr.length - 1 && stepsIdx++;
+          console.log(stepsIdx)
+          if (stepsIdx < stepsArr.length) {
+            containerText.querySelector("h2").textContent = stepsArr[stepsIdx].title;
+            containerText.querySelector("p").textContent = stepsArr[stepsIdx].description;
+            containerGifs.querySelector("img").src = gifsMetafield[stepsIdx]
+
+          }
+        }
+
+      }, true)
+    })
+</script>
+
+
+
+{%- schema -%}
+  {
+    "name": "Behind the scenes",
+    "tag": "section",
+    "settings": []
+  }
+{%- endschema -%}

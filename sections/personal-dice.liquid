@@ -1,35 +1,37 @@
-<div class="flex flex-col items-center justify-around gap-10 md:flex-row">
-  <h3 class="h3 heading-text-color">{{section.settings.heading}}</h3>
+<div class="flex flex-col items-center">
+  <h3 class="h2 heading-text-color">{{section.settings.section-title}}</h3>
 
-  <article class="w-full space-y-6 md:w-1/3">
-    <div class="aspect-dice">
-      {% if section.settings.dice-image-1  == blank %}
-        {{ 'lifestyle-1' | placeholder_svg_tag }}
-      {% else %}
-        <img class="w-full" src="{{section.settings.dice-image-1 | image_url}}" alt="section.settings.dice-image-1.alt">
-      {% endif %}
-    </div>
-    <div class="space-y-2">
-      <h3 class="h3 heading-text-color">{{section.settings.heading-alex}}</h3>
-      <p class="body body-text-color">{{section.settings.about-zac-dice}}</p>
+  <div class="flex flex-col items-center justify-around gap-10 md:flex-row">
+    <article class="w-full space-y-6 md:w-1/3">
+      <div class="aspect-dice">
+        {% if section.settings.dice-image-1  == blank %}
+          {{ 'lifestyle-1' | placeholder_svg_tag }}
+        {% else %}
+          <img class="w-full" src="{{section.settings.dice-image-1 | image_url}}" alt="section.settings.dice-image-1.alt">
+        {% endif %}
+      </div>
+      <div class="space-y-2">
+        <h3 class="h3 heading-text-color">{{section.settings.heading-alex}}</h3>
+        <p class="body body-text-color">{{section.settings.about-zac-dice}}</p>
 
-    </div>
-  </article>
-  <article class="w-full space-y-6 md:w-1/3">
-    <div class="aspect-dice">
-      {% if section.settings.dice-image-2  == blank %}
-        {{ 'lifestyle-1' | placeholder_svg_tag }}
-      {% else %}
-        <img class="w-full" src="{{section.settings.dice-image-2 | image_url}}" alt="section.settings.dice-image-2.alt">
-      {% endif %}
-    </div>
-    <div class="space-y-2">
-      <h3 class="h3 heading-text-color">{{section.settings.heading-zac}}</h3>
-      <p class="body body-text-color">{{section.settings.about-zac-dice}}</p>
-    </div>
-  </article>
-
+      </div>
+    </article>
+    <article class="w-full space-y-6 md:w-1/3">
+      <div class="aspect-dice">
+        {% if section.settings.dice-image-2  == blank %}
+          {{ 'lifestyle-1' | placeholder_svg_tag }}
+        {% else %}
+          <img class="w-full" src="{{section.settings.dice-image-2 | image_url}}" alt="section.settings.dice-image-2.alt">
+        {% endif %}
+      </div>
+      <div class="space-y-2">
+        <h3 class="h3 heading-text-color">{{section.settings.heading-zac}}</h3>
+        <p class="body body-text-color">{{section.settings.about-zac-dice}}</p>
+      </div>
+    </article>
+  </div>
 </div>
+
 
 {% schema %}
   {
@@ -39,7 +41,7 @@
     "settings": [
       {
         "type": "text",
-        "id": "heading",
+        "id": "section-title",
         "label": "Title",
         "default": "Title"
       },
@@ -70,7 +72,7 @@
         "default": "Zac & D'n'D"
       }, {
         "type": "textarea",
-        "label": "About Alex's dice",
+        "label": "About Zac's dice",
         "id": "about-zac-dice",
         "default": "Bacon ipsum dolor amet leberkas short loin pork belly beef. Shoulder t-bone corned beef jerky, ham hock spare ribs beef fatback landjaeger. Boudin prosciutto beef meatloaf bacon spare ribs meatball pork belly shankle ham flank leberkas strip steak buffalo. Porchetta jowl fatback, cupim pig pork belly jerky ribeye tail beef ribs. Fatback turkey boudin, swine bacon kielbasa leberkas. Cupim andouille tail ball tip, filet mignon doner kevin chicken burgdoggen strip steak tongue buffalo meatloaf beef."
       }
