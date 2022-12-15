@@ -1,8 +1,10 @@
-:root{
+:root {
   --base-font-size: 16px;
   --fluid-typography-ratio: 1.8;
 
-  --rem: calc(calc(var(--font-heading-scale) * 2rem) + var(--fluid-typography-ratio) * 1vw)
+  --rem: calc(
+    calc(var(--font-heading-scale) * 2rem) + var(--fluid-typography-ratio) * 1vw
+  );
 }
 
 .h1 {
@@ -25,7 +27,7 @@
   font-family: var(--font-body-family);
 }
 .menu {
-  font-family: var(--font-heading-family)
+  font-family: var(--font-heading-family);
 }
 .price {
   font-family: var(--font-body-family);
@@ -34,5 +36,5 @@
   font-family: var(--font-heading-family);
 }
 .splash-second {
-  font-size: calc(var(--rem) * 1.2)
+  font-size: calc(var(--rem) * 1.2);
 }
