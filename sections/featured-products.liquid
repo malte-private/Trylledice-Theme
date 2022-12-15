@@ -4,21 +4,22 @@
 {%- capture flickity_options -%}
   {
   "prevNextButtons": true,
-                                                                                    "pageDots": false,
-                                                                                    "contain": true,
-                                                                                    "cellAlign": "left",
-                                                                                    "groupCells": true,
-                                                                                    "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
-                                                                                    }{%- endcapture -%}
+                                                                                              "pageDots": false,
+                                                                                              "contain": true,
+                                                                                              "cellAlign": "left",
+                                                                                              "groupCells": true,
+                                                                                              "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+                                                                                              }{%- endcapture -%}
 
 <div class="mx-auto my-0 featured-collection-slider max-w-7xl md:px-14 page-width">
   {% if section.settings.title != blank %}
     <div class="grid grid-cols-3 pb-4 justify-items-center">
-      <h2 class="col-start-1 col-span-full place-self-center h3 heading-text-color">{{ section.settings.title | escape }}</h2>
+      <h2 class="col-start-1 row-start-1  col-span-full place-self-center h3 heading-text-color">{{ section.settings.title | escape }}</h2>
 
       {% for block in section.blocks %}
         {% if block.settings.button_link %}
-          {%- render 'button' block: block -%}
+          <div class="col-start-3 row-start-1">
+            {%- render 'button' block: block -%}</div>
         {% endif %}
       {% endfor %}
 
@@ -34,13 +35,13 @@
 
       {% for product in collection.products limit: product_limit %}
         {% assign c = product %}
-        {%include "collection-product" with c%}
+        {% include "collection-product" with c %}
       {% endfor %}
     {% else %}
       {% for product in collections["set"].products limit: 4 %}
 
-        {% assign c = product  %}
-        {%include "collection-product" with c%}
+        {% assign c = product %}
+        {% include "collection-product" with c %}
       {% endfor %}
 
     {% endif %}

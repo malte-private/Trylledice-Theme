@@ -3,10 +3,13 @@
   <div data-steps-gifs class="w-4/6">
     {%- if page.metafields.custom.steps_gifs.value != blank -%}
 
-      <img class="object-contain w-full" src="" alt="">
+      <img
+        class="object-contain w-full"
+        src=""
+        alt="">
     {%- else -%}
 
-      {{page.metafields.custom.steps_gifs.value | json}}
+      {{ page.metafields.custom.steps_gifs.value | json }}
     {%- endif -%}
   </div>
 
@@ -23,15 +26,23 @@
 
 
     </article>
-    <div class="flex justify-center gap-5">
-      <button data-bg-button="primary" data-nav="prev" class=" btn-primary-test btn-grid" data-generate>
-        <div class="grid-area">{%- render 'button-main' -%}</div>
-        <span class="pointer-events-none grid-area">
+    <div class="grid justify-center gap-5 md:grid-cols-2">
+      <button
+        data-bg-button="primary"
+        data-nav="prev"
+        class="hidden w-56 col-start-1 justify-self-end btn-primary-test btn-grid"
+        data-generate>
+        <div class="grid-area">{%- render 'button-prev' -%}</div>
+        <span class="pl-5 pointer-events-none grid-area">
           Prev</span>
       </button>
-      <button data-bg-button="primary" data-nav="next" class=" btn-primary-test btn-grid" data-generate>
-        <div class="grid-area">{%- render 'button-main' -%}</div>
-        <span class="pointer-events-none grid-area">
+      <button
+        data-bg-button="primary"
+        data-nav="next"
+        class="w-56 col-start-2 btn-primary-test justify-self-start btn-grid"
+        data-generate>
+        <div class="grid-area">{%- render 'button-next' -%}</div>
+        <span class="pr-5 pointer-events-none grid-area">
           Next</span>
       </button>
     </div>
@@ -62,9 +73,11 @@
     const containerGifs = document.querySelector("[data-steps-gifs]")
 
     window.addEventListener("DOMContentLoaded", () => {
-      containerText.querySelector("h2").textContent = stepsArr[0].title;
-      containerText.querySelector("p").textContent = stepsArr[0].description;
-      containerGifs.querySelector("img").src = gifsMetafield[0]
+      containerText.querySelector("h2").textContent = stepsArr[stepsIdx].title;
+      containerText.querySelector("p").textContent = stepsArr[stepsIdx].description;
+      containerGifs.querySelector("img").src = gifsMetafield[stepsIdx]
+      console.log(stepsIdx)
+
 
 
     });
@@ -84,8 +97,15 @@
             containerText.querySelector("p").textContent = stepsArr[stepsIdx].description;
             containerGifs.querySelector("img").src = gifsMetafield[stepsIdx]
           }
+          if (stepsIdx === 0) {
+            e.currentTarget.classList.add("hidden")
+          }
+          if (stepsIdx < stepsArr.length - 1) {
+            navBtns[1].classList.remove("hidden")
+          }
         }
         if (target === "next") {
+          console.log(e)
           stepsIdx < stepsArr.length - 1 && stepsIdx++;
           console.log(stepsIdx)
           if (stepsIdx < stepsArr.length) {
@@ -93,6 +113,12 @@
             containerText.querySelector("p").textContent = stepsArr[stepsIdx].description;
             containerGifs.querySelector("img").src = gifsMetafield[stepsIdx]
 
+          }
+          if (stepsIdx === stepsArr.length - 1) {
+            e.currentTarget.classList.add("hidden")
+          }
+          if (stepsIdx > 0) {
+            navBtns[0].classList.remove("hidden")
           }
         }
 

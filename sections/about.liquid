@@ -5,7 +5,7 @@
       {% if section.settings.image == blank %}
         {{ 'lifestyle-1' | placeholder_svg_tag }}
       {% else %}
-        {{section.settings.image | image_url: width: 450 | image_tag: class: 'object-cover h-96 '}}
+        {{ section.settings.image | image_url: width: 450 | image_tag: class: 'object-cover h-96 ' }}
       {% endif %}
     {%- endif -%}
 
@@ -14,9 +14,9 @@
 
   <div class="flex flex-col justify-between {% if section.settings.alt-dir %} order-2  md:order-1  {% endif %}">
     <div class="w-full h-20 bg-center bg-no-repeat bg-contain bg-ornament-product "></div>
-    <div class="px-5 py-5 lg:py-16">
+    <div class="px-5 py-5 lg:py-4">
 
-      <ul data-fact-list class="flex flex-col gap-2 pb-10"></ul>
+      <ul data-fact-list class="flex flex-col gap-2 pb-5"></ul>
 
       {% for block in section.blocks %}
         <h2 class="h2 heading-text-color {{block.settings.title-position}}">{{ block.settings.heading }}</h2>
@@ -28,7 +28,7 @@
 
       {% for block in section.blocks %}
         {% if block.settings.button_link %}
-          <a class="body" href="{{block.settings.button_url}}">{{block.settings.button_label}}</a>
+          <a class="body" href="{{block.settings.button_url}}">{{ block.settings.button_label }}</a>
         {% endif %}
       {% endfor %}
     </div>
@@ -48,13 +48,10 @@
     .forEach((fact, idx) => {
       const domFactList = document.querySelector("[data-fact-list]")
       let li = document.createElement("li")
-      let img = document.createElement("img")
-      img.src = "{{'dice-icon.svg' | asset_url}}"
-      img.classList = "h-full"
-      img.alt = "Dice icon"
+
+      li.appendChild('{{ 'image' | placeholder_svg_tag }}')
       li.innerHTML = fact.trim()
       li.classList = "h-7 body items-center body-text-color flex flex-row-reverse justify-end gap-3"
-      li.appendChild(img)
       domFactList.appendChild(li)
       console.log(fact.trim())
     })
@@ -62,8 +59,10 @@
 
 {% style %}
   .text-image-container {
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-top: {{ section.settings.padding_top }}
+    px;
+    padding-bottom: {{ section.settings.padding_bottom }}
+    px;
   }
 {% endstyle %}
 
@@ -208,6 +207,10 @@
                 "label": "Right"
               }
             ]
+          }, {
+            "type": "image_picker",
+            "label": "Icon for list",
+            "id": "list-icon"
           }
         ]
 

@@ -816,16 +816,16 @@ select {
   grid-column-start: 1;
 }
 
+.col-start-3 {
+  grid-column-start: 3;
+}
+
 .col-start-4 {
   grid-column-start: 4;
 }
 
 .col-start-10 {
   grid-column-start: 10;
-}
-
-.col-start-3 {
-  grid-column-start: 3;
 }
 
 .col-start-2 {
@@ -840,12 +840,12 @@ select {
   grid-column-end: 13;
 }
 
-.row-start-2 {
-  grid-row-start: 2;
-}
-
 .row-start-1 {
   grid-row-start: 1;
+}
+
+.row-start-2 {
+  grid-row-start: 2;
 }
 
 .mx-auto {
@@ -935,16 +935,16 @@ select {
   height: 5rem;
 }
 
-.h-full {
-  height: 100%;
-}
-
 .h-7 {
   height: 1.75rem;
 }
 
 .h-\[56\.25rem\] {
   height: 56.25rem;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .h-56 {
@@ -1046,6 +1046,10 @@ select {
 
 .w-4\/6 {
   width: 66.666667%;
+}
+
+.w-56 {
+  width: 14rem;
 }
 
 .w-32 {
@@ -1298,6 +1302,14 @@ select {
   align-self: center;
 }
 
+.justify-self-start {
+  justify-self: start;
+}
+
+.justify-self-end {
+  justify-self: end;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -1492,16 +1504,12 @@ select {
   padding-bottom: 0.5rem;
 }
 
-.pb-10 {
-  padding-bottom: 2.5rem;
+.pb-5 {
+  padding-bottom: 1.25rem;
 }
 
 .pb-4 {
   padding-bottom: 1rem;
-}
-
-.pb-5 {
-  padding-bottom: 1.25rem;
 }
 
 .pt-10 {
@@ -1530,6 +1538,14 @@ select {
 
 .pr-8 {
   padding-right: 2rem;
+}
+
+.pl-5 {
+  padding-left: 1.25rem;
+}
+
+.pr-5 {
+  padding-right: 1.25rem;
 }
 
 .pt-3 {
@@ -1902,9 +1918,9 @@ select {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .lg\:py-16 {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+  .lg\:py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 }
 
