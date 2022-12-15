@@ -93,32 +93,32 @@
         <li data-nested="{{forindex}}" class="relative flex items-center gap-1 hover:duration-75 hover:transition-all hover:underline hover:underline-offset-4">
           <div >
 
-          <p class="text-orange-200 cursor-pointer menu">{{ link.title }}</p>
+          <p class="cursor-pointer body-text-color-beige menu">{{ link.title }}</p>
 
 
           <ul class="absolute opacity-0 nested-menu" >
           {% for childlink in linklists[child_list_handle].links %}
 
         <li class=" hover:duration-75 hover:transition-all hover:underline hover:underline-offset-4">
-          <a class="text-orange-200 menu" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+          <a class="body-text-color-beige menu" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
         </li>
     {% endfor %}
     </ul>
       </div>
-      <svg data-chevron class="mt-1 text-orange-200 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+      <svg data-chevron class="mt-1 cursor-pointer body-text-color-beige" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
 </svg>
         </li>
       {% else %}
         <li class=" hover:duration-75 hover:transition-all hover:underline hover:underline-offset-4">
-          <a class="text-orange-200 menu" href="{{ link.url }}">{{ link.title }}</a>
+          <a class="body-text-color-beige menu" href="{{ link.url }}">{{ link.title }}</a>
         </li>
         {% endif %}
     {% endfor %}
 
 
   </ul>
-  <button id="nav-close" class="absolute text-sm text-orange-200 cursor-pointer top-1 right-1">x</button>
+  <button id="nav-close" class="absolute text-lg cursor-pointer body-text-color-beige top-1 right-1">&times;</button>
 </div>
 <div class="flex h-full gap-2">
 <!-- kurv -->

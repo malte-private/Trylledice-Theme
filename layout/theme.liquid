@@ -1,53 +1,83 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>{{ page_title }}</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="{{ page_description | escape }}">
-    <link rel="canonical" href="{{ canonical_url }}">
-    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    {{ content_for_header }}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="{{ page_description | escape }}" />
+    <link rel="canonical" href="{{ canonical_url }}" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,shrink-to-fit=no"
+    />
+    {{
+      content_for_header
+    }}
 
-    <style > :root
-    {
-      --font-body-family: 
-      {{ settings.type_body_font.family }},
-      {{ settings.type_body_font.fallback_families }};
-      --font-body-style: {{ settings.type_body_font.style }};
-      --font-body-weight: {{ settings.type_body_font.weight }};
-      --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
+    <style>
+      :root
+         {
+           --font-body-family:
+           {{ settings.type_body_font.family }},
+           {{ settings.type_body_font.fallback_families }};
+           --font-body-style: {{ settings.type_body_font.style }};
+           --font-body-weight: {{ settings.type_body_font.weight }};
+           --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
 
-      --font-heading-family: 
-      {{ settings.type_header_font.family }},
-      {{ settings.type_header_font.fallback_families }};
-      --font-heading-style: {{ settings.type_header_font.style }};
-      --font-heading-weight: {{ settings.type_header_font.weight }};
+           --font-heading-family:
+           {{ settings.type_header_font.family }},
+           {{ settings.type_header_font.fallback_families }};
+           --font-heading-style: {{ settings.type_header_font.style }};
+           --font-heading-weight: {{ settings.type_header_font.weight }};
 
-      --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
-      --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
+           --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
+           --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
 
-      --navigation-text-color: {{ settings.navigation-text-color | color_to_hex }};
-      --heading-text-color: {{ settings.heading-text-color | color_to_hex }};
-      --body-text-color: {{ settings.body-text-color | color_to_hex }};
+           --navigation-text-color: {{ settings.navigation-text-color | color_to_hex }};
+           --heading-text-color: {{ settings.heading-text-color | color_to_hex }};
+           --body-text-color: {{ settings.body-text-color | color_to_hex }};
+           --body-text-color-beige: {{ settings.body-text-color-beige | color_to_hex }};
 
-      --button-primary-color: {{ settings.primary-button | color_to_hex }};
-      --button-primary-hover: {{ settings.primary-button-hover | color_to_hex }};
-    }
-  </style>
+           --button-primary-color: {{ settings.primary-button | color_to_hex }};
+           --button-primary-hover: {{ settings.primary-button-hover | color_to_hex }};
+         }
+    </style>
 
-  <!-- Header hook for plugins -->
-  {{ 'application.css' | asset_url | stylesheet_tag }}
-  {{ 'typography.css' | asset_url | stylesheet_tag }}
-  {{ 'settings.css' | asset_url | stylesheet_tag }}
-  {{ 'base.css' | asset_url | stylesheet_tag }}
-  {{ 'application.js' | asset_url | script_tag }}
-</head>
-<body class="mx-auto max-w-7xl bg-main-primary ">
-  <div class="absolute w-full min-h-screen mx-auto bg-no-repeat bg-contain top-1/4 lg:top-[5%] bg-drage -z-50"></div>
-  {%section 'header'%}
-  <main class="px-5 min-h-fit" role="main">
-    {{ content_for_layout }}
-  </main>
-  {%section 'footer'%}
-</body></html>
+    <!-- Header hook for plugins -->
+    {{
+      "application.css" | asset_url | stylesheet_tag
+    }}
+    {{
+      "typography.css" | asset_url | stylesheet_tag
+    }}
+    {{
+      "settings.css" | asset_url | stylesheet_tag
+    }}
+    {{
+      "base.css" | asset_url | stylesheet_tag
+    }}
+    {{
+      "application.js" | asset_url | script_tag
+    }}
+  </head>
+  <body class="mx-auto max-w-7xl bg-main-primary">
+    <div
+      class="
+        absolute
+        w-full
+        min-h-screen
+        mx-auto
+        bg-no-repeat bg-contain
+        top-1/4
+        lg:top-[5%]
+        bg-drage
+        -z-50
+      "
+    ></div>
+    {%section 'header'%}
+    <main class="px-5 min-h-fit" role="main">
+      {{ content_for_layout }}
+    </main>
+    {%section 'footer'%}
+  </body>
+</html>
