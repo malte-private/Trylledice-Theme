@@ -9,7 +9,7 @@
       "type": "title-description",
       "settings": {
         "heading": "The wizards",
-        "description": "We started creating limited handmade dice set for Dungeons and Dragons back in 2020. We see our self as wizards who make dice magic. Learn more about our journey to becoming wizards.",
+        "description": "Trylledice was made back when corona started. We, Zac and Alex, were invited to a DnD game that Zac's old friend held. After falling in love with the game we felt down to a YouTube wormhole of How to create homemade dice set.\n<br>\nAfter two years with learning by doing we are now creating limited handmade dice set. We are doing what we love and what better way living life than doing your passion?",
         "padding_top": 16,
         "padding_bottom": 16
       }
@@ -26,7 +26,7 @@
         "template--17150225383746__b8d0d8f5-649e-49f7-9577-c4379dbf2558-167092470173561873-1": {
           "type": "textarea",
           "settings": {
-            "description": "Alex is the arty wizard brother. He is the one making everything visual"
+            "description": "Alex create all the visual graphics for Trylledice. Beside making beautiful content for Trylledice he is always insane on a guitar solo."
           }
         }
       },
@@ -40,7 +40,7 @@
         "padding_top": 16,
         "padding_bottom": 16,
         "alt-dir": false,
-        "fact-list": "<p>Love dice. Love bacon. Cool teeth<\/p>"
+        "fact-list": "<p>My specialty is polishing dice. I play a cool guitar solo. I love making visual graphics<\/p>"
       }
     },
     "46b9f216-a309-4f37-87c4-33750fb8b941": {
@@ -61,7 +61,7 @@
         "template--17150225383746__4ebeb028-6174-454f-9178-4d7540ef7bf9-167092470173561873-1": {
           "type": "textarea",
           "settings": {
-            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti praesentium iure dolorem exercitationem omnis voluptates assumenda expedita ducimus. Placeat doloremque quisquam, beatae fuga eum quod illum recusandae quibusdam, iure aliquid dolore hic expedita"
+            "description": "I am"
           }
         }
       },
@@ -75,7 +75,7 @@
         "padding_top": 16,
         "padding_bottom": 16,
         "alt-dir": true,
-        "fact-list": "<p>Love dice. Love bacon. Cool teeth<\/p>"
+        "fact-list": "<p>Love dice. Love bacon. Cool teeth.<\/p>"
       }
     },
     "723c10e7-05fd-461c-a510-6fb150cafc36": {
@@ -89,10 +89,10 @@
       "settings": {
         "heading": "",
         "dice-image-1": "shopify:\/\/shop_images\/Emne_15.png",
-        "heading-alex": "Heading",
+        "heading-alex": "Alex's favorit dice set",
         "about-alex-dice": "Bacon ipsum dolor amet leberkas short loin pork belly beef. Shoulder t-bone corned beef jerky, ham hock spare ribs beef fatback landjaeger. Boudin prosciutto beef meatloaf bacon spare ribs meatball pork belly shankle ham flank leberkas strip steak buffalo. Porchetta jowl fatback, cupim pig pork belly jerky ribeye tail beef ribs. Fatback turkey boudin, swine bacon kielbasa leberkas. Cupim andouille tail ball tip, filet mignon doner kevin chicken burgdoggen strip steak tongue buffalo meatloaf beef.",
         "dice-image-2": "shopify:\/\/shop_images\/Emne_7_2.png",
-        "heading-zac": "Heading",
+        "heading-zac": "Alex's favorit dice set",
         "about-zac-dice": "Bacon ipsum dolor amet leberkas short loin pork belly beef. Shoulder t-bone corned beef jerky, ham hock spare ribs beef fatback landjaeger. Boudin prosciutto beef meatloaf bacon spare ribs meatball pork belly shankle ham flank leberkas strip steak buffalo. Porchetta jowl fatback, cupim pig pork belly jerky ribeye tail beef ribs. Fatback turkey boudin, swine bacon kielbasa leberkas. Cupim andouille tail ball tip, filet mignon doner kevin chicken burgdoggen strip steak tongue buffalo meatloaf beef."
       }
     },
