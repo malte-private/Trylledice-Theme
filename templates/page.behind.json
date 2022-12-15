@@ -8,6 +8,10 @@
     "title_desc": {
       "type": "title-description",
       "settings": {
+        "heading": "How we do magic",
+        "description": "We have always loved to share out how we make our unique diceset. Therefore we have made this guide to give you an idea of the process from out ideate fase to our final product unique diceset.",
+        "padding_top": 16,
+        "padding_bottom": 16
       }
     },
     "production": {
