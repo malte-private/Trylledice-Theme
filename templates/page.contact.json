@@ -18,20 +18,11 @@
       "settings": {
         "height": 3
       }
-    },
-    "featured": {
-      "type": "featured-products",
-      "settings": {
-        "title": "Featured Collection",
-        "collection": "",
-        "product_count": 4
-      }
     }
   },
   "order": [
     "main",
     "contact",
-    "spacer",
-    "featured"
+    "spacer"
   ]
 }
