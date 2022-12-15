@@ -21,7 +21,7 @@
       "settings": {
         "heading-one": "Explore",
         "heading-two": "The Collection",
-        "splash-img": "shopify:\/\/shop_images\/splash-img.jpg"
+        "splash-img": "shopify:\/\/shop_images\/splash.png"
       }
     },
     "9d8f0a18-dcd3-4371-a3a4-4d287725347b": {
@@ -38,13 +38,15 @@
         "text": {
           "type": "heading",
           "settings": {
-            "heading": "The wizards"
+            "heading": "The wizards",
+            "title-position": "text-left"
           }
         },
         "title": {
           "type": "textarea",
           "settings": {
-            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti praesentium iure dolorem exercitationem omnis voluptates assumenda expedita ducimus. Placeat doloremque quisquam, beatae fuga eum quod illum recusandae quibusdam, iure aliquid dolore hic expedita"
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti praesentium iure dolorem exercitationem omnis voluptates assumenda expedita ducimus. Placeat doloremque quisquam, beatae fuga eum quod illum recusandae quibusdam, iure aliquid dolore hic expedita",
+            "body-text-position": "text-left"
           }
         },
         "ba1134f5-9914-4156-9125-87d72bcd8a97": {
@@ -54,7 +56,8 @@
             "url": "shopify:\/\/pages\/about-us",
             "button_label": "Read more",
             "button_variant": "primary",
-            "button_margin": 4
+            "button_margin": 4,
+            "button-position": "self-start"
           }
         }
       },
