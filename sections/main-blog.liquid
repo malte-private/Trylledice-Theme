@@ -4,33 +4,38 @@
   <h1 class="h1 heading-text-color">{{ blog.title }}</h1>
 
 
-  <section class="grid grid-cols-3 gap-20">
+  <section class="grid gap-20 md:grid-cols-3">
     {%- if blog.articles == blank -%}
       <div class="flex justify-center w-full col-span-full ">
         <p class="h1 heading-text-color">Wow, such empty</p>
       </div>
     {%- endif -%}
     {% for article in blog.articles %}
+      <a href="{{ article.url }}">
+        <article>
+          <h2 class="w-full overflow-hidden h3 heading-text-color whitespace-nowrap text-ellipsis">
+            {{ article.title }}
+          </h2>
 
-      <article>
-        <h2 class="h3 heading-text-color">
-          <a href="{{ article.url }}">{{ article.title }}</a>
-        </h2>
-
-        <div class="overflow-hidden">
-          <img class="object-cover object-center h-full aspect-video" src="{{article.image | image_url}}" alt="">
-        </div>
-        <p class="body body-text-color">
-          <strong>{{ article.author }} @ {{ article.created_at }}</strong>
-        </p>
-        <div class="body body-text-color">
-          {% if article.excerpt.size > 0 %}
-            {{ article.excerpt }}
-          {% else %}
-            <p class="body body-text-color">{{ article.content | strip_html | truncatewords: 50 }}</p>
-          {% endif %}
-        </div>
-      </article>
+          <div class="overflow-hidden">
+            <img
+              class="object-cover object-center h-full aspect-video"
+              src="{{article.image | image_url}}"
+              alt="">
+          </div>
+          <p class="body body-text-color">
+            <strong>{{ article.author }} @ {{ article.created_at }}</strong>
+          </p>
+          <div
+            class="body body-text-color">
+            {% if article.excerpt.size > 0 %}
+              {{ article.excerpt }}
+            {% else %}
+              <p class="body body-text-color">{{ article.content | strip_html | truncatewords: 50 }}</p>
+            {% endif %}
+          </div>
+        </article>
+      </a>
     {% endfor %}
   </section>
 
