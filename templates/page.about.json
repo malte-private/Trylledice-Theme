@@ -48,7 +48,7 @@
     "46b9f216-a309-4f37-87c4-33750fb8b941": {
       "type": "spacer",
       "settings": {
-        "height": 3
+        "height": 5
       }
     },
     "c304fb9c-a7af-4492-9078-54e2d6bb65f0": {
@@ -111,7 +111,8 @@
       "settings": {
         "generator-section-title": "Try your luck",
         "generator-title": "See which unique dice is your favorite",
-        "generator-desc": "Try your luck and generate a dice. Maybe you will feel inspired by the dice that pops up on your screen."
+        "generator-desc": "Try your luck and generate a dice. Maybe you will feel inspired by the dice that pops up on your screen.",
+        "title-position": "self-start"
       }
     },
     "6c3a7a0f-e8b6-464a-a542-77c1496ceb3e": {
