@@ -5,7 +5,7 @@
         {{ 'lifestyle-1' | placeholder_svg_tag: "h-full" }}
       {% else %}
         <img
-          class="object-cover object-center"
+          class="object-cover object-center h-full md:h-auto"
           src="{{section.settings.splash-img | image_url}}"
           alt="{{section.settings.splash-img.alt}}">
       {% endif %}
