@@ -9,7 +9,7 @@
       "type": "title-description",
       "settings": {
         "heading": "The wizard's",
-        "description": "Magic was first cast over the business idea Trylledice when the worldwide corona epidemic spread around the world. At first sight we were in love with the DnD world. It's a perfect combination between being together as brothers and having fun with our friends at the same time\n\nwe felt down to a YouTube wormhole of How to create handmade diceset.\n<br>\nAfter two years of working on an absolutely perfect spell we are now creating limited handmade dice set.",
+        "description": "Magic was first cast over the business idea Trylledice when the worldwide corona epidemic spread around the world. At first sight we were in love with the DnD world. It's a perfect combination between being together as brothers and having fun with our friends at the same time\n<br><br>\nWe felt down to a YouTube wormhole of How to create handmade diceset.\nAfter two years of working on an absolutely perfect spell we are now creating unique handmade dice set.",
         "padding_top": 16,
         "padding_bottom": 16
       }
@@ -67,20 +67,11 @@
             "description": "Zac is the wizard behind Trylledices instagram on a day to day basis. He is the one who comes up with new ideas of what to post, see what is trending and answer people in DM. <br> <br> Zacs favorite thing when making dice is the proces behind and the techniques they use.",
             "body-text-position": "text-left"
           }
-        },
-        "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-2": {
-          "type": "button",
-          "settings": {
-            "button_link": true,
-            "url": "",
-            "button_label": "Click me"
-          }
         }
       },
       "block_order": [
         "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-0",
-        "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-1",
-        "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-2"
+        "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-1"
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/IMG_9208.jpg",
