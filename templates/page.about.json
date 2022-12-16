@@ -51,6 +51,46 @@
         "height": 3
       }
     },
+    "c304fb9c-a7af-4492-9078-54e2d6bb65f0": {
+      "type": "about",
+      "blocks": {
+        "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lorem ipsum",
+            "title-position": "text-left"
+          }
+        },
+        "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-1": {
+          "type": "textarea",
+          "settings": {
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti praesentium iure dolorem exercitationem omnis voluptates assumenda expedita ducimus. Placeat doloremque quisquam, beatae fuga eum quod illum recusandae quibusdam, iure aliquid dolore hic expedita",
+            "body-text-position": "text-left"
+          }
+        },
+        "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-2": {
+          "type": "button",
+          "settings": {
+            "button_link": true,
+            "url": "",
+            "button_label": "Click me"
+          }
+        }
+      },
+      "block_order": [
+        "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-0",
+        "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-1",
+        "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/IMG_9208.jpg",
+        "show-image": true,
+        "padding_top": 16,
+        "padding_bottom": 16,
+        "alt-dir": true,
+        "fact-list": "<p>Love dice. Love bacon. Cool teeth<\/p>"
+      }
+    },
     "723c10e7-05fd-461c-a510-6fb150cafc36": {
       "type": "spacer",
       "settings": {
@@ -96,46 +136,6 @@
         "collection": "set",
         "product_count": 12
       }
-    },
-    "c304fb9c-a7af-4492-9078-54e2d6bb65f0": {
-      "type": "about",
-      "blocks": {
-        "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Lorem ipsum",
-            "title-position": "text-left"
-          }
-        },
-        "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-1": {
-          "type": "textarea",
-          "settings": {
-            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti praesentium iure dolorem exercitationem omnis voluptates assumenda expedita ducimus. Placeat doloremque quisquam, beatae fuga eum quod illum recusandae quibusdam, iure aliquid dolore hic expedita",
-            "body-text-position": "text-left"
-          }
-        },
-        "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-2": {
-          "type": "button",
-          "settings": {
-            "button_link": true,
-            "url": "",
-            "button_label": "Click me"
-          }
-        }
-      },
-      "block_order": [
-        "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-0",
-        "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-1",
-        "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-2"
-      ],
-      "settings": {
-        "image": "shopify:\/\/shop_images\/Emne_6_2.png",
-        "show-image": true,
-        "padding_top": 16,
-        "padding_bottom": 16,
-        "alt-dir": true,
-        "fact-list": "<p>Love dice. Love bacon. Cool teeth<\/p>"
-      }
     }
   },
   "order": [
@@ -143,12 +143,12 @@
     "f4119d59-27ac-4e5f-a3f3-ae2b372d5546",
     "b8d0d8f5-649e-49f7-9577-c4379dbf2558",
     "46b9f216-a309-4f37-87c4-33750fb8b941",
+    "c304fb9c-a7af-4492-9078-54e2d6bb65f0",
     "723c10e7-05fd-461c-a510-6fb150cafc36",
     "c2372a37-6fb0-461f-ba3d-4fe5c224956a",
     "e3ce8490-186b-45f8-8081-04555ded1a23",
     "34fbc6d7-2df0-4f4b-9f5b-754123b52e1c",
     "6c3a7a0f-e8b6-464a-a542-77c1496ceb3e",
-    "accdcedd-b541-474e-adae-9455414caf92",
-    "c304fb9c-a7af-4492-9078-54e2d6bb65f0"
+    "accdcedd-b541-474e-adae-9455414caf92"
   ]
 }
