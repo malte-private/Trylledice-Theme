@@ -35,11 +35,11 @@
     {% paginate collection.products by 9 %}
 
 
-      <div class="grid items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-20 justify-items-center auto-rows-fr">
+      <div class="grid items-start grid-cols-1 auto-rows-fr md:grid-cols-2 lg:grid-cols-3 gap-x-20 justify-items-center">
         {% for product in collection.products %}
 
           {%- if product.available -%}
-            <div class="w-48 gap-44">
+            <div class="flex flex-col justify-between w-48 h-full">
               {%- render 'ornament-top' -%}
 
 
@@ -55,7 +55,7 @@
               {%- render 'ornament-bottom' -%}
             </div>
           {%elsif collection.title == "Sold"%}
-            <div class="w-48 gap-44">
+            <div class="flex flex-col justify-between w-48 h-full">
               {%- render 'ornament-top' -%}
               <a href=" {{ product.url | within: collection }} ">
                 <img class="object-contain aspect-square" src="{{ product.featured_image.src | img_url: 'large' }}" data-product-image alt="{{ product.featured_image.alt | escape }}">
