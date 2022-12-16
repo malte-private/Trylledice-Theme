@@ -92,30 +92,6 @@
       "settings": {
         "height": 5
       }
-    },
-    "featured-products": {
-      "type": "featured-products",
-      "blocks": {
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_link": true,
-            "url": "",
-            "button_label": "See all",
-            "button_variant": "minimal",
-            "button_width": 12,
-            "button_margin": 4
-          }
-        }
-      },
-      "block_order": [
-        "button"
-      ],
-      "settings": {
-        "title": "All dicesets",
-        "collection": "set",
-        "product_count": 8
-      }
     }
   },
   "order": [
@@ -124,7 +100,6 @@
     "9d8f0a18-dcd3-4371-a3a4-4d287725347b",
     "018250b1-2374-4d01-b8c6-8a3a0dec9af9",
     "text-image",
-    "9f435e51-5a31-484d-be3a-7f19892ca6ad",
-    "featured-products"
+    "9f435e51-5a31-484d-be3a-7f19892ca6ad"
   ]
 }
