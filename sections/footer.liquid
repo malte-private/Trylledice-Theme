@@ -15,7 +15,7 @@
 
       <div class="flex justify-between">
         <div>
-          <h2 class="pb-5 font-semibold h3 navigation-text-color">{{ section.settings.first-header }}</h2>
+          <h2 class="pb-5 font-semibold break-all h3 navigation-text-color">{{ section.settings.first-header }}</h2>
           <ul class="space-y-5 ">
             {% for link in linklists.footer.links %}
               {% assign child_list_handle = link.title | handleize %}
@@ -25,14 +25,15 @@
                 </li>
               {% else %}
                 <li class="menu navigation-text-color hover:duration-75 hover:transition-all hover:underline ">
-                  <a href="{{ link.url }}">{{ link.title }}</a>
+                  <a
+                    href="{{ link.url }}">{{ link.title }}</a>
                 </li>
               {% endif %}
             {% endfor %}
           </ul>
         </div>
         <div>
-          <h2 class="pb-5 font-semibold h3 navigation-text-color">{{ section.settings.second-header }}
+          <h2 class="pb-5 font-semibold break-all h3 navigation-text-color">{{ section.settings.second-header }}
           </h2>
           <ul class="space-y-5 ">
             {%- for collection in collections offset: 1 -%}

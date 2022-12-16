@@ -8,15 +8,20 @@
     <div class="body">{{ product.description }}</div>
     {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
 
-        <span class="text-4xl font-bold uppercase price heading-text-color">
-          {{ current_variant.price | money_without_trailing_zeros  }}
-        </span>
+      <span class="text-4xl font-bold uppercase price heading-text-color">
+        {{ current_variant.price | money_without_trailing_zeros }}
+      </span>
       <div class="flex flex-col items-center">
         <div class="flex justify-center w-full gap-3">
           {%- comment -%}
-            - DO NOT DELETE - VARIANT AND QUANTITY IS REQUIRED
+          - DO NOT DELETE - VARIANT AND QUANTITY IS REQUIRED
           {%- endcomment -%}
-          <input class="hidden pointer-events-none" type="text" name="quantity" min="1" value="1">
+          <input
+            class="hidden pointer-events-none"
+            type="text"
+            name="quantity"
+            min="1"
+            value="1">
           <select class="hidden" name="id">
             {% for variant in product.variants %}
               <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}>
@@ -25,7 +30,7 @@
             {% endfor %}
           </select>
           {%- comment -%}
-            -------------------------------------------------------
+          -------------------------------------------------------
           {%- endcomment -%}
           <div class="w-full">
             <article class="flex justify-between w-full border-b tabs border-b-main-text">
@@ -42,23 +47,45 @@
             </article>
 
             <div class="py-2 overflow-scroll border-b h-52 tab-content border-b-main-text">
-              <div class="tabs-content active-content" id="tab_1" data-tab-info>
-                <p body-text-color class="body">{{product.metafields.custom.information}} </p>
+              <div
+                class="tabs-content active-content"
+                id="tab_1"
+                data-tab-info>
+                <p body-text-color class="body">{{ product.metafields.custom.information }}
+                </p>
 
               </div>
-              <div class="tabs-content" id="tab_2" data-tab-info>
-                <p body-text-color class="body">{{product.metafields.custom.description}} </p>
+              <div
+                class="tabs-content"
+                id="tab_2"
+                data-tab-info>
+                <p body-text-color class="body">{{ product.metafields.custom.description }}
+                </p>
 
               </div>
-              <div class="tabs-content" id="tab_3" data-tab-info>
-                <p body-text-color class="body">{{product.metafields.custom.shipping}} </p>
+              <div
+                class="tabs-content"
+                id="tab_3"
+                data-tab-info>
+                <p body-text-color class="body">{{ product.metafields.custom.shipping }}
+                </p>
 
               </div>
             </div>
           </div>
 
         </div>
-        <button class="w-64 mt-8 btn-primary button" type="submit" name="add" id="AddToCart">{{section.settings.add_to_cart_text}}</button>
+        <button
+          class="w-64 mt-8 btn-primary btn-grid"
+          type="submit"
+          name="add"
+          data-bg-button="primary"
+          id="AddToCart">
+          <div class="grid-area btn-primary ">{%- render 'button-main' -%}</div>
+          <span class="pointer-events-none grid-area">
+            {{ section.settings.add_to_cart_text }}
+          </span>
+        </button>
       </div>
     {%- endform -%}
   </div>
@@ -67,9 +94,9 @@
 </div>
 
 <style>
- .active-tab{
+  .active-tab {
     font-weight: bold;
-    border-bottom: 2px solid var(--body-text-color) ;
+    border-bottom: 2px solid var(--body-text-color);
   }
 
   [data-tab-info] {
@@ -85,74 +112,65 @@
   const tabInfo = document.querySelectorAll("[data-tab-info]")
 
 
-  tabs.forEach((el,idx)=>{
-      el.addEventListener("click", (e)=>{
-        tabs.forEach(tab=>tab.classList="")
-        e.target.classList.add("active-tab")
+  tabs.forEach((el, idx) => {
+    el.addEventListener("click", (e) => {
+      tabs
+        .forEach(tab => tab.classList = "")
+        e
+        .target
+        .classList
+        .add("active-tab")
 
-        tabInfo.forEach(elInfo=>{
-          elInfo.classList=""
-        })
-        tabInfo[idx].classList.add("active-content")
+      tabInfo
+      .forEach(elInfo => {
+        elInfo.classList = ""
       })
-
-  })
+    tabInfo[idx]
+    .classList
+    .add("active-content")
+})})
 </script>
 
 
 <script type="application/ld+json">
   {
-    "@context": "http://schema.org/",
-    "@type": "Product",
-    "name": {{ product.title | json }},
-    "url": {{ request.origin | append: product.url | json }},{% if seo_media -%}"image" : [{{ seo_media | image_url: width: 1920 | prepend: "https:" | json }}],{%- endif %}"description": {{ product.description | strip_html | json }},{% if product.selected_or_first_available_variant.sku != blank -%}"sku" : {{ product.selected_or_first_available_variant.sku | json }},{%- endif %}"brand": {
-      "@type": "Brand",
-      "name": {{ product.vendor | json }}
-    },
-    "offers": [{%- for variant in product.variants -%}{
-          "@type": "Offer",
-          {%- if variant.sku != blank -%}
-            "sku" : {{ variant.sku | json }},
-          {%- endif -%}
-          {%- if variant.barcode.size == 12 -%}
-            "gtin12" : {{ variant.barcode }},
-          {%- endif -%}
-          {%- if variant.barcode.size == 13 -%}
-            "gtin13" : {{ variant.barcode }},
-          {%- endif -%}
-          {%- if variant.barcode.size == 14 -%}
-            "gtin14" : {{ variant.barcode }},
-          {%- endif -%}
-          "availability": "http://schema.org/                     {% if variant.available %}InStock\u000a\u000a\u000a\u000a\u000a\u000a\u000a\u000a\u000a
+  "@context": "http://schema.org/",
+                          "@type": "Product",
+                          "name": {{ product.title | json }},
+  "url": {{ request.origin | append: product.url | json }},{% if seo_media -%}"image" : [{{ seo_media | image_url: width: 1920 | prepend: "https:" | json }}],{%- endif %}"description": {{ product.description | strip_html | json }},{% if product.selected_or_first_available_variant.sku != blank -%}"sku" : {{ product.selected_or_first_available_variant.sku | json }},{%- endif %}"brand": {
+  "@type": "Brand",
+                            "name": {{ product.vendor | json }}
+  },
+  "offers": [{%- for variant in product.variants -%}{
+    "@type": "Offer",
+    {%- if variant.sku != blank -%}
+      "sku" : {{ variant.sku | json }},
+    {%- endif -%}
+    {%- if variant.barcode.size == 12 -%}
+      "gtin12" : {{ variant.barcode }},
+    {%- endif -%}
+    {%- if variant.barcode.size == 13 -%}
+      "gtin13" : {{ variant.barcode }},
+    {%- endif -%}
+    {%- if variant.barcode.size == 14 -%}
+      "gtin14" : {{ variant.barcode }},
+    {%- endif -%}
+    "availability": "http://schema.org/
+    {% if variant.available %}InStock\u000a\u000a\u000a\u000a\u000a\u000a\u000a\u000a\u000a
 
 
 
+    {% else %}
+      OutOfStock\u000a\u000a\u000a\u000a\u000a\u000a\u000a\u000a
 
 
 
-
-
-
-
-
-          {% else %}
-            OutOfStock\u000a\u000a\u000a\u000a\u000a\u000a\u000a\u000a
-
-
-
-
-
-
-
-
-
-
-
-          {% endif %}",
-          "price": {{ variant.price | divided_by: 100.00 | json }},
-          "priceCurrency": {{ cart.currency.iso_code | json }},
-          "url": {{ request.origin | append: variant.url | json }}
-        }
-        {% unless forloop.last %},{% endunless %}{%- endfor -%}]
+    {% endif %}",
+    "price": {{ variant.price | divided_by: 100.00 | json }},
+    "priceCurrency": {{ cart.currency.iso_code | json }},
+    "url": {{ request.origin | append: variant.url | json }}
+    }
+    {% unless forloop.last %},{% endunless %}
+  {%- endfor -%}]
   }
 </script>

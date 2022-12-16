@@ -1,12 +1,12 @@
-<div class="grid items-center text-image-container auto-rows-fr md:flex md:flex-col ">
+<div class="items-center justify-center auto-cols-min text-image-container md:flex md:flex-col ">
 
-  <h2 class="h2 heading-text-color">{{ section.settings.generator-section-title }}</h2>
-  <div class="grid md:grid-cols-2">
+  <h2 class="text-center h2 heading-text-color">{{ section.settings.generator-section-title }}</h2>
+  <div class="flex flex-col gap-10 md:grid md:grid-cols-2">
 
     <div class=" space-y-10 flex flex-col justify-center items-center  overflow- {% if section.settings.alt-dir %} order-2 {% endif %} ">
       {%- for product in collections["all"].products limit: 1 -%}
         <span data-image-header class="h3 heading-text-color">{{ product.title }}</span>
-        <div class="flex flex-col justify-center h-56 gap-5 px-20">
+        <div class="flex flex-col justify-center h-56 gap-5 ">
           <img
             class="h-full"
             data-dice-image
@@ -31,7 +31,7 @@
       {%- render 'ornament-top' -%}
       <div class="py-10">
 
-        <span class="h3 heading-text-color">{{ section.settings.generator-title }}</span>
+        <span class="h3 heading-text-color {{section.settings.title-position}} ">{{ section.settings.generator-title }}</span>
         <p class="body body-text-color">{{ section.settings.generator-desc }}
         </p>
         <form class="flex flex-col justify-center w-full space-y-7 pt-7">
@@ -166,6 +166,22 @@
         "id": "generator-desc",
         "label": "Description",
         "default": "Bacon ipsum dolor amet leberkas short loin pork belly beef. Shoulder t-bone corned beef jerky, ham hock spare ribs beef fatback landjaeger. Boudin prosciutto beef meatloaf bacon spare ribs meatball pork belly shankle ham flank leberkas strip steak buffalo."
+      }, {
+        "type": "select",
+        "id": "title-position",
+        "label": "Title position",
+        "options": [
+          {
+            "value": "self-start",
+            "label": "Left"
+          }, {
+            "value": "self-center",
+            "label": "Center"
+          }, {
+            "value": "self-end",
+            "label": "Right"
+          }
+        ]
       }
     ],
     "presets": [

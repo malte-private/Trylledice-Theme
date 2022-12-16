@@ -1,8 +1,8 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
 
-<div class="grid grid-cols-2 gap-16">
-  <div class="grid grid-cols-3">
+  <div class="grid gap-16 md:grid-cols-2">
+  <div class="grid md:grid-cols-3">
 
     {% if section.settings.title != blank %}
       <div class="grid grid-cols-3 pb-4 justify-items-center">
@@ -12,10 +12,10 @@
       </div>
     {% endif %}
 
-    <div class="flex flex-col items-center gap-3 ">
-      <button data-direction="up" class="rotate-180 bg-contain bg-small-arrow w-9 h-9"></button>
+    <div class="flex items-center gap-3 md:flex-col ">
+      <button data-direction="up" class="hidden rotate-180 bg-contain md:block bg-small-arrow w-9 h-9"></button>
       {%- assign images = product.images -%}
-      <ul data-thumbnail-container class="col-start-1 px-10 space-y-4 overflow-y-auto scroll-smooth no-scrollbar gap-3col-span-1 h-[60vh]">
+      <ul data-thumbnail-container class="md:col-start-1 px-10 space-y-4 overflow-y-auto scroll-smooth no-scrollbar gap-3col-span-1 h-[60vh]">
         {% if images != blank %}
           {% for image in images %}
             <li class="cursor-pointer">
@@ -23,24 +23,32 @@
             </li>
           {% endfor %}
         {% endif %}
-        <li class="cursor-pointer -spin-studio-active-wrapper">
-          <img id="-spin-studio-large-thumb" data-product="{{ product.id }}" class="-spin-studio-large-thumb"/>
+        <li
+          class="cursor-pointer -spin-studio-active-wrapper">
+          <img
+            id="-spin-studio-large-thumb"
+            data-product="{{ product.id }}"
+            class="-spin-studio-large-thumb" />
         </li>
       </ul>
-      <button data-direction="down" class="bg-contain bg-small-arrow w-9 h-9"></button>
+      <button data-direction="down" class="hidden bg-contain md:block bg-small-arrow w-9 h-9"></button>
     </div>
 
-    <div class="col-span-2 col-start-2 place-self-center">
-      <img data-featured class="object-cover w-full" src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
+    <div class="hidden col-span-2 col-start-2 md:block place-self-center">
+      <img
+        data-featured
+        class="object-cover w-full"
+        src="{{ featured_image | img_url: 'large' }}"
+        alt="{{ featured_image.alt | escape }}"
+        id="ProductPhotoImg">
 
     </div>
   </div>
 
   {%- comment -%}
-    - PRODUCT DETAILS
-  {%- endcomment -%}
-  {% assign c = product %}
-  {%include "product-details" with c%}
+  - PRODUCT DETAILS
+  {%- endcomment -%}{% assign c = product %}
+  {% include "product-details" with c %}
 </div>
 
 <script>
@@ -65,15 +73,6 @@
         console.log(spin[1])
         spin[1].classList.remove("!hidden");
 
-
-// imageWrapper.classList.add("-spin-studio-large-thumb");
-// imageWrapper.classList.add("reel-overlay");
-// imageWrapper.setAttribute("id", "-spin-studio-large-thumb-reel");
-// image.id = "-spin-studio-large-thumb";
-// image.setAttribute("data-product", "{{product.id}}");
-// image.setAttribute("class", "-spin-studio-large-thumb");
-// image.parentElement.classList.add("-spin-studio-active-wrapper");
-// imageWrapper.appendChild(image)
 
 
       }
