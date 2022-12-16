@@ -27,7 +27,7 @@
         "template--17150225383746__b8d0d8f5-649e-49f7-9577-c4379dbf2558-167092470173561873-1": {
           "type": "textarea",
           "settings": {
-            "description": "Alex is the wizard of visual graphics for Trylledice.",
+            "description": "Alex is wizard behind all visual graphic. That includes the logo, animations and other illustrations you see on Trylledices instagram or here on the website. <br> <br>\n\nAlexs specialty is polishing dice. Beside that, believe it or not, he plays a cool guitar solo.",
             "body-text-position": "text-left"
           }
         }
@@ -57,14 +57,14 @@
         "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-0": {
           "type": "heading",
           "settings": {
-            "heading": "Lorem ipsum",
+            "heading": "Get to know Zac",
             "title-position": "text-left"
           }
         },
         "template--17150225383746__c304fb9c-a7af-4492-9078-54e2d6bb65f0-1671148457c47ae234-1": {
           "type": "textarea",
           "settings": {
-            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti praesentium iure dolorem exercitationem omnis voluptates assumenda expedita ducimus. Placeat doloremque quisquam, beatae fuga eum quod illum recusandae quibusdam, iure aliquid dolore hic expedita",
+            "description": "Zac runs Trylledices instagram on a day to day basis. He is the one who comes up with new ideas of what to post, see what is trending and answer people in DM. <br> <br> Zacs favorite thing when making dice is the proces behind and the techniques they use.",
             "body-text-position": "text-left"
           }
         },
@@ -102,11 +102,11 @@
       "settings": {
         "section-title": "Title",
         "dice-image-1": "shopify:\/\/shop_images\/Emne_15.png",
-        "heading-alex": "Alex's favorit dice set",
-        "about-alex-dice": "",
+        "heading-alex": "Alex's favorit diceset",
+        "about-alex-dice": "ewfewfewfewf",
         "dice-image-2": "shopify:\/\/shop_images\/Emne_7_2.png",
-        "heading-zac": "Alex's favorit dice set",
-        "about-zac-dice": "Bacon ipsum dolor amet leberkas short loin pork belly beef. Shoulder t-bone corned beef jerky, ham hock spare ribs beef fatback landjaeger. Boudin prosciutto beef meatloaf bacon spare ribs meatball pork belly shankle ham flank leberkas strip steak buffalo. Porchetta jowl fatback, cupim pig pork belly jerky ribeye tail beef ribs. Fatback turkey boudin, swine bacon kielbasa leberkas. Cupim andouille tail ball tip, filet mignon doner kevin chicken burgdoggen strip steak tongue buffalo meatloaf beef."
+        "heading-zac": "Zacs favorit dice set",
+        "about-zac-dice": "efkefbjkef"
       }
     },
     "e3ce8490-186b-45f8-8081-04555ded1a23": {
@@ -118,23 +118,15 @@
     "34fbc6d7-2df0-4f4b-9f5b-754123b52e1c": {
       "type": "generate-dice",
       "settings": {
-        "generator-section-title": "Section Title",
-        "generator-title": "title",
-        "generator-desc": "Bacon ipsum dolor amet leberkas short loin pork belly beef. Shoulder t-bone corned beef jerky, ham hock spare ribs beef fatback landjaeger. Boudin prosciutto beef meatloaf bacon spare ribs meatball pork belly shankle ham flank leberkas strip steak buffalo."
+        "generator-section-title": "Try your luck",
+        "generator-title": "See which unique dice is your favorite",
+        "generator-desc": "Try your luck and generate a dice. Maybe you will feel inspired by the dice that pops up on your screen."
       }
     },
     "6c3a7a0f-e8b6-464a-a542-77c1496ceb3e": {
       "type": "spacer",
       "settings": {
         "height": 3
-      }
-    },
-    "accdcedd-b541-474e-adae-9455414caf92": {
-      "type": "featured-products",
-      "settings": {
-        "title": "You may also like",
-        "collection": "set",
-        "product_count": 12
       }
     }
   },
@@ -148,7 +140,6 @@
     "c2372a37-6fb0-461f-ba3d-4fe5c224956a",
     "e3ce8490-186b-45f8-8081-04555ded1a23",
     "34fbc6d7-2df0-4f4b-9f5b-754123b52e1c",
-    "6c3a7a0f-e8b6-464a-a542-77c1496ceb3e",
-    "accdcedd-b541-474e-adae-9455414caf92"
+    "6c3a7a0f-e8b6-464a-a542-77c1496ceb3e"
   ]
 }
